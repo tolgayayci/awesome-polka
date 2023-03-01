@@ -1,0 +1,135 @@
+[
+    {
+        "id": "1",
+        "logo": "https://pbs.twimg.com/profile_images/1623704537793011712/mjZHfkGR_400x400.jpg",
+        "name": "Aave",
+        "description": "AAVE ia a liquidity protocol which you can earn interest, borrow assets, and build applications.",
+        "socials": [{}],
+        "categories.lvl0": [
+          "Protocols", "DeFi"
+        ]
+    },
+    {
+        "id": "2",
+        "logo": "https://www.aaveql.org/img/aaveql.png",
+        "name": "Aave QL",
+        "description": "AaveQL, is a comprehensive Aave GraphQL documentation platform with built-in graphql editors for the Aave protocol subgraphs.",
+        "socials": [{}],
+        "categories.lvl0": [
+          "Tools", "Educational"
+        ],
+        "categories.lvl1": [
+            "Developer Services"
+        ]
+    },
+    {
+        "id": "3",
+        "logo": "https://pbs.twimg.com/profile_images/1616064313550143489/M6TcYKRn_400x400.jpg",
+        "name": "Block Analitica",
+        "description": "DeFi Risk research and analysis",
+        "socials": [{}],
+        "categories.lvl0": [
+          "Analytics", "DeFi"
+        ]
+    },
+    {
+        "id": "4",
+        "logo": "https://cdn-images-1.medium.com/max/194/1*0ByvnEt5NnAlEKZaj-Plvg@2x.png",
+        "name": "L2P.finance",
+        "description": "L2P.finance is a new lending platform aggregator that brings zero-collateralized loans to DeFi.",
+        "socials": [{}],
+        "categories.lvl0": [
+          "DeFi"
+        ]
+    },
+    {
+        "id": "5",
+        "logo": "https://media.licdn.com/dms/image/C4E0BAQFAJehOzPsIFg/company-logo_200_200/0/1641584643527?e=1685577600&v=beta&t=C7m4jMdty8ERfh6OTKX-9j-0p-qMOGutdhbZETvKYsw",
+        "name": "Chaos Labs",
+        "description": " A cloud platform for securing blockchains and protocols through robust agent and scenario based simulations. ",
+        "socials": [{}],
+        "categories.lvl0": [
+          "Tools"
+        ]
+    },
+    {
+        "id": "6",
+        "logo": "https://pbs.twimg.com/profile_images/1620091693088350210/zethWuEI_400x400.png",
+        "name": "RabbitHole",
+        "description": "Earn tokens by participating in the best cryptonetworks",
+        "socials": [{}],
+        "categories.lvl0": [
+          "DeFi"
+        ]
+    },
+    {
+        "id": "7",
+        "logo": "https://pbs.twimg.com/profile_images/1422229319498158087/GO8Mr_Rv_400x400.jpg",
+        "name": "Stakeall Finance",
+        "description": "Stakeall Finance is the first platform that enables users to do Leverage staking.",
+        "socials": [{}],
+        "categories.lvl0": [
+          "DeFi"
+        ]
+    },
+    {
+        "id": "8",
+        "logo": "https://pbs.twimg.com/profile_images/1623366393688383489/7EV9tF5E_400x400.jpg",
+        "name": "Gitcoin",
+        "description": "Empowering communities to fund, build, & protect what matters 🫡🌱",
+        "socials": [{}],
+        "categories.lvl0": [
+          "Platforms"
+        ]
+    },
+    {
+        "id": "9",
+        "logo": "https://pbs.twimg.com/profile_images/1617942012447047682/niS6h62o_400x400.jpg",
+        "name": "Messari",
+        "description": "Messari is the leading provider of crypto market intelligence products that help professionals navigate crypto with confidence.",
+        "socials": [{}],
+        "categories.lvl0": [
+          "Tools"
+        ]
+    },
+    {
+        "id": "10",
+        "logo": "https://pbs.twimg.com/profile_images/1453392380250443782/UC8erEKz_400x400.png",
+        "name": "Metrics DAO",
+        "description": "Develop questions, solutions, and visualizations about Aave V3",
+        "socials": [{}],
+        "categories.lvl0": [
+          "DAO", "Educational"
+        ]
+    },
+    {
+        "id": "11",
+        "logo": "https://pbs.twimg.com/profile_images/1584577735481085952/LRcVytLD_400x400.jpg",
+        "name": "Flashstake DAO",
+        "description": "Stop waiting for your money. ",
+        "socials": [{}],
+        "categories.lvl0": [
+          "DAO", "DeFi", "Educational"
+        ]
+    },
+    {
+        "id": "12",
+        "logo": "https://media.licdn.com/dms/image/C4D0BAQFvj0NHqcwdWA/company-logo_200_200/0/1663519894078?e=1685577600&v=beta&t=7oh6tfotmTLdD1GLnDh4DckWiBOreQyPA6tJrOXerrw",
+        "name": "Mercle",
+        "description": " Membership infrastructure for web3 communities ",
+        "socials": [{}],
+        "categories.lvl0": [
+          "Community"
+        ]
+    },
+    {
+        "id": "13",
+        "logo": "https://pbs.twimg.com/profile_images/1470905088608587781/f7swb0g1_400x400.png",
+        "name": "Odyssey DAO",
+        "description": "We're on a mission to onboard 1M people to web3",
+        "socials": [{}],
+        "categories.lvl0": [
+          "DAO", "Educational", "Community"
+        ]
+    }                                   
+]
