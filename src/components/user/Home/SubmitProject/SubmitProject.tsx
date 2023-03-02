@@ -11,7 +11,7 @@ export default function SubmitProject() {
             </span>
             <h1 className="text-3xl md:text-4xl font-extrabold font-heading mt-4 mb-6 md:mb-8 leading-[2.5rem] md:leading-[3rem] max-w-xl">
               Submit your project to be featured on
-              <span className="text-indigo-700"> Awesome Aave!</span>
+              <span className="text-indigo-700"> Awesome Lens!</span>
             </h1>
 
             <div>

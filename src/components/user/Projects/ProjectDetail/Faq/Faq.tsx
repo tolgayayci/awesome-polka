@@ -55,7 +55,7 @@ export default function Faq(props: IFaqProps) {
                               <div className="flex-1 p-1.5">
                                 <div className="flex justify-between border-b border-indigo-400">
                                   <h3 className="pb-5 text-[18px] md:text-lg font-bold font-heading leading-normal text-left">
-                                    What is Aave?
+                                    How to get a Lens handle?
                                   </h3>
                                   <svg
                                     className={classNames(
@@ -83,14 +83,27 @@ export default function Faq(props: IFaqProps) {
                                     }
                                   )}
                                 >
-                                  Aave is a decentralised non-custodial
-                                  liquidity market protocol where users can
-                                  participate as suppliers or borrowers.
-                                  Suppliers provide liquidity to the market to
-                                  earn a passive income, while borrowers are
-                                  able to borrow in an overcollateralised
-                                  (perpetually) or undercollateralised
-                                  (one-block liquidity) fashion.
+                                  We have allocated some profiles to targeted
+                                  communities over the last few months, and the
+                                  response and feedback have been amazing so far
+                                  will continue to work with partners to
+                                  whitelist some communities. If you see an
+                                  announcement explaining how to get access from
+                                  one of these communities ✅ this will be your
+                                  best option for now
+                                  <br />
+                                  <br />
+                                  We also participate, support, and host various
+                                  events around the globe 🌎
+                                  <br />
+                                  <br /> ⚒️ If you wish to build on Lens at
+                                  these events our team can help get you a
+                                  profile on the ground at the event
+                                  <br />
+                                  <br />
+                                  🤝 If you are visiting our booth or talking
+                                  with our team, there is usually a POAP close
+                                  by which can get you access.
                                 </p>
                               </div>
                             </div>
@@ -105,7 +118,7 @@ export default function Faq(props: IFaqProps) {
                               <div className="flex-1 p-1.5">
                                 <div className="flex justify-between border-b border-indigo-400">
                                   <h3 className="pb-5 text-[18px] md:text-lg font-bold font-heading leading-normal  text-left">
-                                    Why Aave?
+                                    Wen Lens open for all?
                                   </h3>
                                   <svg
                                     className={classNames(
@@ -133,15 +146,23 @@ export default function Faq(props: IFaqProps) {
                                     }
                                   )}
                                 >
-                                  Aave Protocol has been audited and secured.
-                                  The protocol is completely open source, which
-                                  allows anyone to interact with a user
-                                  interface client, API or directly with the
-                                  smart contracts on the Ethereum network. Being
-                                  open source means that you are able to build
-                                  any third-party service or application to
-                                  interact with the protocol and enrich your
-                                  product.
+                                  We’re still in closed Beta, we are doing this
+                                  to attain feedback and improve the experience
+                                  for when we fully open to the masses <br />
+                                  <br />
+                                  We are excited to get you all enjoying Lens,
+                                  but we want to do it at the right time to give
+                                  you the best experience possible <br />
+                                  <br />
+                                  If you haven't been able to get access to Lens
+                                  yet, but would like to learn more about the
+                                  growing Lens ecosystem, here's an awesome
+                                  article from our developer relations team{" "}
+                                  <br />
+                                  <br />
+                                  Head to our Lensverse page to discover
+                                  hundreds of applications built 🛠 on Lens
+                                  Protocol
                                 </p>
                               </div>
                             </div>
@@ -156,7 +177,8 @@ export default function Faq(props: IFaqProps) {
                               <div className="flex-1 p-1.5">
                                 <div className="flex justify-between border-b border-indigo-400">
                                   <h3 className="pb-5 text-[18px] md:text-lg font-bold font-heading leading-normal text-left">
-                                    How do I interact with Aave protocol?
+                                    How much time do I have to claim my profile
+                                    once whitelisted?
                                   </h3>
                                   <svg
                                     className={classNames(
@@ -184,15 +206,11 @@ export default function Faq(props: IFaqProps) {
                                     }
                                   )}
                                 >
-                                  In order to interact with Aave protocol, you
-                                  simply supply your preferred asset and amount.
-                                  After supplying, you will earn passive income
-                                  based on the market borrowing demand.
-                                  Additionally, supplying assets allows you to
-                                  borrow by using your supplied assets as a
-                                  collateral. Any interest you earn by supplying
-                                  funds helps offset the interest rate you
-                                  accumulate by borrowing.
+                                  In order to give everyone a fair opportunity,
+                                  you will have 60 days to claim your profile
+                                  once you have been whitelisted. After that
+                                  period, you will lose your opportunity to
+                                  claim your Lens profile.
                                 </p>
                               </div>
                             </div>
@@ -207,8 +225,7 @@ export default function Faq(props: IFaqProps) {
                               <div className="flex-1 p-1.5">
                                 <div className="flex justify-between border-b border-indigo-400">
                                   <h3 className="pb-5 text-[18px] md:text-lg font-bold font-heading leading-normal text-left">
-                                    What is the cost of interacting with Aave
-                                    protocol?
+                                    How can I transfer a Lens Profile?
                                   </h3>
                                   <svg
                                     className={classNames(
@@ -236,10 +253,9 @@ export default function Faq(props: IFaqProps) {
                                     }
                                   )}
                                 >
-                                  Interacting with the protocol requires
-                                  transactions and so transaction fees for
-                                  Ethereum Blockchain usage, which depend on the
-                                  network status and transaction complexity.
+                                  Similarly as you would do with any NFT, by
+                                  sending them into any other wallet or
+                                  interface that supports Polygon NFTs.
                                 </p>
                               </div>
                             </div>
@@ -254,7 +270,8 @@ export default function Faq(props: IFaqProps) {
                               <div className="flex-1 p-1.5">
                                 <div className="flex justify-between border-b border-indigo-400">
                                   <h3 className="pb-5 text-[18px] md:text-lg font-bold font-heading leading-normal text-left">
-                                    Where are my supplied funds stored?
+                                    What are reserved handles? Why do I get an
+                                    error saying the handle is reserved?
                                   </h3>
                                   <svg
                                     className={classNames(
@@ -282,14 +299,18 @@ export default function Faq(props: IFaqProps) {
                                     }
                                   )}
                                 >
-                                  Your funds are allocated in a smart contract.
-                                  The code of the smart contract is public, open
-                                  source, formally verified and audited by third
-                                  party auditors. You can withdraw your funds
-                                  from the pool on-demand or export a tokenised
-                                  (aTokens) version of your lender position.
-                                  aTokens can be moved and traded as any other
-                                  cryptographic asset on Ethereum.
+                                  Certain handles have been reserved for
+                                  multiple reasons, for example, certain famous
+                                  brands are limited from claiming to avoid user
+                                  confusion around the ownership of those
+                                  handles.
+                                  <br />
+                                  <br />
+                                  It is possible that certain reserved handles
+                                  may be coincident with your desired lens
+                                  profile. We are working on this as our plan is
+                                  to reduce the amount of reserved Lens handles
+                                  going forward.
                                 </p>
                               </div>
                             </div>

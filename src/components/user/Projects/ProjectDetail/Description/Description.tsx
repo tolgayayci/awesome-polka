@@ -22,26 +22,30 @@ export default function Description(props: IDescriptionProps) {
               <div className="flex flex-wrap">
                 <div className="w-full p-2">
                   <div>
-                    <h3 className="mb-2 text-[40px] font-bold">About Aave</h3>
+                    <h3 className="mb-2 text-[40px] font-bold">About Lens</h3>
                     <h5 className="mb-7 text-[20px] text-gray-700 font-semibold">
-                      AAVE LIQUIDITY PROTOCOL
+                      LENS PROTOCOL
                     </h5>
                     <p className="mt-7 text-md md:text-[17px] text-gray-900 leading-[1.6rem] md:leading-7">
-                      Aave is a decentralized cryptocurrency platform that
-                      allows users to borrow and lend crypto. Aave uses smart
-                      contracts to automate the process, with preset rules on
-                      how funds are distributed, how collateral is handled, and
-                      how fees are assessed.
+                      The Lens Protocol is a Web3 social graph on the Polygon
+                      Proof-of-Stake blockchain. It is designed to empower
+                      creators to own the links between themselves and their
+                      community, forming a fully composable, user-owned social
+                      graph. The protocol is built from the ground up with
+                      modularity in mind, allowing new features and fixes to be
+                      added while ensuring immutable user-owned content and
+                      social relationships.
                     </p>
                     <p className="mt-7 mb-4 md:mb-0 text-md md:text-[17px] text-gray-900 leading-[1.6rem] md:leading-7">
-                      Aave specializes in overcollateralized loans, meaning that
-                      users will need to deposit crypto worth more than the
-                      amount that they wish to borrow. This protects lenders
-                      from losing money due to loan defaults and allows the Aave
-                      protocol to liquidate the collateral if it drops too much
-                      in value.
+                      Lens Protocol seeks to solve major issues in existing
+                      social media networks. Namely, Web2 networks all read from
+                      their unique, centralized database. There is no
+                      portability. Your profile, friends, and content are locked
+                      to a specific network and owned by the network operator.
+                      This causes each network to fight a zero-sum game for your
+                      attention.
                     </p>
-                    <div className="space-x-6 mt-12 flex">
+                    <div className="space-x-6 mt-12 hidden md:flex">
                       <div className="w-full md:w-1/3 h-24 rounded-2xl border-[3px] border-indigo-900">
                         <div className="flex h-24 items-center">
                           <div className="w-full md:w-1/3">
@@ -57,7 +61,7 @@ export default function Description(props: IDescriptionProps) {
                                 Launch Date
                               </p>
                               <h2 className="text-lg font-bold font-heading tracking-px-n leading-none">
-                                January 2017
+                                May 2022
                               </h2>
                             </div>
                           </div>
@@ -78,7 +82,7 @@ export default function Description(props: IDescriptionProps) {
                                 Launch Date
                               </p>
                               <h2 className="text-lg font-bold font-heading tracking-px-n leading-none">
-                                January 2017
+                                May 2022
                               </h2>
                             </div>
                           </div>
@@ -99,7 +103,7 @@ export default function Description(props: IDescriptionProps) {
                                 Launch Date
                               </p>
                               <h2 className="text-lg font-bold font-heading tracking-px-n leading-none">
-                                January 2017
+                                May 2022
                               </h2>
                             </div>
                           </div>

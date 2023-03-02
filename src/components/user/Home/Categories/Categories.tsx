@@ -7,10 +7,10 @@ export default function Categories() {
       <div className="container">
         <div className="text-h2 pb-16 md:pb-20 group flex flex-col md:flex-row md:items-center px-2 md:px-0">
           <span className="inline text-4xl font-semibold text-indigo-700 md:order-1">
-            Start Discovering <br /> Awesome Aave
+            Start Discovering <br /> Awesome Lens
           </span>
           <p className="text-lg font-semibold md:px-10 pt-10 md:pt-0 max-w-[800px] md:order-2 md:ml-24">
-            Get ready to discover some really cool projects on Awesome Aave! You
+            Get ready to discover some really cool projects on Awesome Lens! You
             will find them all neatly sorted into different categories, so it is
             easy to find what interests you most!
           </p>
@@ -54,7 +54,7 @@ export default function Categories() {
               </div>
             </div>
           </Link>
-          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Community">
+          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Social">
             <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
               <div className="flex min-w-0 grow flex-col items-start justify-start">
                 <div className="mb-3 text-primary-gray-100">
@@ -67,7 +67,7 @@ export default function Categories() {
                   />
                 </div>
                 <div className="mb-3 truncate	text-ellipsis whitespace-nowrap font-display text-3xl font-bold text-indigo-700">
-                  Community
+                  Social
                 </div>
                 <div className="text-start font-semibold text-primary-gray-100 py-2">
                   Experience the power of community: a collective of individuals
@@ -86,13 +86,13 @@ export default function Categories() {
                       height={16}
                       className="mr-2 text-white"
                     />
-                    Explore Community
+                    Explore Social
                   </button>
                 </div>
               </div>
             </div>
           </Link>
-          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=DeFi">
+          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Integrations">
             <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
               <div className="flex min-w-0 grow flex-col items-start justify-start">
                 <div className="mb-3 text-primary-gray-100">
@@ -105,12 +105,12 @@ export default function Categories() {
                   />
                 </div>
                 <div className="mb-3 truncate	text-ellipsis whitespace-nowrap font-display text-3xl font-bold text-indigo-700">
-                  DeFi
+                  Integrations
                 </div>
                 <div className="text-start font-semibold text-primary-gray-100 py-2">
-                  Explore DeFi: a decentralized financial ecosystem using
-                  blockchain technology to provide transparent and inclusive
-                  financial services without intermediaries.
+                  Lens Protocol integrations combine different blockchain
+                  systems or applications for a more efficient and secure
+                  ecosystem to achieve a platforms goal.
                 </div>
                 <div className="mt-5">
                   <button
@@ -124,7 +124,7 @@ export default function Categories() {
                       height={16}
                       className="mr-2 text-white"
                     />
-                    Explore DeFi
+                    Explore Integrations
                   </button>
                 </div>
               </div>
@@ -169,7 +169,7 @@ export default function Categories() {
               </div>
             </div>
           </Link>
-          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Tools">
+          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Developers">
             <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
               <div className="flex min-w-0 grow flex-col items-start justify-start">
                 <div className="mb-3 text-primary-gray-100">

@@ -23,7 +23,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ hits }: ProjectCardProps) {
   return (
     <div>
-      <Link href={`/projects/aave-protocol`}>
+      <Link href={`/projects/lens-protocol`}>
         <div className="px-10 py-10 bg-white border-4 border-indigo-900 rounded-2xl shadow-md shadow-indigo-500/50">
           <div>
             <div className="block pt-4">

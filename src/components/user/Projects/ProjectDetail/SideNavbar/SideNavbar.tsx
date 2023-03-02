@@ -31,12 +31,7 @@ export default function SideNavbar(props: SideNavbarProps) {
       icon: HomeIcon,
       current: false,
     },
-    {
-      name: "Token Stats",
-      href: "#token-stats",
-      icon: UsersIcon,
-      current: false,
-    },
+
     {
       name: "GitHub Activity",
       href: "#github-activity",

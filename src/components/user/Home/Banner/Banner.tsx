@@ -22,11 +22,11 @@ export default function Banner() {
         <div className="container px-4 mx-auto relative">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-2xl md:text-3xl font-extrabold text-indigo-500">
-              Awesome Aave
+              Awesome Lens
             </span>
             <h1 className="text-3xl md:text-5xl font-extrabold font-heading mt-5 mb-8 leading-[40px] md:leading-[60px]">
-              Check out Awesome Aave to see all the cool projects growing in the
-              Aave Ecosystem!
+              Check out Awesome Lens to see all the cool projects growing in the
+              Lens Ecosystem!
             </h1>
 
             <Link

@@ -21,11 +21,11 @@ export default function Footer() {
                   src="/Awesome_Lens_logo.svg"
                   height={100}
                   width={250}
-                  alt="awesome aave logo"
+                  alt="awesome lens logo"
                 />
               </Link>
               <p className="max-w-md text-lg font-extrabold leading-8">
-                Discover the best projects and teams <br /> on the Aave
+                Discover the best projects and teams <br /> on the Lens
                 ecosystem.
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function Footer() {
                   Learn
                 </Link>
                 <Link
-                  href="https://github.com/tolgayayci/awesome-aave/tree/dev"
+                  href="https://github.com/tolgayayci/awesome-lens/tree/dev"
                   target="blank"
                   className={classNames(
                     "text-lg mr-8 2xl:mr-16 font-extrabold hover:text-indigo-800 pb-3"

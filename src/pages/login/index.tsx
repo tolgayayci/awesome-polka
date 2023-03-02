@@ -63,7 +63,7 @@ export default function Login() {
         <>
           <Head>
             <title>Login</title>
-            {/* <meta name="description" content="Awesome Aave Login Page   " /> */}
+            {/* <meta name="description" content="Awesome Lens Login Page   " /> */}
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1"

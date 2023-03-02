@@ -193,8 +193,8 @@ export default function TokenStats(props: ITokenStatsProps) {
                         Token Stats
                       </h2>
                       <p className="mb-6 md:mb-10 text-gray-600 font-semibold md:font-medium md:leading-relaxed">
-                        The Aave token (AAVE) is the native currency for the
-                        Aave network and the keystone for a new, inclusive, and
+                        The Lens token (AAVE) is the native currency for the
+                        Lens network and the keystone for a new, inclusive, and
                         borderless digital economy.
                       </p>
                     </div>

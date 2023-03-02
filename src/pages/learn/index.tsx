@@ -37,7 +37,7 @@ export default function Learn() {
               </h1>
               <p className="text-lg md:text-xl font-semibold leading-7 border-t-4 border-indigo-900 pt-6 max-w-lg">
                 Core concepts and tools you will need to get started building on
-                Aave
+                Lens
               </p>
               <div className="max-w-2xl mx-auto"></div>
             </div>
@@ -46,7 +46,7 @@ export default function Learn() {
         <div className="container mb-16">
           <div className="container">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-              <Link href="https://aave.com/" target="blank">
+              <Link href="https://docs.lens.xyz/docs" target="blank">
                 <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
                   <div className="flex min-w-0 grow flex-col items-start justify-start">
                     <div className="mb-3 text-primary-gray-100">
@@ -76,7 +76,7 @@ export default function Learn() {
                           height={16}
                           className="mr-2 text-white"
                         />
-                        Learn Aave
+                        Learn Lens
                       </button>
                     </div>
                   </div>
@@ -118,7 +118,10 @@ export default function Learn() {
                   </div>
                 </div>
               </Link>
-              <Link href="https://www.aaveql.org/" target="blank">
+              <Link
+                href="https://github.com/lens-protocol/lens-sdk"
+                target="blank"
+              >
                 <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
                   <div className="flex min-w-0 grow flex-col items-start justify-start">
                     <div className="mb-3 text-primary-gray-100">
@@ -131,10 +134,10 @@ export default function Learn() {
                       />
                     </div>
                     <div className="mb-3 truncate	text-ellipsis whitespace-nowrap font-display text-3xl font-bold text-indigo-700">
-                      Aave QL
+                      GitHub
                     </div>
                     <div className="text-start font-semibold text-primary-gray-100 py-2">
-                      Learn about Aave GraphQL API and interact with it.
+                      Learn about official Lens SDK and interact with it.
                     </div>
                     <div className="mt-5">
                       <button
@@ -148,7 +151,7 @@ export default function Learn() {
                           height={16}
                           className="mr-2 text-white"
                         />
-                        Explore Aave QL
+                        Explore Lens SDK
                       </button>
                     </div>
                   </div>
@@ -158,7 +161,7 @@ export default function Learn() {
           </div>
         </div>
         <div className="container mb-16">
-          <div className="grid grid-cols-1 pb-8 bg-indigo-800 rounded-lg gap-x-4 bg-gray-dark md:grid-cols-3 md:flex-row md:px-10">
+          <div className="grid grid-cols-1 pb-8 bg-[#20802d] rounded-lg gap-x-4 bg-gray-dark md:grid-cols-3 md:flex-row md:px-10">
             <div className="px-8 pt-12 md:row-start-1 row-start-1 grid-column-start-1">
               <h6 className="text-h6 mb-2 flex items-center text-white text-lg font-bold tracking-wider">
                 <span className="mr-2 max-w-[36px] text-gray-300">
@@ -251,14 +254,14 @@ export default function Learn() {
             <div className="divide-y divide-gray-100 px-4 md:row-start-2 md:pb-4 row-start-2">
               <div className="divided-item-hover">
                 <a
-                  href="https://docs.aave.com/developers/getting-started/readme"
+                  href="https://docs.lens.xyz/docs/what-is-lens"
                   target="blank"
                   rel="noreferrer"
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      V3 Overview
+                      What is Lens? 🌿
                       <div>
                         <div className="pr-[3px] pt-[2px]">
                           <svg
@@ -279,7 +282,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #v3
+                        #introduction
                       </span>
                     </div>
                   </span>
@@ -288,12 +291,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.aave.com/developers/getting-started/contracts-overview"
+                  href="https://docs.lens.xyz/docs/overview"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Contracts Overview
+                      Overview
                       <div>
                         <svg
                           width="25"
@@ -313,7 +316,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #contracts
+                        #architecture
                       </span>
                     </div>
                   </span>
@@ -322,12 +325,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://github.com/aave/aave-v3-core/blob/master/techpaper/Aave_V3_Technical_Paper.pdf"
+                  href="https://docs.lens.xyz/docs/developer-quickstart"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      V3 Whitepaper
+                      Developer Quickstart
                       <div>
                         <svg
                           width="25"
@@ -347,7 +350,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #whitepaper
+                        #api
                       </span>
                     </div>
                   </span>
@@ -388,12 +391,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.aave.com/developers/guides/credit-delegation"
+                  href="https://docs.lens.xyz/docs/introduction"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Credit Delegation
+                      Lens API
                       <div>
                         <svg
                           width="25"
@@ -422,12 +425,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.aave.com/developers/guides/flash-loans"
+                  href="https://docs.lens.xyz/docs/public-big-query"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Flash Loans
+                      Public BigQuery
                       <div>
                         <svg
                           width="25"
@@ -447,10 +450,10 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #transactions
+                        #data
                       </span>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs">
-                        #v3
+                        #query
                       </span>
                     </div>
                   </span>
@@ -459,12 +462,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.aave.com/developers/guides/liquidations"
+                  href="https://docs.lens.xyz/docs/nfts"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Liquidations
+                      NFT
                       <div>
                         <svg
                           width="25"
@@ -484,7 +487,10 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #pools
+                        #ethereum
+                      </span>
+                      <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
+                        #polygon
                       </span>
                     </div>
                   </span>
@@ -493,7 +499,7 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.aave.com/developers/getting-started/readme"
+                  href="https://docs.lens.xyz/docs"
                   target="blank"
                 >
                   <span className="display-block py-4">
@@ -524,14 +530,14 @@ export default function Learn() {
             <div className="divide-y divide-gray-100 px-4 divide-gray-400 md:row-start-2 md:pb-4 row-start-6">
               <div className="divided-item-hover">
                 <a
-                  href="https://docs.aave.com/developers/deployed-contracts/deployed-contracts"
+                  href="https://docs.lens.xyz/docs/primer"
                   target="blank"
                   rel="noreferrer"
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Deployed Contracts
+                      Primer
                       <div>
                         <div className="pr-[3px] pt-[2px]">
                           <svg
@@ -552,13 +558,10 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #v3
+                        #summary
                       </span>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #v3
-                      </span>
-                      <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #v1
+                        #api
                       </span>
                     </div>
                   </span>
@@ -567,12 +570,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.aave.com/developers/deployed-contracts/security-and-audits"
+                  href="https://docs.lens.xyz/docs/deploying-the-protocol"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Security & Audits
+                      Deploying The Protocol
                       <div>
                         <svg
                           width="25"
@@ -592,7 +595,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #security
+                        #local
                       </span>
                     </div>
                   </span>
@@ -600,14 +603,14 @@ export default function Learn() {
               </div>
               <div className="divided-item-hover">
                 <a
-                  href="https://docs.aave.com/faq/"
+                  href="https://docs.lens.xyz/docs/creating-a-profile"
                   target="blank"
                   rel="noreferrer"
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Frequently Asked Questions
+                      Creating a Profile
                       <div>
                         <div className="pr-[3px] pt-[2px]">
                           <svg
@@ -628,7 +631,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #faq
+                        #lens
                       </span>
                     </div>
                   </span>
@@ -637,7 +640,7 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.aave.com/developers/deployed-contracts/deployed-contracts"
+                  href="#"
                   target="blank"
                 >
                   <span className="display-block py-4">

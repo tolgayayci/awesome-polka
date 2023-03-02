@@ -20,7 +20,7 @@ export default function Jobs(props: JobsProps) {
                   Job Openings
                 </h2>
                 <p className="mb-8 md:mb-12 text-gray-600 font-medium leading-relaxed">
-                  Search, find and apply to job opportunities at Aave Protocol.
+                  Search, find and apply to job opportunities at Aave companies.
                 </p>
               </div>
               <div className=" mx-auto">

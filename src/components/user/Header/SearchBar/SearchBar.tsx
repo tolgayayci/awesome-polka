@@ -240,13 +240,13 @@ export default function SearchBar(props: SearchBarProps) {
                               Submit your project to be featured on
                               <span className="text-indigo-700">
                                 {" "}
-                                Awesome Aave!
+                                Awesome Lens!
                               </span>
                             </h1> */}
                             <p className="text-sm leading-6 text-center font-normal my-auto mb-8">
                               {selectedProject.description}
                             </p>
-                            <Link href={`/projects/aave-protocol`}>
+                            <Link href={`/projects/lens-protocol`}>
                               <button
                                 type="button"
                                 className="w-full rounded-md -mt-1 border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700"

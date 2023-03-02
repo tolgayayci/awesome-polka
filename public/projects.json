@@ -1,135 +1,102 @@
 [
     {
         "id": "1",
-        "logo": "https://pbs.twimg.com/profile_images/1623704537793011712/mjZHfkGR_400x400.jpg",
-        "name": "Aave",
-        "description": "AAVE ia a liquidity protocol which you can earn interest, borrow assets, and build applications.",
+        "logo": "https://pbs.twimg.com/profile_images/1611047066746093593/cd3kFbZ4_400x400.jpg",
+        "name": "Lens Protocol",
+        "description": "Building a social network is hard. Lens Protocol makes it easy",
         "socials": [{}],
         "categories.lvl0": [
-          "Protocols", "DeFi"
+          "Protocols", "Social"
         ]
     },
     {
         "id": "2",
-        "logo": "https://www.aaveql.org/img/aaveql.png",
-        "name": "Aave QL",
-        "description": "AaveQL, is a comprehensive Aave GraphQL documentation platform with built-in graphql editors for the Aave protocol subgraphs.",
+        "logo": "https://pbs.twimg.com/profile_images/1127499943114096645/RMWlZ_aT_400x400.png",
+        "name": "Profitable Content on Lens",
+        "description": "Detailed profitable content on Lens",
         "socials": [{}],
         "categories.lvl0": [
-          "Tools", "Educational"
-        ],
-        "categories.lvl1": [
-            "Developer Services"
+          "Dashboard", "Analytics"
         ]
     },
     {
         "id": "3",
-        "logo": "https://pbs.twimg.com/profile_images/1616064313550143489/M6TcYKRn_400x400.jpg",
-        "name": "Block Analitica",
-        "description": "DeFi Risk research and analysis",
+        "logo": "https://pbs.twimg.com/profile_images/1414990564408262661/r6YemvF9_400x400.jpg",
+        "name": "GuildXYZ SDK",
+        "description": "The Guild SDK library is a Typescript library for interacting with the Guild API.",
         "socials": [{}],
         "categories.lvl0": [
-          "Analytics", "DeFi"
-        ]
-    },
-    {
-        "id": "4",
-        "logo": "https://cdn-images-1.medium.com/max/194/1*0ByvnEt5NnAlEKZaj-Plvg@2x.png",
-        "name": "L2P.finance",
-        "description": "L2P.finance is a new lending platform aggregator that brings zero-collateralized loans to DeFi.",
-        "socials": [{}],
-        "categories.lvl0": [
-          "DeFi"
+          "Developers", "Library"
         ]
     },
     {
         "id": "5",
-        "logo": "https://media.licdn.com/dms/image/C4E0BAQFAJehOzPsIFg/company-logo_200_200/0/1641584643527?e=1685577600&v=beta&t=C7m4jMdty8ERfh6OTKX-9j-0p-qMOGutdhbZETvKYsw",
-        "name": "Chaos Labs",
-        "description": " A cloud platform for securing blockchains and protocols through robust agent and scenario based simulations. ",
+        "logo": "https://pbs.twimg.com/profile_images/1611047066746093593/cd3kFbZ4_400x400.jpg",
+        "name": "Lens SDK",
+        "description": " Official Lens SDK ",
         "socials": [{}],
         "categories.lvl0": [
-          "Tools"
+          "Developers", "Library"
         ]
     },
     {
         "id": "6",
-        "logo": "https://pbs.twimg.com/profile_images/1620091693088350210/zethWuEI_400x400.png",
-        "name": "RabbitHole",
-        "description": "Earn tokens by participating in the best cryptonetworks",
+        "logo": "https://pbs.twimg.com/profile_images/1556882055379636224/4g4orntN_400x400.jpg",
+        "name": "Lenster",
+        "description": "Lenster is a community-built decentralized, and permissionless social media app built on @LensProtocol",
         "socials": [{}],
         "categories.lvl0": [
-          "DeFi"
+          "Social"
         ]
     },
     {
         "id": "7",
-        "logo": "https://pbs.twimg.com/profile_images/1422229319498158087/GO8Mr_Rv_400x400.jpg",
-        "name": "Stakeall Finance",
-        "description": "Stakeall Finance is the first platform that enables users to do Leverage staking.",
+        "logo": "https://pbs.twimg.com/profile_images/1611047066746093593/cd3kFbZ4_400x400.jpg",
+        "name": "Cultivator DAO",
+        "description": "A new era for open, decentralized content moderation in Web3.",
         "socials": [{}],
         "categories.lvl0": [
-          "DeFi"
+          "DAO"
         ]
     },
     {
         "id": "8",
-        "logo": "https://pbs.twimg.com/profile_images/1623366393688383489/7EV9tF5E_400x400.jpg",
-        "name": "Gitcoin",
-        "description": "Empowering communities to fund, build, & protect what matters 🫡🌱",
+        "logo": "https://pbs.twimg.com/profile_images/1611047066746093593/cd3kFbZ4_400x400.jpg",
+        "name": "Lens Frens",
+        "description": "Profiles based on your web3 footprint.",
         "socials": [{}],
         "categories.lvl0": [
-          "Platforms"
+          "Applications", "Social"
         ]
     },
     {
         "id": "9",
-        "logo": "https://pbs.twimg.com/profile_images/1617942012447047682/niS6h62o_400x400.jpg",
-        "name": "Messari",
-        "description": "Messari is the leading provider of crypto market intelligence products that help professionals navigate crypto with confidence.",
+        "logo": "https://pbs.twimg.com/profile_images/1455381288756695041/acatxTm8_400x400.jpg",
+        "name": "ENS",
+        "description": "Decentralised naming for wallets, websites, & more.",
         "socials": [{}],
         "categories.lvl0": [
-          "Tools"
+          "Developers", "Integrations"
         ]
     },
     {
-        "id": "10",
-        "logo": "https://pbs.twimg.com/profile_images/1453392380250443782/UC8erEKz_400x400.png",
-        "name": "Metrics DAO",
-        "description": "Develop questions, solutions, and visualizations about Aave V3",
-        "socials": [{}],
-        "categories.lvl0": [
-          "DAO", "Educational"
-        ]
+      "id": "10",
+      "logo": "https://pbs.twimg.com/profile_images/1576293714518941696/4UcUflfe_400x400.png",
+      "name": "LensPort.io",
+      "description": "Discover, collect, and trade Lens Protocol posts",
+      "socials": [{}],
+      "categories.lvl0": [
+        "Social"
+      ]
     },
     {
-        "id": "11",
-        "logo": "https://pbs.twimg.com/profile_images/1584577735481085952/LRcVytLD_400x400.jpg",
-        "name": "Flashstake DAO",
-        "description": "Stop waiting for your money. ",
-        "socials": [{}],
-        "categories.lvl0": [
-          "DAO", "DeFi", "Educational"
-        ]
-    },
-    {
-        "id": "12",
-        "logo": "https://media.licdn.com/dms/image/C4D0BAQFvj0NHqcwdWA/company-logo_200_200/0/1663519894078?e=1685577600&v=beta&t=7oh6tfotmTLdD1GLnDh4DckWiBOreQyPA6tJrOXerrw",
-        "name": "Mercle",
-        "description": " Membership infrastructure for web3 communities ",
-        "socials": [{}],
-        "categories.lvl0": [
-          "Community"
-        ]
-    },
-    {
-        "id": "13",
-        "logo": "https://pbs.twimg.com/profile_images/1470905088608587781/f7swb0g1_400x400.png",
-        "name": "Odyssey DAO",
-        "description": "We're on a mission to onboard 1M people to web3",
-        "socials": [{}],
-        "categories.lvl0": [
-          "DAO", "Educational", "Community"
-        ]
-    }                                   
+      "id": "11",
+      "logo": "https://pbs.twimg.com/profile_images/1616110831975931909/5tUeoUR__400x400.png",
+      "name": "Push Protocol",
+      "description": "The communication protocol of web3. ",
+      "socials": [{}],
+      "categories.lvl0": [
+        "Developers", "Integrations"
+      ]
+    }                            
 ]

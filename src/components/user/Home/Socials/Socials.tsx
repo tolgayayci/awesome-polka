@@ -3,7 +3,7 @@ export default function Socials() {
     <section className="mb-16 md:mb-24 container max-w-8xl mx-auto px-6 lg:px-0">
       <div className="grid grid-cols-1 px-4 md:grid-cols-2 md:px-0 rounded-lg bg-indigo-300">
         <a
-          href="https://github.com/aave"
+          href="https://github.com/lens-protocol"
           target="blank"
           rel="noreferrer"
           className="flex items-center justify-between py-6 px-2 hover:cursor-pointer hover:opacity-70 md:px-10 border-b border-r-0 md:border-r"
@@ -24,7 +24,7 @@ export default function Socials() {
             </div>
             <div className="ml-6 items-center pt-2">
               <h4 className="text-xl font-semibold">Github</h4>
-              <p>All repos maintained by the core contributors of Aave.</p>
+              <p>All repos maintained by the core contributors of Lens.</p>
             </div>
           </div>
           <svg
@@ -42,7 +42,7 @@ export default function Socials() {
           </svg>
         </a>
         <a
-          href="https://governance.aave.com/"
+          href="https://www.lens.xyz/"
           target="blank"
           rel="noreferrer"
           className="flex items-center justify-between py-6 px-2 hover:cursor-pointer hover:opacity-70 md:px-10 border-b"
@@ -85,7 +85,7 @@ export default function Socials() {
           </svg>
         </a>
         <a
-          href="https://discord.gg/CvKUrqM"
+          href="https://discord.gg/lensprotocol"
           target="blank"
           rel="noreferrer"
           className="flex items-center justify-between py-6 px-2 hover:cursor-pointer hover:opacity-70 md:px-10 border-b border-r-0 md:border-b-0 md:border-r"
@@ -124,7 +124,7 @@ export default function Socials() {
           </svg>
         </a>
         <a
-          href="https://twitter.com/AaveAave"
+          href="https://twitter.com/LensProtocol"
           target="blank"
           rel="noreferrer"
           className="flex items-center justify-between py-6 px-2 hover:cursor-pointer hover:opacity-70 md:px-10 undefined"
@@ -145,7 +145,7 @@ export default function Socials() {
             </div>
             <div className="ml-6 items-center pt-2">
               <h4 className="text-xl font-semibold">Twitter</h4>
-              <p>Checkout the latest happenings on Aave.</p>
+              <p>Checkout the latest happenings on Lens.</p>
             </div>
           </div>
           <svg

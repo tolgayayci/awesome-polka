@@ -37,7 +37,7 @@ export default function Ranking() {
                 Ranking
               </h1>
               <p className="text-lg md:text-xl font-semibold leading-7 border-t-4 border-indigo-900 pt-6 max-w-lg">
-                Discover the top performers in Aave ecosystem with our
+                Discover the top performers in Lens ecosystem with our
                 comprehensive rankings.
               </p>
               <div className="max-w-2xl mx-auto"></div>

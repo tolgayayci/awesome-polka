@@ -36,7 +36,7 @@ export default function Header() {
                   >
                     <Image
                       src="/Awesome_Lens_logo.svg"
-                      alt="Awesome Aave Logo"
+                      alt="Awesome Lens Logo"
                       width={250}
                       height={100}
                     />
@@ -139,7 +139,7 @@ export default function Header() {
                       className="h-5 w-5 text-gray-800 font-extrabold mr-2"
                       aria-hidden="true"
                     />
-                    Search on Awesome Aave
+                    Search on Awesome Lens
                   </button>
                 </div>
               </nav>
@@ -154,7 +154,7 @@ export default function Header() {
                 src="/Awesome_Lens_logo.svg"
                 height={100}
                 width={250}
-                alt="awesome aave logo"
+                alt="awesome lens logo"
               />
             </Link>
             <div className="xl:hidden">
@@ -242,7 +242,7 @@ export default function Header() {
                   className="h-5 w-5 text-gray-800 font-extrabold mr-2"
                   aria-hidden="true"
                 />
-                Search on Awesome Aave
+                Search on Awesome Lens
               </button>
             </div>
           </nav>

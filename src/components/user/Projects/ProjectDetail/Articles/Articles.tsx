@@ -23,7 +23,7 @@ export default function Articles(props: IArticlesProps) {
                   Latest Articles
                 </h2>
                 <p className="mb-8 md:mb-12 text-gray-600 font-medium leading-relaxed">
-                  Latest news and announcements from the Aave Team.
+                  Latest news and announcements from the Lens Team.
                 </p>
               </div>
               <div className="flex flex-wrap -m-8">
@@ -32,11 +32,11 @@ export default function Articles(props: IArticlesProps) {
                     <div className="w-auto p-4">
                       <div className="overflow-hidden rounded-xl">
                         <Image
-                          src="https://mirror-media.imgix.net/nft/j8MTuKWimKw6mNA5UplN8.png?h=null&w=null&auto=compress"
+                          src="https://mirror-media.imgix.net/publication-images/oE6r8eybCdEyZiIlpH_MI.png?height=1075&width=2150&h=1075&w=2150&auto=compress"
                           alt="Picture of the author"
                           width={300}
                           height={300}
-                          className="w-full block object-cover h-28"
+                          className="w-full block object-cover h-24"
                         />
                       </div>
                     </div>
@@ -46,26 +46,26 @@ export default function Articles(props: IArticlesProps) {
                           <div className="mb-2">
                             <div className="mb-2">
                               <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                                Aave
+                                Lens
                               </span>
                               <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
-                                Education
+                                Announcement
                               </span>
                             </div>
                             <a
                               className="inline-block hover:text-gray-800 hover:underline"
-                              href="https://aave.mirror.xyz/K9gQPsv-hAH-gO4oH2i0Oen8uQEHYL5q8x9xjN9XnmA"
+                              href="https://mirror.xyz/lensprotocol.eth/L-VyE549sOOdi4nBgos6XNAUgf3H1oErfkAtndU6RHY"
                               target="blank"
                             >
                               <h3 className="text-xl font-semibold leading-normal">
-                                Aave V3 Ethereum Mainnet Launch
+                                Lens BigQuery Public Dataset is Live 🔍
                               </h3>
                             </a>
                           </div>
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/aave_logo.jpg"
+                                src="/lens_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -74,7 +74,7 @@ export default function Articles(props: IArticlesProps) {
                             </div>
                             <div className="w-auto p-1">
                               <p className="text-sm font-semibold leading-relaxed">
-                                By Aave
+                                By Lens
                               </p>
                             </div>
                           </div>
@@ -88,11 +88,11 @@ export default function Articles(props: IArticlesProps) {
                     <div className="w-auto p-4">
                       <div className="overflow-hidden rounded-xl">
                         <Image
-                          src="https://mirror-media.imgix.net/publication-images/Z0335fDqaIU539Cv2_4XA.png?height=2500&width=5000&h=2500&w=5000&auto=compress"
+                          src="https://mirror-media.imgix.net/publication-images/xDUV-nQZ5XrEZwisgrF86.png?height=1997&width=3994&h=1997&w=3994&auto=compress"
                           alt="Picture of the author"
                           width={200}
                           height={200}
-                          className="w-full block object-cover h-28"
+                          className="w-full block object-cover h-24"
                         />
                       </div>
                     </div>
@@ -102,26 +102,26 @@ export default function Articles(props: IArticlesProps) {
                           <div className="mb-2">
                             <div className="mb-2">
                               <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                                Aave
+                                Lens
                               </span>
                               <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
-                                Education
+                                Blog
                               </span>
                             </div>
                             <a
                               className="inline-block hover:text-gray-800 hover:underline"
-                              href="https://aave.mirror.xyz/2TnHYHQRnNhSG56Y4CcssulFArSVqrFbmAdYfU7Kxp0"
+                              href="https://mirror.xyz/lensprotocol.eth/8Er1hg_hX_j3eC3f7cwDiBQcy3iN4wy0-X1tW0sw8_g"
                               target="blank"
                             >
                               <h3 className="text-xl font-semibold leading-normal">
-                                Aave V3: Live on mainnet!
+                                What’s new in the Lensverse?
                               </h3>
                             </a>
                           </div>
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/aave_logo.jpg"
+                                src="/lens_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -130,7 +130,7 @@ export default function Articles(props: IArticlesProps) {
                             </div>
                             <div className="w-auto p-1">
                               <p className="text-sm font-semibold leading-relaxed">
-                                By Aave
+                                By Lens
                               </p>
                             </div>
                           </div>
@@ -144,11 +144,11 @@ export default function Articles(props: IArticlesProps) {
                     <div className="w-auto p-4">
                       <div className="overflow-hidden rounded-xl">
                         <Image
-                          src="https://mirror-media.imgix.net/nft/5atGgs8SAcE4LjwksbO0Z.jpg?h=null&w=null&auto=compress"
+                          src="https://mirror-media.imgix.net/publication-images/jbY5-ZpayxsgdS6XvHQWY.png?height=4096&width=8192&h=4096&w=8192&auto=compress"
                           alt="Picture of the author"
                           width={300}
                           height={300}
-                          className="w-full block object-cover h-28"
+                          className="w-full block object-cover h-24"
                         />
                       </div>
                     </div>
@@ -158,26 +158,26 @@ export default function Articles(props: IArticlesProps) {
                           <div className="mb-2">
                             <div className="mb-2">
                               <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                                Aave
+                                Lens
                               </span>
                               <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
-                                Education
+                                Announcement
                               </span>
                             </div>
                             <a
                               className="inline-block hover:text-gray-800 hover:underline"
-                              href="https://aave.mirror.xyz/CZbP_R8x7h2YyJE7R91OdEVaGmwy8xjbUsL0RwuPXyI"
+                              href="https://mirror.xyz/lensprotocol.eth/6TgzB9YDTXk0vm8JVnQ3UY5Hp0LHgF_zthdBumSUSUQ"
                               target="blank"
                             >
                               <h3 className="text-xl font-semibold leading-normal">
-                                Welcome To the Aave Mirror Blog
+                                Introducing direct messaging with Lens API
                               </h3>
                             </a>
                           </div>
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/aave_logo.jpg"
+                                src="/lens_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -186,7 +186,7 @@ export default function Articles(props: IArticlesProps) {
                             </div>
                             <div className="w-auto p-1">
                               <p className="text-sm font-semibold leading-relaxed">
-                                By Aave
+                                By Lens
                               </p>
                             </div>
                           </div>
@@ -200,11 +200,11 @@ export default function Articles(props: IArticlesProps) {
                     <div className="w-auto p-4">
                       <div className="overflow-hidden rounded-xl">
                         <Image
-                          src="https://mirror-media.imgix.net/nft/j8MTuKWimKw6mNA5UplN8.png?h=null&w=null&auto=compress"
+                          src="https://mirror-media.imgix.net/publication-images/gq0WMmhgb-w18JvfOMYZc.png?height=6250&width=12500&h=6250&w=12500&auto=compress"
                           alt="Picture of the author"
                           width={300}
                           height={300}
-                          className="w-full block object-cover h-28"
+                          className="w-full block object-cover h-24"
                         />
                       </div>
                     </div>
@@ -214,25 +214,26 @@ export default function Articles(props: IArticlesProps) {
                           <div className="mb-2">
                             <div className="mb-2">
                               <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                                Aave
+                                Lens
                               </span>
                               <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
-                                Education
+                                Blog
                               </span>
                             </div>
                             <a
                               className="inline-block hover:text-gray-800 hover:underline"
-                              href="#"
+                              href="https://mirror.xyz/lensprotocol.eth/Y7ZHmQXOIXF6fC91cKvs0n4D2ViEieJCAbDHo4wI5-g"
                             >
                               <h3 className="text-xl font-semibold leading-normal">
-                                Aave V3 is Live on Public Testnets
+                                Exploring the Lensverse - One Month After
+                                Mainnet 🌿💚
                               </h3>
                             </a>
                           </div>
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/aave_logo.jpg"
+                                src="/lens_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -241,7 +242,7 @@ export default function Articles(props: IArticlesProps) {
                             </div>
                             <div className="w-auto p-1">
                               <p className="text-sm font-semibold leading-relaxed">
-                                By Aave
+                                By Lens
                               </p>
                             </div>
                           </div>

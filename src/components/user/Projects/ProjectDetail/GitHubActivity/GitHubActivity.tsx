@@ -19,7 +19,7 @@ export default function GitHubActivity(props: GitHubActivityProps) {
   async function getCommitHistoryByWeeks() {
     // get github repo stats
     const response = await fetch(
-      "https://api.github.com/repos/aave/aave-v3-core/stats/participation"
+      "https://api.github.com/repos/lens-protocol/lens-sdk/stats/participation"
     );
 
     const data = await response.json();
@@ -91,7 +91,7 @@ export default function GitHubActivity(props: GitHubActivityProps) {
       },
       series: [
         {
-          name: `Aave Commit History By Weeks`,
+          name: `Lens Commit History By Weeks`,
           type: "line",
           smooth: true,
           symbol: "none",
@@ -126,7 +126,8 @@ export default function GitHubActivity(props: GitHubActivityProps) {
                         GitHub Activity
                       </h2>
                       <p className="mb-4 text-gray-600 font-medium leading-relaxed">
-                        Stats for aave/aave-v3-core over the past year by week.
+                        Stats for lens-protocol/lens-sdk over the past year by
+                        week.
                       </p>
                     </div>
                     {isLoading ? (
