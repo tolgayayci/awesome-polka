@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="w-full md:w-1/3 mb-12">
               <Link className="inline-block mx-auto mb-8" href="/">
                 <Image
-                  src="/Awesome_Lens_logo.svg"
+                  src="/Awesome_Lens_Logo.svg"
                   height={100}
                   width={250}
                   alt="awesome lens logo"

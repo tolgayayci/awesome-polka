@@ -35,7 +35,7 @@ export default function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Image
-                      src="/Awesome_Lens_logo.svg"
+                      src="/Awesome_Lens_Logo.svg"
                       alt="Awesome Lens Logo"
                       width={250}
                       height={100}
@@ -151,7 +151,7 @@ export default function Header() {
               className="text-3xl mr-10 2xl:mr-16 font-extrabold text-indigo-800"
             >
               <Image
-                src="/Awesome_Lens_logo.svg"
+                src="/Awesome_Lens_Logo.svg"
                 height={100}
                 width={250}
                 alt="awesome lens logo"
