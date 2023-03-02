@@ -154,9 +154,9 @@ export default function Faq(props: IFaqProps) {
                                   but we want to do it at the right time to give
                                   you the best experience possible <br />
                                   <br />
-                                  If you haven't been able to get access to Lens
-                                  yet, but would like to learn more about the
-                                  growing Lens ecosystem, here's an awesome
+                                  If you have not been able to get access to
+                                  Lens yet, but would like to learn more about
+                                  the growing Lens ecosystem, here is an awesome
                                   article from our developer relations team{" "}
                                   <br />
                                   <br />
