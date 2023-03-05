@@ -1,0 +1,42 @@
+.tableWrapper{
+
+    .table {
+        display: block;
+        border-spacing: 0;
+        width: 100%;
+    
+        .tr {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 10px;
+          border-radius: 8px;
+          background: #fcffff;
+          border: 2px solid gray;
+
+          .th {
+            font-weight: bold;
+            background: rgb(26, 35, 126);
+            color: white;
+            width: 100%;
+            overflow-x: hidden;
+          }
+
+          .td{
+            overflow-x: hidden;
+            width: 100%;
+          }
+          
+        }
+    
+        .th, .td {
+          margin: auto 0;
+          padding: 10px 5px;
+          padding-left: 20px!important;
+          width: 100%;
+        }
+
+        .td{
+            padding-left: 10px;
+        }
+      }
+}
