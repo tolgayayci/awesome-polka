@@ -1,3 +1,5 @@
+import type { ReactElement } from "react";
+
 import Head from "next/head";
 import Image from "next/image";
 
@@ -10,7 +12,8 @@ import {
   Configure,
 } from "react-instantsearch-hooks-web";
 
-import ArticleCard from "../../components/user/Articles/ArticleCard/ArticleCard";
+import ArticleCard from "../../components/Public/Articles/ArticleCard/ArticleCard";
+import UserLayout from "../../layouts/UserLayout";
 
 export default function Articles() {
   const searchClient = algoliasearch(
@@ -93,3 +96,7 @@ export default function Articles() {
     </>
   );
 }
+
+Articles.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};

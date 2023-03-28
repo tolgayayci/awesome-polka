@@ -1,58 +1,70 @@
 {
-  "name": "awesome-lens",
+  "name": "awesome-web3",
   "version": "0.1.0",
+  "description": "Awesome Web 3 is a decentralized, open-source, and community-driven project social hub framework",
   "author": {
     "name": "Tolga Yaycı",
     "email": "tolgayayci@protonmail.com"
   },
+  "bugs": {
+    "url": "https://github.com/tolgayayci/awesome-web3/issues"
+  },
+  "homepage": "https://github.com/tolgayayci/awesome-web3/#readme",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.8.0",
-    "@algolia/autocomplete-plugin-query-suggestions": "^1.8.0",
     "@algolia/autocomplete-plugin-recent-searches": "^1.8.0",
-    "@algolia/autocomplete-theme-classic": "^1.8.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
-    "@magic-sdk/types": "^11.1.0",
     "@next/font": "13.1.1",
-    "@reduxjs/toolkit": "^1.9.1",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
+    "@thirdweb-dev/react": "^3.10.3",
+    "@thirdweb-dev/sdk": "^3.10.3",
     "@typeform/embed-react": "^2.15.0",
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.10",
-    "@types/react-table": "^7.7.14",
     "algoliasearch": "^4.14.3",
     "autoprefixer": "^10.4.13",
     "aws-amplify": "^5.0.8",
     "classnames": "^2.3.2",
     "echarts": "^5.4.1",
     "echarts-for-react": "^3.0.2",
-    "eslint": "8.30.0",
-    "eslint-config-next": "13.1.1",
-    "magic-sdk": "^11.0.0",
+    "ethers": "^5",
+    "formik": "^2.2.9",
     "next": "13.1.1",
     "postcss": "^8.4.20",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-instantsearch-hooks-web": "^6.39.0",
-    "react-redux": "^8.0.5",
+    "react-loader-spinner": "^5.3.4",
     "react-table": "^7.8.0",
     "sass": "^1.58.1",
     "tailwindcss": "^3.2.4",
-    "typescript": "4.9.4",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "zustand": "^4.3.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.7",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-table": "^7.7.14",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "eslint": "^8.36.0",
+    "eslint-config-next": "^13.2.4",
+    "jest": "^29.5.0",
+    "typescript": "^5.0.2"
+  }
 }

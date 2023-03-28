@@ -1,12 +1,17 @@
+import { useEffect } from "react";
+import type { ReactElement } from "react";
+
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 
 // **Custom Components
-import Banner from "../components/user/Home/Banner/Banner";
-import Categories from "../components/user/Home/Categories/Categories";
-import SubmitProject from "../components/user/Home/SubmitProject/SubmitProject";
-import LatestArticles from "../components/user/Home/LatestArticles/LatestArticles";
-import Socials from "../components/user/Home/Socials/Socials";
+import Banner from "../components/Public/Home/Banner/Banner";
+import Categories from "../components/Public/Home/Categories/Categories";
+import SubmitProject from "../components/Public/Home/SubmitProject/SubmitProject";
+import LatestArticles from "../components/Public/Home/LatestArticles/LatestArticles";
+import Socials from "../components/Public/Home/Socials/Socials";
+
+import UserLayout from "../layouts/UserLayout";
 
 export default function Home() {
   return (
@@ -26,3 +31,7 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};

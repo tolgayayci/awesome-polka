@@ -1,5 +1,5 @@
 // ** React Imports
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import type { ReactElement, ReactNode } from "react";
 
 // ** Next Imports
@@ -7,26 +7,17 @@ import Script from "next/script";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 
-// ** Layouts
-import UserLayout from "../layouts/UserLayout";
-import BlankLayout from "../layouts/BlankLayout";
-
 // ** Amplify Imports
 import { Amplify, API } from "aws-amplify";
 import awsExports from "../aws-exports";
-
-// ** Redux Imports
-import { Provider } from "react-redux";
-import { store } from "../features/user/store";
-import { checkUserIsAuthenticated } from "../features/user/userSlice";
-
-// ** Components
-import Login from "../pages/login";
 
 // ** Styles
 import "../../styles/globals.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+
+// ** Auth
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 Amplify.register(API);
 Amplify.configure({ ...awsExports, ssr: true });
@@ -42,25 +33,7 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean | null>();
-
-  // Fix here!
-  const getLayout =
-    Component.getLayout ??
-    (true
-      ? (page) => <UserLayout>{page}</UserLayout>
-      : () => (
-          <BlankLayout>
-            <Login />
-          </BlankLayout>
-        ));
-
-  useEffect(() => {
-    store.dispatch(checkUserIsAuthenticated()).then(() => {
-      console.log("User status: " + store.getState().user.loginStatus);
-      setIsUserLoggedIn(store.getState().user.loginStatus);
-    });
-  }, []);
+  const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
     <>
@@ -77,9 +50,16 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
       `}
       </Script>
-      <Provider store={store}>
+      <ThirdwebProvider
+        // Required configuration for the provider, but doesn't affect Auth.
+        activeChain="ethereum"
+        authConfig={{
+          // Set this to your domain to prevent phishing attacks
+          domain: "localhost:3000",
+        }}
+      >
         {getLayout(<Component {...pageProps} />)}
-      </Provider>
+      </ThirdwebProvider>
     </>
   );
 }

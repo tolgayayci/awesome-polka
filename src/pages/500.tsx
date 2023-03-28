@@ -1,13 +1,26 @@
 import Link from "next/link";
+import Image from "next/image";
+
+import type { ReactElement } from "react";
+import UserLayout from "../layouts/UserLayout";
 
 export default function FiveOhOh() {
   return (
     <section className="mb-16 container max-w-8xl mx-auto">
-      <div className="py-26 md:py-48 min-h-screen md:min-h-0 border-4 border-indigo-900 bg-orange-200 relative overflow-hidden rounded-2xl">
-        <img
-          className="absolute top-0 md:h-full left-0 w-1/3"
-          src="/404-left.svg"
-          alt=""
+      <div className="py-26 md:py-48 min-h-screen md:min-h-0 border-4 border-indigo-900 bg-indigo-200 relative overflow-hidden rounded-2xl">
+        <Image
+          src="/banner-right.svg"
+          alt="Bg"
+          width={500}
+          height={500}
+          className="absolute top-0 md:h-full right-0 w-1/2 lg:w-1/3 opacity-60"
+        />
+        <Image
+          src="/banner-left.svg"
+          alt="Bg"
+          width={500}
+          height={500}
+          className="absolute top-0 md:h-full left-0 w-1/2 lg:w-1/3 opacity-60"
         />
 
         <div className="container px-4 mx-auto relative">
@@ -42,3 +55,7 @@ export default function FiveOhOh() {
     </section>
   );
 }
+
+FiveOhOh.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};

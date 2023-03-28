@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import type { ReactElement } from "react";
+import UserLayout from "../layouts/UserLayout";
+
 export default function FourOhFour() {
   return (
     <section className="mb-16 container max-w-8xl mx-auto">
@@ -51,3 +54,7 @@ export default function FourOhFour() {
     </section>
   );
 }
+
+FourOhFour.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};

@@ -5,20 +5,24 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import type { ReactElement } from "react";
+
 // ** Amplify Imports
 import { API, graphqlOperation, withSSRContext } from "aws-amplify";
 import { getProject } from "../../../graphql/queries";
 import { ProjectStatus } from "../../../API";
 
 // ** Custom Components
-import Description from "../../../components/user/Projects/ProjectDetail/Description/Description";
-import GitHubActivity from "../../../components/user/Projects/ProjectDetail/GitHubActivity/GitHubActivity";
-import TokenStats from "../../../components/user/Projects/ProjectDetail/TokenStats/TokenStats";
-import Team from "../../../components/user/Projects/ProjectDetail/Team/Team";
-import Articles from "../../../components/user/Projects/ProjectDetail/Articles/Articles";
-import Faq from "../../../components/user/Projects/ProjectDetail/Faq/Faq";
-import Jobs from "../../../components/user/Projects/ProjectDetail/Jobs/Jobs";
-import SideNavbar from "../../../components/user/Projects/ProjectDetail/SideNavbar/SideNavbar";
+import Description from "../../../components/Public/Projects/ProjectDetail/Description/Description";
+import GitHubActivity from "../../../components/Public/Projects/ProjectDetail/GitHubActivity/GitHubActivity";
+import TokenStats from "../../../components/Public/Projects/ProjectDetail/TokenStats/TokenStats";
+import Team from "../../../components/Public/Projects/ProjectDetail/Team/Team";
+import Articles from "../../../components/Public/Projects/ProjectDetail/Articles/Articles";
+import Faq from "../../../components/Public/Projects/ProjectDetail/Faq/Faq";
+import Jobs from "../../../components/Public/Projects/ProjectDetail/Jobs/Jobs";
+import SideNavbar from "../../../components/Public/Projects/ProjectDetail/SideNavbar/SideNavbar";
+
+import UserLayout from "../../../layouts/UserLayout";
 
 // ** Icon Imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -168,3 +172,7 @@ export default function ProjectDetail({
     </>
   );
 }
+
+ProjectDetail.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};

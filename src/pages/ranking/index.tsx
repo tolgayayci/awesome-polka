@@ -1,7 +1,11 @@
+import type { ReactElement } from "react";
+
 import Head from "next/head";
 import Image from "next/image";
 
-import Table from "../../components/user/Ranking/Table/Table";
+import Table from "../../components/Public/Ranking/Table/Table";
+
+import UserLayout from "../../layouts/UserLayout";
 
 export default function Ranking() {
   return (
@@ -49,3 +53,7 @@ export default function Ranking() {
     </>
   );
 }
+
+Ranking.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};

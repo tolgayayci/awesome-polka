@@ -1,6 +1,10 @@
+import type { ReactElement } from "react";
+
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+
+import UserLayout from "../../layouts/UserLayout";
 
 export default function Learn() {
   return (
@@ -674,3 +678,7 @@ export default function Learn() {
     </>
   );
 }
+
+Learn.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};

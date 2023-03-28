@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import type { ReactElement } from "react";
 
 import { Combobox } from "@headlessui/react";
 
@@ -15,8 +16,11 @@ import {
   HierarchicalMenu,
 } from "react-instantsearch-hooks-web";
 
+// ** Layouts
+import UserLayout from "../../layouts/UserLayout";
+
 // ** Custom Components **
-import ProjectCard from "../../components/user/Projects/ProjectCard/ProjectCard";
+import ProjectCard from "../../components/Public/Projects/ProjectCard/ProjectCard";
 
 export default function Projects() {
   const searchClient = algoliasearch(
@@ -181,3 +185,7 @@ export default function Projects() {
     </>
   );
 }
+
+Projects.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};

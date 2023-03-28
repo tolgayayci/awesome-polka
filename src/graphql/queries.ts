@@ -2,64 +2,29 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getUser = /* GraphQL */ `
-  query GetUser($id: ID!) {
-    getUser(id: $id) {
-      id
-      name
-      email
-      status
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listUsers = /* GraphQL */ `
-  query ListUsers(
-    $id: ID
-    $filter: ModelUserFilterInput
-    $limit: Int
-    $nextToken: String
-    $sortDirection: ModelSortDirection
-  ) {
-    listUsers(
-      id: $id
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      sortDirection: $sortDirection
-    ) {
-      items {
-        id
-        name
-        email
-        status
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
 export const getProject = /* GraphQL */ `
-  query GetProject($id: ID!) {
-    getProject(id: $id) {
-      id
+  query GetProject($slug: String!) {
+    getProject(slug: $slug) {
       slug
-      logo
       name
-      shortDesc
-      detailedDesc
+      bio
+      categories {
+        items {
+          id
+          projectSlug
+          categoryId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       socials
+      description
+      githubRepoUrl
+      tokenSymbol
+      openJobs
       team
-      tokenName
-      repositoryLink
       faq
-      articles
-      jobOpenings
-      rootCategories
-      subCategories
-      status
       createdAt
       updatedAt
     }
@@ -67,36 +32,250 @@ export const getProject = /* GraphQL */ `
 `;
 export const listProjects = /* GraphQL */ `
   query ListProjects(
-    $id: ID
+    $slug: String
     $filter: ModelProjectFilterInput
     $limit: Int
     $nextToken: String
     $sortDirection: ModelSortDirection
   ) {
     listProjects(
-      id: $id
+      slug: $slug
       filter: $filter
       limit: $limit
       nextToken: $nextToken
       sortDirection: $sortDirection
     ) {
       items {
-        id
         slug
-        logo
         name
-        shortDesc
-        detailedDesc
+        bio
+        categories {
+          nextToken
+        }
         socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
         team
-        tokenName
-        repositoryLink
         faq
-        articles
-        jobOpenings
-        rootCategories
-        subCategories
-        status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCategory = /* GraphQL */ `
+  query GetCategory($id: ID!) {
+    getCategory(id: $id) {
+      id
+      name
+      description
+      projects {
+        items {
+          id
+          projectSlug
+          categoryId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listCategories = /* GraphQL */ `
+  query ListCategories(
+    $filter: ModelCategoryFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCategories(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        description
+        projects {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getProjectCategories = /* GraphQL */ `
+  query GetProjectCategories($id: ID!) {
+    getProjectCategories(id: $id) {
+      id
+      projectSlug
+      categoryId
+      project {
+        slug
+        name
+        bio
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        createdAt
+        updatedAt
+      }
+      category {
+        id
+        name
+        description
+        projects {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listProjectCategories = /* GraphQL */ `
+  query ListProjectCategories(
+    $filter: ModelProjectCategoriesFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listProjectCategories(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        projectSlug
+        categoryId
+        project {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          createdAt
+          updatedAt
+        }
+        category {
+          id
+          name
+          description
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const projectCategoriesByProjectSlug = /* GraphQL */ `
+  query ProjectCategoriesByProjectSlug(
+    $projectSlug: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelProjectCategoriesFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    projectCategoriesByProjectSlug(
+      projectSlug: $projectSlug
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        projectSlug
+        categoryId
+        project {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          createdAt
+          updatedAt
+        }
+        category {
+          id
+          name
+          description
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const projectCategoriesByCategoryId = /* GraphQL */ `
+  query ProjectCategoriesByCategoryId(
+    $categoryId: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelProjectCategoriesFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    projectCategoriesByCategoryId(
+      categoryId: $categoryId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        projectSlug
+        categoryId
+        project {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          createdAt
+          updatedAt
+        }
+        category {
+          id
+          name
+          description
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }

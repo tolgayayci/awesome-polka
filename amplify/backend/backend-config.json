@@ -1,22 +1,22 @@
 {
   "api": {
-    "awesomelens": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
+    "awesomeweb3": {
       "dependsOn": [],
       "output": {
         "authConfig": {
+          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
             "apiKeyConfig": {
+              "apiKeyExpirationDate": "2023-04-24T13:08:46.361Z",
               "apiKeyExpirationDays": 30,
-              "apiKeyExpirationDate": "2023-03-31T16:59:47.020Z",
-              "description": "30"
-            }
-          },
-          "additionalAuthenticationProviders": []
+              "description": ""
+            },
+            "authenticationType": "API_KEY"
+          }
         }
-      }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
     }
   }
 }
