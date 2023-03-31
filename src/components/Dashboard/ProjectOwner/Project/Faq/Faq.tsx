@@ -3,44 +3,27 @@ import React, { useState, useEffect } from "react";
 import { useProjectStore } from "../../../../../data/store/projectStore";
 
 // ** Form Imports */
-import { useFormik } from "formik";
+import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
+import { FieldInputProps } from "formik";
 import { readProjectAttribute } from "../../../../../data/queries/readProjectAttribute";
+import { updateProjectAttribute } from "../../../../../data/mutations/updateProjectAttribute";
 import { validateFaq } from "../../../../../utils/validation/faqValidation";
 
-import { LightBulbIcon, CheckIcon, FireIcon } from "@heroicons/react/20/solid";
+import {
+  LightBulbIcon,
+  CheckIcon,
+  FireIcon,
+  MinusIcon,
+  PlusIcon,
+} from "@heroicons/react/20/solid";
+import classNames from "classnames";
 import Loader from "../../../Loader/Loader";
-import { FaqItem } from "./Item/Item";
+
+import { FaqProps } from "../../../../../types/types";
 
 export default function Faq() {
   const project = useProjectStore((state) => state.project);
   const [isLoading, setIsLoading] = useState(true);
-  const [components, setComponents] = useState([
-    <FaqItem key={0} index={0} question="" answer="" />,
-  ]);
-
-  const addComponent = () => {
-    if (components.length >= 5) {
-      return;
-    }
-
-    const newComponents = [...components];
-    newComponents.push(
-      <FaqItem
-        key={newComponents.length}
-        index={newComponents.length + 1}
-        question=""
-        answer=""
-      />
-    );
-    console.log(newComponents);
-    setComponents(newComponents);
-  };
-
-  const removeComponent = (index: number) => {
-    const newComponents = [...components];
-    newComponents.splice(index, 1);
-    setComponents(newComponents);
-  };
 
   async function check() {
     try {
@@ -55,21 +38,6 @@ export default function Faq() {
     }
   }
 
-  const formik = useFormik({
-    initialValues: {
-      faq: [
-        {
-          question: "",
-          answer: "",
-        },
-      ],
-    },
-    validationSchema: validateFaq,
-    onSubmit: (values) => {
-      console.log(values);
-    },
-  });
-
   useEffect(() => {
     check();
   });
@@ -80,70 +48,207 @@ export default function Faq() {
 
   return (
     <>
-      <section className="container max-w-8xl mx-auto mt-7">
+      <section className="container max-w-8xl mx-auto mt-7 mb-20">
         <div className="flex space-x-8">
           <div className="w-2/3">
             <div className="border-[3px] border-indigo-900 rounded-lg px-20 py-16 bg-white">
-              <form
-                className="space-y-8 divide-y divide-gray-200"
-                onSubmit={formik.handleSubmit}
-              >
-                <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
-                  <div className="space-y-6 sm:space-y-5">
-                    <div>
-                      <h3 className="text-xl mb-2 font-semibold leading-6 text-indigo-700">
-                        Frequently Asked Questions
-                      </h3>
-                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                        This information will be displayed publicly so be
-                        careful what you share.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <>
-                  {components.map((component, index) => (
-                    <div key={index}>
-                      {component}
-                      <div className="flex justify-end gap-x-3">
-                        <button
-                          type="button"
-                          onClick={() => removeComponent(index)}
-                          className="w-full inline-flex justify-center rounded-md bg-red-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              <div>
+                <div className="space-y-8 divide-y divide-gray-200">
+                  <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
+                    <div className="space-y-6 sm:space-y-5">
+                      <div>
+                        <h3 className="text-xl mb-2 font-semibold leading-6 text-indigo-700">
+                          Frequently Asked Questions
+                        </h3>
+                        <p className="mt-1 max-w-2xl text-sm text-gray-500 mb-6">
+                          This information will be displayed publicly so be
+                          careful what you share.
+                        </p>
+                        <Formik
+                          initialValues={{
+                            faqs: (project?.faq &&
+                              JSON.parse(project.faq.join(""))) || [
+                              { question: "", answer: "" },
+                            ],
+                          }}
+                          validationSchema={validateFaq}
+                          onSubmit={async (values, actions) => {
+                            await updateProjectAttribute(
+                              project?.slug as string,
+                              "faq",
+                              JSON.stringify(values.faqs)
+                            );
+                            actions.setSubmitting(false);
+                          }}
                         >
-                          Remove Question {index + 1}
-                        </button>
+                          {({ values, errors, touched }) => (
+                            <Form>
+                              <FieldArray
+                                name="faqs"
+                                render={(arrayHelpers) => (
+                                  <div>
+                                    {values.faqs && values.faqs.length > 0 ? (
+                                      values.faqs.map(
+                                        (faq: FaqProps, index: number) => (
+                                          <div
+                                            key={index}
+                                            className="space-y-6 sm:space-y-5"
+                                          >
+                                            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t-2 sm:border-indigo-500 sm:pt-8">
+                                              <div className="col-span-full border-l-4 border-indigo-400 bg-indigo-50 p-4 mb-6">
+                                                <div className="flex">
+                                                  <div className="ml-3">
+                                                    <p className="text-sm text-indigo-700 font-semibold">
+                                                      Question {index + 1}
+                                                    </p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <label
+                                                htmlFor="bio"
+                                                className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
+                                              >
+                                                Question
+                                              </label>
+                                              <div className="mt-2 sm:col-span-2 sm:mt-0">
+                                                <Field
+                                                  name={`faqs.${index}.question`}
+                                                >
+                                                  {({
+                                                    field,
+                                                  }: {
+                                                    field: FieldInputProps<string>;
+                                                  }) => (
+                                                    <input
+                                                      {...field}
+                                                      type="text"
+                                                      placeholder="What is your question?"
+                                                      className={classNames(
+                                                        "block w-full max-w-xl rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
+                                                        {
+                                                          "ring-2 ring-red-500":
+                                                            errors.faqs &&
+                                                            touched.faqs,
+                                                        }
+                                                      )}
+                                                    />
+                                                  )}
+                                                </Field>
+                                                <ErrorMessage
+                                                  name={`faqs.${index}.question`}
+                                                  render={(msg) => (
+                                                    <div className="text-red-500 text-sm mt-1">
+                                                      {msg}
+                                                    </div>
+                                                  )}
+                                                />
+                                              </div>
+                                            </div>
+
+                                            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5 pb-5">
+                                              <label
+                                                htmlFor="about"
+                                                className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
+                                              >
+                                                Answer
+                                              </label>
+                                              <div className="mt-2 sm:col-span-2 sm:mt-0">
+                                                <Field
+                                                  name={`faqs.${index}.answer`}
+                                                >
+                                                  {({
+                                                    field,
+                                                  }: {
+                                                    field: FieldInputProps<string>;
+                                                  }) => (
+                                                    <textarea
+                                                      {...field}
+                                                      placeholder="What is your question?"
+                                                      rows={6}
+                                                      className={classNames(
+                                                        "block w-full max-w-xl rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6 pl-2",
+                                                        {
+                                                          "ring-2 ring-red-500":
+                                                            errors.faqs &&
+                                                            touched.faqs,
+                                                        }
+                                                      )}
+                                                    />
+                                                  )}
+                                                </Field>
+                                                <ErrorMessage
+                                                  name={`faqs.${index}.answer`}
+                                                  render={(msg) => (
+                                                    <div className="text-red-500 text-sm mt-1">
+                                                      {msg}
+                                                    </div>
+                                                  )}
+                                                />
+                                                <p className="mt-2 text-sm text-gray-500">
+                                                  Write a paragraph about your
+                                                  project.
+                                                </p>
+                                              </div>
+                                            </div>
+
+                                            <div className="flex justify-end pb-8">
+                                              <button
+                                                className="bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-1.5 px-4 rounded-l-xl border-indigo-900 border-2"
+                                                type="button"
+                                                onClick={() =>
+                                                  arrayHelpers.remove(index)
+                                                }
+                                              >
+                                                <MinusIcon className="h-5 w-5" />
+                                              </button>
+                                              <button
+                                                className="bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-1.5 px-4 rounded-r-xl border-indigo-900 border-2 border-l-0"
+                                                type="button"
+                                                onClick={() =>
+                                                  arrayHelpers.insert(index, "")
+                                                }
+                                              >
+                                                <PlusIcon className="h-5 w-5" />
+                                              </button>
+                                            </div>
+                                          </div>
+                                        )
+                                      )
+                                    ) : (
+                                      <button
+                                        type="button"
+                                        onClick={() => arrayHelpers.push("")}
+                                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 mb-6 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                                      >
+                                        Add Question
+                                      </button>
+                                    )}
+
+                                    <div className="flex pt-5 justify-end gap-x-3 border-t-2 border-indigo-600">
+                                      <button
+                                        type="button"
+                                        className="rounded-md bg-white py-2 px-3 text-sm font-semibold border border-red-500 text-red-500 shadow-sm hover:bg-gray-50"
+                                      >
+                                        Remove The FAQ
+                                      </button>
+                                      <button
+                                        type="submit"
+                                        className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                      >
+                                        Update
+                                      </button>
+                                    </div>
+                                  </div>
+                                )}
+                              />
+                            </Form>
+                          )}
+                        </Formik>
                       </div>
                     </div>
-                  ))}
-                </>
-                <div className="border-t-2 border-indigo-500 pt-7">
-                  <button
-                    type="button"
-                    onClick={() => addComponent()}
-                    disabled={components.length >= 5}
-                    className="w-full inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >
-                    Add Question
-                  </button>
-                </div>
-                <div className="pt-5">
-                  <div className="flex justify-end gap-x-3">
-                    <button
-                      type="button"
-                      className="rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Save
-                    </button>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
           <div className="w-1/3">

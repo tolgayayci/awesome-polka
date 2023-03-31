@@ -1,22 +1,30 @@
-export interface Project {
-    id: string;
-    logo: string;
-    name: string;
-    description: string;
-    socials: Array<Object>;
-    mainCategory: string;
-    subCategory: string;
-    objectID: string;
+export interface DescriptionProps {
+    bio: string;
+    details: string;
 }
-  
-export interface Article {
-    id: string;
-    title: string;
-    description: string;
-    project: string;
-    date: string;
+
+export interface FaqProps {
+    question: string;
+    answer: string;
+}
+
+export interface TeamProps {
+    name: string;
+    surname: string;
+    role: string;
     image: string;
-    category: string;
-    originalLink: string;
-    objectID: string;
+    linkedIn: string;
+}
+
+export interface JobProps {
+   category: string;
+   title: string;
+   type: string;
+   remote: string;
+   location: string;
+   link: string;
+}
+
+export interface FileUploadProps {
+    setPath: (path: string) => void;
 }

@@ -1,12 +1,12 @@
-import * as yup from "yup";
+import * as Yup from "yup";
 
-export const validateFaq = yup.object().shape({
-    question: yup.string()
-      .required('Please enter a question')
-      .max(80, 'Question cannot be longer than 80 characters')
-      .matches(/^[a-zA-Z0-9\s]+$/, 'Question must only contain letters, numbers, and spaces'),
-    answer: yup.string()
-      .required('Please provide an answer')
-      .max(300, 'Answer cannot be longer than 300 characters')
-      .matches(/^[a-zA-Z0-9\s]+$/, 'Answer must only contain letters, numbers, and spaces'),
-})
+export const validateFaq = Yup.object().shape({
+     faqs: Yup.array().of(
+       Yup.object().shape({
+         question: Yup.string().min(5, 'too short').required('Required'), // these constraints take precedence
+         answer: Yup.string().min(30, 'too short').required('Required'), // these constraints take precedence
+       })
+     )
+     .required('Must have friends') // these constraints are shown if and only if inner constraints are satisfied
+     .min(1, 'Minimum of 1 questions'),
+});

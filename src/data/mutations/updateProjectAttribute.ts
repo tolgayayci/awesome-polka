@@ -3,9 +3,10 @@ import { updateProject } from '../../graphql/mutations';
 import { useProjectStore } from '../store/projectStore';
 
 import type { UpdateProjectMutation, UpdateProjectMutationVariables } from '../../API';
+import type { FaqProps } from '../../types/types';
 
 // This function is used to update a single attribute of a project, not the entire project
-export async function updateProjectAttribute(slug: UpdateProjectMutationVariables["input"]["slug"], attributeName: string, attributeValue: string) : Promise<UpdateProjectMutation['updateProject']>{
+export async function updateProjectAttribute(slug: UpdateProjectMutationVariables["input"]["slug"], attributeName: string, attributeValue: string | FaqProps[]) : Promise<UpdateProjectMutation['updateProject']>{
     try {
         const response = await API.graphql<UpdateProjectMutation>({
           query: updateProject,

@@ -1,66 +1,46 @@
-import { useState, useEffect } from "react";
+//** Style Imports */
+import React, { useState, useEffect } from "react";
+import { useProjectStore } from "../../../../../data/store/projectStore";
 
-import { API } from "aws-amplify";
-import { getProject } from "../../../../../graphql/queries";
-import { updateProject } from "../../../../../graphql/mutations";
+// ** Form Imports */
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FieldInputProps } from "formik";
+import { readProjectAttribute } from "../../../../../data/queries/readProjectAttribute";
+import { updateProjectAttribute } from "../../../../../data/mutations/updateProjectAttribute";
+import { validateDescription } from "../../../../../utils/validation/descriptionValidation";
 
-import { GraphQLResult } from "@aws-amplify/api-graphql";
-import type { GetProjectQuery, UpdateProjectInput } from "../../../../../API";
 import { LightBulbIcon, CheckIcon, FireIcon } from "@heroicons/react/20/solid";
+import classNames from "classnames";
+import Loader from "../../../Loader/Loader";
+
+import { DescriptionProps } from "../../../../../types/types";
 
 //** Style Imports */
 
 export default function ProjectDescription() {
-  const [description, setDescription] = useState<string | null>();
-  const [projectDescription, setProjectDescription] =
-    useState<GetProjectQuery["getProject"]>();
+  const project = useProjectStore((state) => state.project);
+  const [isLoading, setIsLoading] = useState(true);
 
-  async function fetchProjectDescription() {
+  async function check() {
     try {
-      const projectDescriptionResult = (await API.graphql({
-        query: getProject,
-        variables: { id: "ssf" },
-      })) as GraphQLResult<GetProjectQuery>;
-
-      setProjectDescription(projectDescriptionResult.data?.getProject);
-
-      console.log(projectDescription);
-    } catch (err) {
-      console.log("error fetching project description", err);
-    }
-  }
-
-  function handleDescriptionChange(
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) {
-    setDescription(event.target.value);
-  }
-
-  async function handleSubmit(
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) {
-    event.preventDefault();
-
-    if (!description) return;
-
-    try {
-      const obj = {
-        id: projectDescription?.id,
-        description: description,
-      };
-
-      const projectDescriptionResult = (await API.graphql({
-        query: updateProject,
-        variables: { input: obj },
-      })) as GraphQLResult<UpdateProjectInput>;
-    } catch (err) {
-      console.log("error updating project description", err);
+      if (!project) {
+        //TODO: Change parameter to project slug
+        await readProjectAttribute("lens-protocol");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
   useEffect(() => {
-    fetchProjectDescription();
-  }, []);
+    check();
+  });
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -68,81 +48,145 @@ export default function ProjectDescription() {
         <div className="flex space-x-8">
           <div className="w-2/3">
             <div className="border-[3px] border-indigo-900 rounded-lg px-20 py-16 bg-white">
-              <form className="space-y-8 divide-y divide-gray-200">
-                <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
-                  <div className="space-y-6 sm:space-y-5">
-                    <div>
-                      <h3 className="text-xl mb-2 font-semibold leading-6 text-indigo-700">
-                        Profile
-                      </h3>
-                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                        This information will be displayed publicly so be
-                        careful what you share.
-                      </p>
-                    </div>
-
+              <div>
+                <div className="space-y-8 divide-y divide-gray-200">
+                  <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
                     <div className="space-y-6 sm:space-y-5">
-                      <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label
-                          htmlFor="bio"
-                          className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
-                        >
-                          Bio
-                        </label>
-                        <div className="mt-2 sm:col-span-2 sm:mt-0">
-                          <input
-                            type="text"
-                            name="bio"
-                            id="bio"
-                            autoComplete="given-name"
-                            className="block w-full max-w-lg rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label
-                          htmlFor="about"
-                          className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
-                        >
+                      <div>
+                        <h3 className="text-xl mb-2 font-semibold leading-6 text-indigo-700">
                           Description
-                        </label>
-                        <div className="mt-2 sm:col-span-2 sm:mt-0">
-                          <textarea
-                            id="about"
-                            name="about"
-                            rows={12}
-                            className="block w-full max-w-lg rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
-                            defaultValue={""}
-                            onChange={handleDescriptionChange}
-                          />
-                          <p className="mt-2 text-sm text-gray-500">
-                            Write a paragraph about your project.
-                          </p>
-                        </div>
+                        </h3>
+                        <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                          This information will be displayed publicly so be
+                          careful what you share.
+                        </p>
+                        <Formik
+                          initialValues={{
+                            bio: project?.bio || "",
+                            description: project?.description || "",
+                          }}
+                          validationSchema={validateDescription}
+                          onSubmit={async (values, actions) => {
+                            console.log(values);
+                            await updateProjectAttribute(
+                              project?.slug as string,
+                              "bio",
+                              values.bio
+                            ).then(async (res) => {
+                              if (res) {
+                                await updateProjectAttribute(
+                                  project?.slug as string,
+                                  "description",
+                                  values.description
+                                );
+                              }
+                            });
+                            actions.setSubmitting(false);
+                          }}
+                        >
+                          {({ values, errors, touched }) => (
+                            <Form>
+                              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div className="col-span-full border-t-2 border-indigo-500 pt-8">
+                                  <label
+                                    htmlFor="bio"
+                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                  >
+                                    Short Description
+                                  </label>
+                                  <div className="mt-2">
+                                    <Field name="bio">
+                                      {({
+                                        field,
+                                      }: {
+                                        field: FieldInputProps<string>;
+                                      }) => (
+                                        <input
+                                          {...field}
+                                          type="text"
+                                          placeholder="What is your question?"
+                                          className={classNames(
+                                            "lock w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
+                                            {
+                                              "ring-2 ring-red-500":
+                                                errors.bio && touched.bio,
+                                            }
+                                          )}
+                                        />
+                                      )}
+                                    </Field>
+                                    <ErrorMessage
+                                      name="bio"
+                                      render={(msg) => (
+                                        <div className="text-red-500 text-sm mt-1">
+                                          {msg}
+                                        </div>
+                                      )}
+                                    />
+                                  </div>
+                                </div>
+                                <div className="col-span-full">
+                                  <label
+                                    htmlFor="description"
+                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                  >
+                                    Long Description
+                                  </label>
+                                  <div className="mt-2">
+                                    <Field name="description">
+                                      {({
+                                        field,
+                                      }: {
+                                        field: FieldInputProps<string>;
+                                      }) => (
+                                        <textarea
+                                          {...field}
+                                          placeholder="What is your question?"
+                                          rows={6}
+                                          className={classNames(
+                                            "lock w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
+                                            {
+                                              "ring-2 ring-red-500":
+                                                errors.description &&
+                                                touched.description,
+                                            }
+                                          )}
+                                        />
+                                      )}
+                                    </Field>
+                                    <ErrorMessage
+                                      name="description"
+                                      render={(msg) => (
+                                        <div className="text-red-500 text-sm mt-1">
+                                          {msg}
+                                        </div>
+                                      )}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex pt-5 justify-end gap-x-3 border-t-2 border-indigo-600 mt-8">
+                                <button
+                                  type="button"
+                                  className="rounded-md bg-white py-2 px-3 text-sm font-semibold border border-red-500 text-red-500 shadow-sm hover:bg-gray-50"
+                                >
+                                  Cancel
+                                </button>
+                                <button
+                                  type="submit"
+                                  className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                >
+                                  Update Description
+                                </button>
+                              </div>
+                            </Form>
+                          )}
+                        </Formik>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <div className="pt-5">
-                  <div className="flex justify-end gap-x-3">
-                    <button
-                      type="button"
-                      className="rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      onClick={(event) => handleSubmit(event)}
-                      className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Save
-                    </button>
-                  </div>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
           <div className="w-1/3">

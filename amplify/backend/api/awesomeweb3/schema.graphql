@@ -14,7 +14,7 @@ type Project @model @auth(rules: [{ allow: public }]) {
   tokenSymbol: AWSURL
   openJobs: [AWSJSON]
   team: [AWSJSON]
-  faq: [AWSJSON]
+  faq: [AWSJSON!]
 }
 
 type Category @model @auth(rules: [{ allow: public }]) {
