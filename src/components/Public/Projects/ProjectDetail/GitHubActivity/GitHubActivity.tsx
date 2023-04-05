@@ -8,8 +8,11 @@ import styles from "./GitHubActivity.module.css";
 
 import classNames from "classnames";
 
+import { Project } from "../../../../../API";
+
 interface GitHubActivityProps {
   open: boolean;
+  project: Project;
 }
 
 export default function GitHubActivity(props: GitHubActivityProps) {

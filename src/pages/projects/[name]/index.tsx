@@ -3,14 +3,12 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Image from "next/image";
-import Link from "next/link";
 
 import type { ReactElement } from "react";
 
 // ** Amplify Imports
-import { API, graphqlOperation, withSSRContext } from "aws-amplify";
+import { graphqlOperation, withSSRContext } from "aws-amplify";
 import { getProject } from "../../../graphql/queries";
-import { ProjectStatus } from "../../../API";
 
 // ** Custom Components
 import Description from "../../../components/Public/Projects/ProjectDetail/Description/Description";
@@ -24,16 +22,6 @@ import SideNavbar from "../../../components/Public/Projects/ProjectDetail/SideNa
 
 import UserLayout from "../../../layouts/UserLayout";
 
-// ** Icon Imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTwitter,
-  faDiscord,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
-
-import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 // ** Types
 import { Project } from "../../../API";
 
@@ -49,10 +37,7 @@ export const getServerSideProps: GetServerSideProps<{
   );
 
   //TODO: Change approved to not approved
-  if (
-    data.data.getProject === null ||
-    data.data.getProject.status === ProjectStatus.APPROVED
-  ) {
+  if (data.data.getProject === null) {
     return {
       notFound: true,
     };
@@ -122,8 +107,7 @@ export default function ProjectDetail({
                     {data.name}
                   </h1>
                   <p className="text-md md:text-xl leading-6 font-medium text-black tracking-wide">
-                    Building a social network is hard. Lens Protocol makes it
-                    easy .
+                    {data.bio}
                   </p>
                   <div className="border-t-4 border-indigo-900 max-w-xs pt-6 mt-6">
                     <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
@@ -135,17 +119,7 @@ export default function ProjectDetail({
                   </div>
                   <div className="max-w-2xl mx-auto"></div>
                 </div>
-                <div className="w-full md:w-1/6 p-2 mx-auto hover:text-indigo-500">
-                  {/* <div className="relative">
-                    <FontAwesomeIcon
-                      icon={faTriangleExclamation}
-                      className="w-full text-[50px]"
-                    />
-                    <p className="text-[60px] font-semibold w-full text-center">
-                      0
-                    </p>
-                  </div> */}
-                </div>
+                <div className="w-full md:w-1/6 p-2 mx-auto hover:text-indigo-500"></div>
               </div>
             </div>
           </div>
@@ -153,13 +127,19 @@ export default function ProjectDetail({
         <div className="grid grid-cols-4 gap-20">
           <div className="col-span-4 md:col-span-3 lg:col-span-3">
             <div className="grid grid-cols-1">
-              <Description open={true} />
-              <TokenStats open={false} />
-              <GitHubActivity open={true} />
-              <Team open={false} />
-              <Articles open={true} />
-              <Faq open={true} />
-              <Jobs open={true} />
+              <Description open={true} project={data} />
+              <TokenStats
+                open={data.tokenSymbol ? true : false}
+                project={data}
+              />
+              <GitHubActivity
+                open={data.githubRepoUrl ? true : false}
+                project={data}
+              />
+              <Team open={data.team ? true : false} project={data} />
+              <Articles open={data.articles ? true : false} project={data} />
+              <Faq open={data.faq ? true : false} project={data} />
+              <Jobs open={data.openJobs ? true : false} project={data} />
             </div>
           </div>
           <div className="sticky top-0 hidden md:block lg:block">

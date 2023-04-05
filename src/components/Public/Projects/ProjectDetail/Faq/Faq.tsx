@@ -9,8 +9,11 @@ import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 import { useState } from "react";
 
+import { Project } from "../../../../../API";
+
 interface IFaqProps {
   open: boolean;
+  project: Project;
 }
 
 export default function Faq(props: IFaqProps) {

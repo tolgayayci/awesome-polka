@@ -2,6 +2,96 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
+    onCreateUser(filter: $filter) {
+      walletAddress
+      username
+      type
+      status
+      project {
+        items {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
+    onUpdateUser(filter: $filter) {
+      walletAddress
+      username
+      type
+      status
+      project {
+        items {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
+    onDeleteUser(filter: $filter) {
+      walletAddress
+      username
+      type
+      status
+      project {
+        items {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateProject = /* GraphQL */ `
   subscription OnCreateProject($filter: ModelSubscriptionProjectFilterInput) {
     onCreateProject(filter: $filter) {
@@ -25,6 +115,33 @@ export const onCreateProject = /* GraphQL */ `
       openJobs
       team
       faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
       createdAt
       updatedAt
     }
@@ -53,6 +170,33 @@ export const onUpdateProject = /* GraphQL */ `
       openJobs
       team
       faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
       createdAt
       updatedAt
     }
@@ -81,6 +225,168 @@ export const onDeleteProject = /* GraphQL */ `
       openJobs
       team
       faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateArticle = /* GraphQL */ `
+  subscription OnCreateArticle($filter: ModelSubscriptionArticleFilterInput) {
+    onCreateArticle(filter: $filter) {
+      id
+      title
+      description
+      body
+      image
+      isExternal
+      externalUrl
+      project {
+        slug
+        name
+        bio
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      projectSlug
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateArticle = /* GraphQL */ `
+  subscription OnUpdateArticle($filter: ModelSubscriptionArticleFilterInput) {
+    onUpdateArticle(filter: $filter) {
+      id
+      title
+      description
+      body
+      image
+      isExternal
+      externalUrl
+      project {
+        slug
+        name
+        bio
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      projectSlug
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteArticle = /* GraphQL */ `
+  subscription OnDeleteArticle($filter: ModelSubscriptionArticleFilterInput) {
+    onDeleteArticle(filter: $filter) {
+      id
+      title
+      description
+      body
+      image
+      isExternal
+      externalUrl
+      project {
+        slug
+        name
+        bio
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      projectSlug
       createdAt
       updatedAt
     }
@@ -171,6 +477,18 @@ export const onCreateProjectCategories = /* GraphQL */ `
         openJobs
         team
         faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
         createdAt
         updatedAt
       }
@@ -211,6 +529,18 @@ export const onUpdateProjectCategories = /* GraphQL */ `
         openJobs
         team
         faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
         createdAt
         updatedAt
       }
@@ -251,6 +581,18 @@ export const onDeleteProjectCategories = /* GraphQL */ `
         openJobs
         team
         faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
         createdAt
         updatedAt
       }

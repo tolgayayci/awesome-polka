@@ -1,8 +1,11 @@
 // ** Style Imports
 import styles from "./Jobs.module.css";
 
+import { Project } from "../../../../../API";
+
 interface JobsProps {
   open: boolean;
+  project: Project;
 }
 
 export default function Jobs(props: JobsProps) {

@@ -15,6 +15,7 @@ import {
   FireIcon,
   MinusIcon,
   PlusIcon,
+  PhotoIcon,
 } from "@heroicons/react/20/solid";
 import classNames from "classnames";
 import Loader from "../../../Loader/Loader";
@@ -91,7 +92,7 @@ export default function Team() {
                             actions.setSubmitting(false);
                           }}
                         >
-                          {({ values, errors }) => (
+                          {({ values, errors, touched }) => (
                             <Form>
                               <FieldArray
                                 name="team"

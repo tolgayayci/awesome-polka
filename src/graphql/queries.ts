@@ -2,6 +2,66 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getUser = /* GraphQL */ `
+  query GetUser($walletAddress: String!) {
+    getUser(walletAddress: $walletAddress) {
+      walletAddress
+      username
+      type
+      status
+      project {
+        items {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $walletAddress: String
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listUsers(
+      walletAddress: $walletAddress
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        walletAddress
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getProject = /* GraphQL */ `
   query GetProject($slug: String!) {
     getProject(slug: $slug) {
@@ -25,6 +85,33 @@ export const getProject = /* GraphQL */ `
       openJobs
       team
       faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
       createdAt
       updatedAt
     }
@@ -59,6 +146,101 @@ export const listProjects = /* GraphQL */ `
         openJobs
         team
         faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getArticle = /* GraphQL */ `
+  query GetArticle($id: ID!) {
+    getArticle(id: $id) {
+      id
+      title
+      description
+      body
+      image
+      isExternal
+      externalUrl
+      project {
+        slug
+        name
+        bio
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      projectSlug
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listArticles = /* GraphQL */ `
+  query ListArticles(
+    $filter: ModelArticleFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listArticles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        description
+        body
+        image
+        isExternal
+        externalUrl
+        project {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        projectSlug
         createdAt
         updatedAt
       }
@@ -128,6 +310,18 @@ export const getProjectCategories = /* GraphQL */ `
         openJobs
         team
         faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
         createdAt
         updatedAt
       }
@@ -172,6 +366,7 @@ export const listProjectCategories = /* GraphQL */ `
           openJobs
           team
           faq
+          userWalletAddress
           createdAt
           updatedAt
         }
@@ -182,6 +377,100 @@ export const listProjectCategories = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const projectsByUserWalletAddress = /* GraphQL */ `
+  query ProjectsByUserWalletAddress(
+    $userWalletAddress: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelProjectFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    projectsByUserWalletAddress(
+      userWalletAddress: $userWalletAddress
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        slug
+        name
+        bio
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const articlesByProjectSlug = /* GraphQL */ `
+  query ArticlesByProjectSlug(
+    $projectSlug: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelArticleFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    articlesByProjectSlug(
+      projectSlug: $projectSlug
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        title
+        description
+        body
+        image
+        isExternal
+        externalUrl
+        project {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        projectSlug
         createdAt
         updatedAt
       }
@@ -219,6 +508,7 @@ export const projectCategoriesByProjectSlug = /* GraphQL */ `
           openJobs
           team
           faq
+          userWalletAddress
           createdAt
           updatedAt
         }
@@ -266,6 +556,7 @@ export const projectCategoriesByCategoryId = /* GraphQL */ `
           openJobs
           team
           faq
+          userWalletAddress
           createdAt
           updatedAt
         }

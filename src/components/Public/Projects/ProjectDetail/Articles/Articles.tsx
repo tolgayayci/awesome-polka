@@ -3,9 +3,11 @@ import Image from "next/image";
 
 // ** Style Imports
 import styles from "./Articles.module.css";
+import { Project } from "../../../../../API";
 
 interface IArticlesProps {
   open: boolean;
+  project: Project;
 }
 
 export default function Articles(props: IArticlesProps) {

@@ -2,6 +2,105 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    createUser(input: $input, condition: $condition) {
+      walletAddress
+      username
+      type
+      status
+      project {
+        items {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateUser = /* GraphQL */ `
+  mutation UpdateUser(
+    $input: UpdateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    updateUser(input: $input, condition: $condition) {
+      walletAddress
+      username
+      type
+      status
+      project {
+        items {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteUser = /* GraphQL */ `
+  mutation DeleteUser(
+    $input: DeleteUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    deleteUser(input: $input, condition: $condition) {
+      walletAddress
+      username
+      type
+      status
+      project {
+        items {
+          slug
+          name
+          bio
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createProject = /* GraphQL */ `
   mutation CreateProject(
     $input: CreateProjectInput!
@@ -28,6 +127,33 @@ export const createProject = /* GraphQL */ `
       openJobs
       team
       faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
       createdAt
       updatedAt
     }
@@ -59,6 +185,33 @@ export const updateProject = /* GraphQL */ `
       openJobs
       team
       faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
       createdAt
       updatedAt
     }
@@ -90,6 +243,177 @@ export const deleteProject = /* GraphQL */ `
       openJobs
       team
       faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createArticle = /* GraphQL */ `
+  mutation CreateArticle(
+    $input: CreateArticleInput!
+    $condition: ModelArticleConditionInput
+  ) {
+    createArticle(input: $input, condition: $condition) {
+      id
+      title
+      description
+      body
+      image
+      isExternal
+      externalUrl
+      project {
+        slug
+        name
+        bio
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      projectSlug
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateArticle = /* GraphQL */ `
+  mutation UpdateArticle(
+    $input: UpdateArticleInput!
+    $condition: ModelArticleConditionInput
+  ) {
+    updateArticle(input: $input, condition: $condition) {
+      id
+      title
+      description
+      body
+      image
+      isExternal
+      externalUrl
+      project {
+        slug
+        name
+        bio
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      projectSlug
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteArticle = /* GraphQL */ `
+  mutation DeleteArticle(
+    $input: DeleteArticleInput!
+    $condition: ModelArticleConditionInput
+  ) {
+    deleteArticle(input: $input, condition: $condition) {
+      id
+      title
+      description
+      body
+      image
+      isExternal
+      externalUrl
+      project {
+        slug
+        name
+        bio
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      projectSlug
       createdAt
       updatedAt
     }
@@ -190,6 +514,18 @@ export const createProjectCategories = /* GraphQL */ `
         openJobs
         team
         faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
         createdAt
         updatedAt
       }
@@ -231,6 +567,18 @@ export const updateProjectCategories = /* GraphQL */ `
         openJobs
         team
         faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
         createdAt
         updatedAt
       }
@@ -272,6 +620,18 @@ export const deleteProjectCategories = /* GraphQL */ `
         openJobs
         team
         faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
         createdAt
         updatedAt
       }

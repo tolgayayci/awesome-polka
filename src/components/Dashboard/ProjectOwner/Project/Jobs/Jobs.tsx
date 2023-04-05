@@ -59,7 +59,7 @@ export default function Jobs() {
                         <h3 className="text-xl mb-2 font-semibold leading-6 text-indigo-700">
                           Job Advertisements
                         </h3>
-                        <p className="mt-1 max-w-2xl text-sm text-gray-500 mb-6">
+                        <p className="mt-1 max-w-2xl text-sm text-gray-500 mb-8">
                           This information will be displayed publicly so be
                           careful what you share.
                         </p>
@@ -98,9 +98,9 @@ export default function Jobs() {
                                         (jobs: JobProps, index: number) => (
                                           <div
                                             key={index}
-                                            className="space-y-6 sm:space-y-5"
+                                            className="space-y-6 sm:space-y-5 shadow-2xl rounded-xl border-2 border-indigo-500 mb-8 p-12"
                                           >
-                                            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t-2 sm:border-indigo-500 sm:pt-8 pb-2">
+                                            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4sm:pt-8 pb-2">
                                               <div className="col-span-full border-l-4 border-indigo-400 bg-indigo-50 p-4 mb-2">
                                                 <div className="flex">
                                                   <div className="ml-3">
@@ -346,7 +346,7 @@ export default function Jobs() {
                                               </div>
                                             </div>
 
-                                            <div className="flex justify-end pb-8">
+                                            <div className="flex justify-end">
                                               <button
                                                 className="bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-1.5 px-4 rounded-l-xl border-indigo-900 border-2"
                                                 type="button"

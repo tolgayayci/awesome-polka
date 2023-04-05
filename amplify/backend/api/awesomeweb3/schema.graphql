@@ -1,8 +1,22 @@
-# This "input" configures a global authorization rule to enable public access to
-# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-input AMPLIFY {
-  globalAuthRule: AuthRule = { allow: public }
-} # FOR TESTING ONLY!
+enum UserType {
+  PROJECT_OWNER
+  ADMIN
+}
+
+enum UserStatus {
+  APPROVED
+  NOT_APPROVED
+  BLOCKED
+}
+
+type User @model @auth(rules: [{ allow: public }]) {
+  walletAddress: String! @primaryKey
+  username: String!
+  type: UserType!
+  status: UserStatus!
+  project: [Project] @hasMany(indexName: "byUser", fields: ["walletAddress"])
+}
+
 type Project @model @auth(rules: [{ allow: public }]) {
   slug: String! @primaryKey
   name: String!
@@ -15,6 +29,21 @@ type Project @model @auth(rules: [{ allow: public }]) {
   openJobs: [AWSJSON]
   team: [AWSJSON]
   faq: [AWSJSON!]
+  articles: [Article] @hasMany(indexName: "byProject", fields: ["slug"])
+  user: User @belongsTo(fields: ["userWalletAddress"])
+  userWalletAddress: String! @index(name: "byUser")
+}
+
+type Article @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  title: String!
+  description: String!
+  body: String
+  image: AWSURL!
+  isExternal: Boolean!
+  externalUrl: AWSURL
+  project: Project @belongsTo(fields: ["projectSlug"])
+  projectSlug: String! @index(name: "byProject")
 }
 
 type Category @model @auth(rules: [{ allow: public }]) {

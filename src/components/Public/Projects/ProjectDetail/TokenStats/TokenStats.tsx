@@ -12,8 +12,11 @@ import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
+import { Project } from "../../../../../API";
+
 interface ITokenStatsProps {
   open: boolean;
+  project: Project;
 }
 
 export default function TokenStats(props: ITokenStatsProps) {
