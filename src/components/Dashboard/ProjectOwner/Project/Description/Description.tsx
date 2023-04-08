@@ -1,42 +1,54 @@
-//** Style Imports */
-import React, { useState, useEffect } from "react";
-import { useProjectStore } from "../../../../../data/store/projectStore";
+//** React */
+import React from "react";
 
-// ** Form Imports */
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FieldInputProps } from "formik";
-import { readProjectAttribute } from "../../../../../data/queries/readProjectAttribute";
-import { updateProjectAttribute } from "../../../../../data/mutations/updateProjectAttribute";
+// ** Form & Validation */
+import {
+  Formik,
+  Form,
+  Field,
+  ErrorMessage,
+  FormikHelpers,
+  FieldInputProps,
+} from "formik";
 import { validateDescription } from "../../../../../utils/validation/descriptionValidation";
+import type { DescriptionProps } from "../../../../../types/types";
 
-import { LightBulbIcon, CheckIcon, FireIcon } from "@heroicons/react/20/solid";
-import classNames from "classnames";
+//** Data & Hooks */
+import { useCheckProject } from "../../../../../hooks/useCheckProject";
+import { updateProjectAttribute } from "../../../../../data/mutations/updateProjectAttribute";
+
+//** Custom */
 import Loader from "../../../Loader/Loader";
-
-import { DescriptionProps } from "../../../../../types/types";
-
-//** Style Imports */
+import SideNav from "../../SideNav/SideNav";
+import classNames from "classnames";
+import {
+  XCircleIcon,
+  CheckCircleIcon,
+  PlusCircleIcon,
+} from "@heroicons/react/20/solid";
 
 export default function ProjectDescription() {
-  const project = useProjectStore((state) => state.project);
-  const [isLoading, setIsLoading] = useState(true);
+  const { project, isLoading } = useCheckProject("lens-protocol");
 
-  async function check() {
+  // This is an async function that handles the form submission for updating a project's description.
+  async function handleSubmit(
+    values: DescriptionProps,
+    actions: FormikHelpers<DescriptionProps> // The `actions` parameter is an object with utility functions for handling the form submission, such as `setSubmitting`
+  ) {
     try {
-      if (!project) {
-        //TODO: Change parameter to project slug
-        await readProjectAttribute("lens-protocol");
-      }
+      // Call the `updateProjectAttribute` function with an object containing the project slug and the `bio` and `description` fields from the `values` parameter.
+      await updateProjectAttribute({
+        slug: project?.slug as string,
+        bio: values.bio,
+        description: values.description,
+      });
+      actions.setStatus({ success: true });
     } catch (error) {
-      console.log(error);
+      actions.setStatus({ success: false });
     } finally {
-      setIsLoading(false);
+      actions.setSubmitting(false);
     }
   }
-
-  useEffect(() => {
-    check();
-  });
 
   if (isLoading) {
     return <Loader />;
@@ -44,192 +56,188 @@ export default function ProjectDescription() {
 
   return (
     <>
-      <section className="container max-w-8xl mx-auto mt-7">
+      <section className="container max-w-8xl mx-auto mt-10">
         <div className="flex space-x-8">
           <div className="w-2/3">
             <div className="border-[3px] border-indigo-900 rounded-lg px-20 py-16 bg-white">
-              <div>
-                <div className="space-y-8 divide-y divide-gray-200">
-                  <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
-                    <div className="space-y-6 sm:space-y-5">
-                      <div>
-                        <h3 className="text-xl mb-2 font-semibold leading-6 text-indigo-700">
-                          Description
-                        </h3>
-                        <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                          This information will be displayed publicly so be
-                          careful what you share.
-                        </p>
-                        <Formik
-                          initialValues={{
-                            bio: project?.bio || "",
-                            description: project?.description || "",
-                          }}
-                          validationSchema={validateDescription}
-                          onSubmit={async (values, actions) => {
-                            console.log(values);
-                            await updateProjectAttribute(
-                              project?.slug as string,
-                              "bio",
-                              values.bio
-                            ).then(async (res) => {
-                              if (res) {
-                                await updateProjectAttribute(
-                                  project?.slug as string,
-                                  "description",
-                                  values.description
-                                );
-                              }
-                            });
-                            actions.setSubmitting(false);
-                          }}
-                        >
-                          {({ values, errors, touched }) => (
-                            <Form>
-                              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                                <div className="col-span-full border-t-2 border-indigo-500 pt-8">
-                                  <label
-                                    htmlFor="bio"
-                                    className="block text-sm font-medium leading-6 text-gray-900"
-                                  >
-                                    Short Description
-                                  </label>
-                                  <div className="mt-2">
-                                    <Field name="bio">
-                                      {({
-                                        field,
-                                      }: {
-                                        field: FieldInputProps<string>;
-                                      }) => (
-                                        <input
-                                          {...field}
-                                          type="text"
-                                          placeholder="What is your question?"
-                                          className={classNames(
-                                            "lock w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
-                                            {
-                                              "ring-2 ring-red-500":
-                                                errors.bio && touched.bio,
-                                            }
-                                          )}
-                                        />
-                                      )}
-                                    </Field>
-                                    <ErrorMessage
-                                      name="bio"
-                                      render={(msg) => (
-                                        <div className="text-red-500 text-sm mt-1">
-                                          {msg}
-                                        </div>
+              <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-5">
+                  <div>
+                    <h3 className="text-xl mb-2 font-semibold leading-6 text-indigo-700">
+                      Description
+                    </h3>
+                    <p className="mt-2 max-w-2xl text-sm text-gray-600">
+                      This information will be displayed publicly so be careful
+                      what you share!
+                    </p>
+                    <Formik
+                      initialValues={{
+                        bio: project?.bio || "",
+                        description: project?.description || "",
+                      }}
+                      validationSchema={validateDescription}
+                      validateOnChange={true}
+                      onSubmit={async (values, actions) => {
+                        await handleSubmit(values, actions);
+                      }}
+                    >
+                      {({
+                        errors,
+                        touched,
+                        isSubmitting,
+                        status,
+                        dirty,
+                        resetForm,
+                      }) => (
+                        <Form>
+                          <div className="mt-6 pt-6 grid grid-cols-1 gap-x-6 gap-y-8 border-t-2 border-indigo-700">
+                            <div className="col-span-full">
+                              <label
+                                htmlFor="bio"
+                                className="block text-sm font-medium leading-6 text-indigo-700"
+                              >
+                                Short Description
+                              </label>
+                              <div className="mt-2">
+                                <Field name="bio">
+                                  {({
+                                    field,
+                                  }: {
+                                    field: FieldInputProps<string>;
+                                  }) => (
+                                    <input
+                                      {...field}
+                                      type="text"
+                                      placeholder="A short description of your project like a tagline."
+                                      className={classNames(
+                                        "w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
+                                        {
+                                          "ring-2 ring-red-500":
+                                            errors.bio && touched.bio,
+                                        }
                                       )}
                                     />
-                                  </div>
-                                </div>
-                                <div className="col-span-full">
-                                  <label
-                                    htmlFor="description"
-                                    className="block text-sm font-medium leading-6 text-gray-900"
-                                  >
-                                    Long Description
-                                  </label>
-                                  <div className="mt-2">
-                                    <Field name="description">
-                                      {({
-                                        field,
-                                      }: {
-                                        field: FieldInputProps<string>;
-                                      }) => (
-                                        <textarea
-                                          {...field}
-                                          placeholder="What is your question?"
-                                          rows={6}
-                                          className={classNames(
-                                            "lock w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
-                                            {
-                                              "ring-2 ring-red-500":
-                                                errors.description &&
-                                                touched.description,
-                                            }
-                                          )}
-                                        />
-                                      )}
-                                    </Field>
-                                    <ErrorMessage
-                                      name="description"
-                                      render={(msg) => (
-                                        <div className="text-red-500 text-sm mt-1">
-                                          {msg}
-                                        </div>
+                                  )}
+                                </Field>
+                                <ErrorMessage
+                                  name="bio"
+                                  render={(msg) => (
+                                    <div className="text-red-500 text-sm mt-1">
+                                      {msg}
+                                    </div>
+                                  )}
+                                />
+                              </div>
+                            </div>
+                            <div className="col-span-full">
+                              <label
+                                htmlFor="description"
+                                className="block text-sm font-medium leading-6 text-indigo-700"
+                              >
+                                Detailed Description
+                              </label>
+                              <div className="mt-2">
+                                <Field name="description">
+                                  {({
+                                    field,
+                                  }: {
+                                    field: FieldInputProps<string>;
+                                  }) => (
+                                    <textarea
+                                      {...field}
+                                      placeholder="Explain your project in detail. What is it? What does it do? How does it work? What is the problem it solves and more."
+                                      rows={6}
+                                      onChange={(e) => {
+                                        field.onChange(e);
+                                      }}
+                                      className={classNames(
+                                        "w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
+                                        {
+                                          "ring-2 ring-red-500":
+                                            errors.description &&
+                                            touched.description,
+                                        }
                                       )}
                                     />
-                                  </div>
-                                </div>
+                                  )}
+                                </Field>
+                                <ErrorMessage
+                                  name="description"
+                                  render={(msg) => (
+                                    <div className="text-red-500 text-sm mt-1">
+                                      {msg}
+                                    </div>
+                                  )}
+                                />
                               </div>
-                              <div className="flex pt-5 justify-end gap-x-3 border-t-2 border-indigo-600 mt-8">
-                                <button
-                                  type="button"
-                                  className="rounded-md bg-white py-2 px-3 text-sm font-semibold border border-red-500 text-red-500 shadow-sm hover:bg-gray-50"
-                                >
-                                  Cancel
-                                </button>
-                                <button
-                                  type="submit"
-                                  className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                >
-                                  Update Description
-                                </button>
-                              </div>
-                            </Form>
-                          )}
-                        </Formik>
-                      </div>
-                    </div>
+                            </div>
+                          </div>
+                          {/**TODO: Refactor**/}
+                          <div className="flex pt-5 justify-end gap-x-3 mt-6">
+                            <button
+                              type="button"
+                              onClick={() => resetForm()}
+                              disabled={!dirty || isSubmitting || !touched}
+                              className={classNames(
+                                "rounded-md bg-white py-2 px-3 text-sm font-semibold border border-red-500 text-red-500 shadow-sm hover:bg-gray-50",
+                                { "opacity-50": !dirty }
+                              )}
+                            >
+                              Cancel Changes
+                            </button>
+
+                            {status !== undefined ? (
+                              <button
+                                type="submit"
+                                disabled={status?.success || isSubmitting}
+                                className={classNames(
+                                  "inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                                  {
+                                    "opacity-90 bg-green-800": status?.success,
+                                    "bg-red-600": !status?.success,
+                                  }
+                                )}
+                              >
+                                {status?.success ? (
+                                  <span className="flex justify-center items-center">
+                                    Changes Saved
+                                    <CheckCircleIcon
+                                      width={25}
+                                      className="ml-2"
+                                    />
+                                  </span>
+                                ) : (
+                                  <span className="flex justify-center items-center">
+                                    Failed, Try Again
+                                    <XCircleIcon width={25} className="ml-2" />
+                                  </span>
+                                )}
+                              </button>
+                            ) : (
+                              <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className={classNames(
+                                  "inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                )}
+                              >
+                                <span className="flex justify-center items-center">
+                                  Save Changes
+                                  <PlusCircleIcon width={25} className="ml-2" />
+                                </span>
+                              </button>
+                            )}
+                          </div>
+                        </Form>
+                      )}
+                    </Formik>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="w-1/3">
-            <div className="border-[3px] border-indigo-900 rounded-lg px-12 py-16 bg-white">
-              <ul className="space-y-4">
-                <li>
-                  <h2 className="text-lg font-semibold mb-2 text-indigo-600 flex items-center">
-                    <LightBulbIcon className="h-6 w-6 mr-2" />
-                    Start with a hook
-                  </h2>
-                  <p className="text-gray-700 text-[14px]">
-                    Your project page description should start with a hook that
-                    grabs the reader attention and gives them a reason to keep
-                    reading.
-                  </p>
-                </li>
-                <li>
-                  <h2 className="text-lg font-semibold mb-2 mt-8 text-indigo-600 flex items-center">
-                    <CheckIcon className="h-6 w-6 mr-2" />
-                    Highlight key features
-                  </h2>
-                  <p className="text-gray-700 text-[14px]">
-                    Focus on the most important features or benefits of your
-                    project that make it unique or valuable. This could include
-                    a description of the problem your project solves or the
-                    benefits it provides to users.
-                  </p>
-                </li>
-                <li>
-                  <h2 className="text-lg font-semibold mb-2 mt-8 text-indigo-600 flex items-center">
-                    <FireIcon className="h-6 w-6 mr-2" />
-                    Be concise and easy to read
-                  </h2>
-                  <p className="text-gray-700 text-[14px]">
-                    Keep your description concise and easy to read by using
-                    short paragraphs, bullet points, and headings to break up
-                    the text. Avoid using jargon or technical terms that may
-                    confuse readers who are not familiar with your project
-                    domain.
-                  </p>
-                </li>
-              </ul>
-            </div>
+            <SideNav />
           </div>
         </div>
       </section>

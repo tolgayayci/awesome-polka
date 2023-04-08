@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps<{
 
   const data = await SSR.API.graphql(
     graphqlOperation(getProject, {
-      id: context.params?.name,
+      slug: context.params?.name,
     })
   );
 
@@ -129,7 +129,7 @@ export default function ProjectDetail({
             <div className="grid grid-cols-1">
               <Description open={true} project={data} />
               <TokenStats
-                open={data.tokenSymbol ? true : false}
+                open={data.tokenSymbol ? false : false}
                 project={data}
               />
               <GitHubActivity

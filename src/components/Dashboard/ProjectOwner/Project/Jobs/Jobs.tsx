@@ -47,7 +47,7 @@ export default function Jobs() {
   }
   return (
     <>
-      <section className="container max-w-8xl mx-auto mt-7">
+      <section className="container max-w-8xl mx-auto mt-10">
         <div className="flex space-x-8">
           <div className="w-2/3">
             <div className="border-[3px] border-indigo-900 rounded-lg px-20 py-16 bg-white">

@@ -33,8 +33,8 @@ export default function Project() {
 
   return (
     <>
-      <section className="container max-w-8xl mx-auto mt-6">
-        <section className="mb-24 container max-w-8xl mx-auto px-6 lg:px-0">
+      <section className="container max-w-8xl mx-auto mt-10">
+        <section className="container max-w-8xl mx-auto px-6 lg:px-0">
           <div className="container">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
               <Link href="/dashboard/project/description">

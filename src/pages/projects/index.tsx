@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import type { ReactElement } from "react";
 
-import { Combobox } from "@headlessui/react";
-
 // ** Algolia Imports **
 import algoliasearch from "algoliasearch";
 import {

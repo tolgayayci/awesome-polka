@@ -3,17 +3,17 @@ import { updateProject } from '../../graphql/mutations';
 import { useProjectStore } from '../store/projectStore';
 
 import type { UpdateProjectMutation, UpdateProjectMutationVariables } from '../../API';
-import type { FaqProps } from '../../types/types';
 
-// This function is used to update a single attribute of a project, not the entire project
-export async function updateProjectAttribute(slug: UpdateProjectMutationVariables["input"]["slug"], attributeName: string, attributeValue: string | FaqProps[]) : Promise<UpdateProjectMutation['updateProject']>{
-    try {
+import { toast } from 'react-hot-toast';
+
+export async function updateProjectAttribute(object: UpdateProjectMutationVariables["input"]) : Promise<UpdateProjectMutation['updateProject']>{  
+
+  try {
         const response = await API.graphql<UpdateProjectMutation>({
           query: updateProject,
           variables: {
             input: {
-              slug,
-              [attributeName]: attributeValue,
+              ...object,
             },
           },
         }) as { data: UpdateProjectMutation | undefined };
@@ -23,11 +23,14 @@ export async function updateProjectAttribute(slug: UpdateProjectMutationVariable
         }
 
         useProjectStore.setState({ project: response.data.updateProject });
+        toast.success('Project updated successfully');
 
         return response.data.updateProject;
 
       } catch (err) {
         console.error('updateProjectAttribute error', err);
+        toast.error('Project update failed');
         throw err;
       }
 }
+

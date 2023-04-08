@@ -1,6 +1,16 @@
+import { Project } from "../API";
+
 export interface DescriptionProps {
-    bio: string;
-    details: string;
+    bio: Project["bio"];
+    description: Project["description"];
+}
+
+export interface TokenProps {
+    tokenUrl: Project["tokenSymbol"];
+}
+
+export interface GithubActivityProps {
+    repoUrl: Project["githubRepoUrl"];
 }
 
 export interface FaqProps {
@@ -8,12 +18,15 @@ export interface FaqProps {
     answer: string;
 }
 
-export interface TeamProps {
+export interface TeamMember {
     name: string;
     surname: string;
     role: string;
     image: string;
     linkedIn: string;
+}
+export interface TeamProps {
+    team: TeamMember[];
 }
 
 export interface JobProps {
