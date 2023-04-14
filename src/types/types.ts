@@ -13,11 +13,6 @@ export interface GithubActivityProps {
     repoUrl: Project["githubRepoUrl"];
 }
 
-export interface FaqProps {
-    question: string;
-    answer: string;
-}
-
 export interface TeamMember {
     name: string;
     surname: string;
@@ -29,13 +24,26 @@ export interface TeamProps {
     team: TeamMember[];
 }
 
+export interface FaqItem {
+    question: string;
+    answer: string;
+}
+
+export interface FaqProps {
+    faqs: FaqItem[];
+}
+
+export interface JobItem{
+    category: string;
+    title: string;
+    type: string;
+    remote: string;
+    location: string;
+    link: string;
+}
+
 export interface JobProps {
-   category: string;
-   title: string;
-   type: string;
-   remote: string;
-   location: string;
-   link: string;
+    jobs: JobItem[];
 }
 
 export interface FileUploadProps {

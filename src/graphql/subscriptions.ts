@@ -6,6 +6,7 @@ export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
     onCreateUser(filter: $filter) {
       walletAddress
+      nonce
       username
       type
       status
@@ -36,6 +37,7 @@ export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
     onUpdateUser(filter: $filter) {
       walletAddress
+      nonce
       username
       type
       status
@@ -66,6 +68,7 @@ export const onDeleteUser = /* GraphQL */ `
   subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
     onDeleteUser(filter: $filter) {
       walletAddress
+      nonce
       username
       type
       status
@@ -132,6 +135,7 @@ export const onCreateProject = /* GraphQL */ `
       }
       user {
         walletAddress
+        nonce
         username
         type
         status
@@ -187,6 +191,7 @@ export const onUpdateProject = /* GraphQL */ `
       }
       user {
         walletAddress
+        nonce
         username
         type
         status
@@ -242,6 +247,7 @@ export const onDeleteProject = /* GraphQL */ `
       }
       user {
         walletAddress
+        nonce
         username
         type
         status
@@ -286,6 +292,7 @@ export const onCreateArticle = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -331,6 +338,7 @@ export const onUpdateArticle = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -376,6 +384,7 @@ export const onDeleteArticle = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -482,6 +491,7 @@ export const onCreateProjectCategories = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -534,6 +544,7 @@ export const onUpdateProjectCategories = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -586,6 +597,7 @@ export const onDeleteProjectCategories = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status

@@ -6,6 +6,7 @@ export const getUser = /* GraphQL */ `
   query GetUser($walletAddress: String!) {
     getUser(walletAddress: $walletAddress) {
       walletAddress
+      nonce
       username
       type
       status
@@ -49,6 +50,7 @@ export const listUsers = /* GraphQL */ `
     ) {
       items {
         walletAddress
+        nonce
         username
         type
         status
@@ -102,6 +104,7 @@ export const getProject = /* GraphQL */ `
       }
       user {
         walletAddress
+        nonce
         username
         type
         status
@@ -151,6 +154,7 @@ export const listProjects = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -194,6 +198,7 @@ export const getArticle = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -315,6 +320,7 @@ export const getProjectCategories = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -418,6 +424,7 @@ export const projectsByUserWalletAddress = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status

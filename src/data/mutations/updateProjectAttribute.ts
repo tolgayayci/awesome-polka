@@ -16,6 +16,7 @@ export async function updateProjectAttribute(object: UpdateProjectMutationVariab
               ...object,
             },
           },
+          authToken: "custom-authorized"
         }) as { data: UpdateProjectMutation | undefined };
 
         if (!response.data || !response.data.updateProject) {

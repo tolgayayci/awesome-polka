@@ -1,11 +1,13 @@
-import { useState } from "react";
 import { useStorageUpload } from "@thirdweb-dev/react";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import ReactCrop from "react-image-crop";
 
 import { PhotoIcon } from "@heroicons/react/20/solid";
 
 import type { FileUploadProps } from "../../../types/types";
+
+import "react-image-crop/src/ReactCrop.scss";
 
 export default function FileUpload(props: FileUploadProps) {
   const { mutateAsync: upload } = useStorageUpload();
@@ -23,6 +25,8 @@ export default function FileUpload(props: FileUploadProps) {
     accept: {
       "image/png": [".png", ".jpg"],
     },
+    maxFiles: 1,
+    maxSize: 2097152,
   });
 
   return (

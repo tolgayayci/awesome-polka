@@ -4,6 +4,7 @@
 
 export type CreateUserInput = {
   walletAddress: string,
+  nonce: string,
   username: string,
   type: UserType,
   status: UserStatus,
@@ -23,6 +24,7 @@ export enum UserStatus {
 
 
 export type ModelUserConditionInput = {
+  nonce?: ModelStringInput | null,
   username?: ModelStringInput | null,
   type?: ModelUserTypeInput | null,
   status?: ModelUserStatusInput | null,
@@ -84,6 +86,7 @@ export type ModelUserStatusInput = {
 export type User = {
   __typename: "User",
   walletAddress: string,
+  nonce: string,
   username: string,
   type: UserType,
   status: UserStatus,
@@ -168,6 +171,7 @@ export type Article = {
 
 export type UpdateUserInput = {
   walletAddress: string,
+  nonce?: string | null,
   username?: string | null,
   type?: UserType | null,
   status?: UserStatus | null,
@@ -337,6 +341,7 @@ export type DeleteProjectCategoriesInput = {
 
 export type ModelUserFilterInput = {
   walletAddress?: ModelStringInput | null,
+  nonce?: ModelStringInput | null,
   username?: ModelStringInput | null,
   type?: ModelUserTypeInput | null,
   status?: ModelUserStatusInput | null,
@@ -414,6 +419,7 @@ export type ModelProjectCategoriesFilterInput = {
 
 export type ModelSubscriptionUserFilterInput = {
   walletAddress?: ModelSubscriptionStringInput | null,
+  nonce?: ModelSubscriptionStringInput | null,
   username?: ModelSubscriptionStringInput | null,
   type?: ModelSubscriptionStringInput | null,
   status?: ModelSubscriptionStringInput | null,
@@ -510,6 +516,7 @@ export type CreateUserMutation = {
   createUser?:  {
     __typename: "User",
     walletAddress: string,
+    nonce: string,
     username: string,
     type: UserType,
     status: UserStatus,
@@ -547,6 +554,7 @@ export type UpdateUserMutation = {
   updateUser?:  {
     __typename: "User",
     walletAddress: string,
+    nonce: string,
     username: string,
     type: UserType,
     status: UserStatus,
@@ -584,6 +592,7 @@ export type DeleteUserMutation = {
   deleteUser?:  {
     __typename: "User",
     walletAddress: string,
+    nonce: string,
     username: string,
     type: UserType,
     status: UserStatus,
@@ -662,6 +671,7 @@ export type CreateProjectMutation = {
     user?:  {
       __typename: "User",
       walletAddress: string,
+      nonce: string,
       username: string,
       type: UserType,
       status: UserStatus,
@@ -728,6 +738,7 @@ export type UpdateProjectMutation = {
     user?:  {
       __typename: "User",
       walletAddress: string,
+      nonce: string,
       username: string,
       type: UserType,
       status: UserStatus,
@@ -794,6 +805,7 @@ export type DeleteProjectMutation = {
     user?:  {
       __typename: "User",
       walletAddress: string,
+      nonce: string,
       username: string,
       type: UserType,
       status: UserStatus,
@@ -848,6 +860,7 @@ export type CreateArticleMutation = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -902,6 +915,7 @@ export type UpdateArticleMutation = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -956,6 +970,7 @@ export type DeleteArticleMutation = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -1090,6 +1105,7 @@ export type CreateProjectCategoriesMutation = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -1151,6 +1167,7 @@ export type UpdateProjectCategoriesMutation = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -1212,6 +1229,7 @@ export type DeleteProjectCategoriesMutation = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -1247,6 +1265,7 @@ export type GetUserQuery = {
   getUser?:  {
     __typename: "User",
     walletAddress: string,
+    nonce: string,
     username: string,
     type: UserType,
     status: UserStatus,
@@ -1289,6 +1308,7 @@ export type ListUsersQuery = {
     items:  Array< {
       __typename: "User",
       walletAddress: string,
+      nonce: string,
       username: string,
       type: UserType,
       status: UserStatus,
@@ -1352,6 +1372,7 @@ export type GetProjectQuery = {
     user?:  {
       __typename: "User",
       walletAddress: string,
+      nonce: string,
       username: string,
       type: UserType,
       status: UserStatus,
@@ -1402,6 +1423,7 @@ export type ListProjectsQuery = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -1453,6 +1475,7 @@ export type GetArticleQuery = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -1596,6 +1619,7 @@ export type GetProjectCategoriesQuery = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -1702,6 +1726,7 @@ export type ProjectsByUserWalletAddressQuery = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -1862,6 +1887,7 @@ export type OnCreateUserSubscription = {
   onCreateUser?:  {
     __typename: "User",
     walletAddress: string,
+    nonce: string,
     username: string,
     type: UserType,
     status: UserStatus,
@@ -1898,6 +1924,7 @@ export type OnUpdateUserSubscription = {
   onUpdateUser?:  {
     __typename: "User",
     walletAddress: string,
+    nonce: string,
     username: string,
     type: UserType,
     status: UserStatus,
@@ -1934,6 +1961,7 @@ export type OnDeleteUserSubscription = {
   onDeleteUser?:  {
     __typename: "User",
     walletAddress: string,
+    nonce: string,
     username: string,
     type: UserType,
     status: UserStatus,
@@ -2011,6 +2039,7 @@ export type OnCreateProjectSubscription = {
     user?:  {
       __typename: "User",
       walletAddress: string,
+      nonce: string,
       username: string,
       type: UserType,
       status: UserStatus,
@@ -2076,6 +2105,7 @@ export type OnUpdateProjectSubscription = {
     user?:  {
       __typename: "User",
       walletAddress: string,
+      nonce: string,
       username: string,
       type: UserType,
       status: UserStatus,
@@ -2141,6 +2171,7 @@ export type OnDeleteProjectSubscription = {
     user?:  {
       __typename: "User",
       walletAddress: string,
+      nonce: string,
       username: string,
       type: UserType,
       status: UserStatus,
@@ -2194,6 +2225,7 @@ export type OnCreateArticleSubscription = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -2247,6 +2279,7 @@ export type OnUpdateArticleSubscription = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -2300,6 +2333,7 @@ export type OnDeleteArticleSubscription = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -2430,6 +2464,7 @@ export type OnCreateProjectCategoriesSubscription = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -2490,6 +2525,7 @@ export type OnUpdateProjectCategoriesSubscription = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,
@@ -2550,6 +2586,7 @@ export type OnDeleteProjectCategoriesSubscription = {
       user?:  {
         __typename: "User",
         walletAddress: string,
+        nonce: string,
         username: string,
         type: UserType,
         status: UserStatus,

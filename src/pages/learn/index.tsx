@@ -222,8 +222,8 @@ export default function Learn() {
                     width="1.5em"
                   >
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="m1.027 27.904 15.69 8.823 14.903-8.604L32.818 9.56 16.837.238.945 9.413l.082 18.49ZM9.521 5.112 1.788 9.576l6.164 3.596 7.828-4.52-6.26-3.54Zm.566-.327L16.835.89 23 4.484l-6.653 3.841-6.26-3.54Zm6.829 3.862 6.643-3.836 8.405 4.903-6.513 3.76-8.535-4.827Zm8.814 5.317 6.48-3.742-.631 9.795-6.088 3.515.24-9.568Zm-.81 9.898.239-9.568-7.962 4.596-.108 9.443.044.024 7.787-4.495Zm.555.33 6.06-3.5-.457 7.093-5.776 3.335.173-6.928Zm-.745 7.258.173-6.928-7.765 4.483-.056-.032-.079 6.938 7.727-4.46Zm.155-17.649-8.536-4.827-7.837 4.525 8.405 4.902 7.968-4.6Zm-16.58.229 8.328 4.857-.104 9.135-8.182-4.542-.042-9.45Zm.045 10.096 8.172 4.537-.082 7.261-8.058-4.53-.032-7.268Zm-.532 6.95-.032-7.264-6.23-3.457.033 7.218 6.229 3.503ZM1.554 19.709l6.229 3.458L7.74 13.7l-6.229-3.633.043 9.642Z"
                       fill="currentColor"
                     ></path>
@@ -275,8 +275,8 @@ export default function Learn() {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
+                              fillRule="evenodd"
+                              clipRule="evenodd"
                               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
                               fill="currentColor"
                             ></path>
@@ -551,8 +551,8 @@ export default function Learn() {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
+                              fillRule="evenodd"
+                              clipRule="evenodd"
                               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
                               fill="currentColor"
                             ></path>
@@ -624,8 +624,8 @@ export default function Learn() {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
+                              fillRule="evenodd"
+                              clipRule="evenodd"
                               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
                               fill="currentColor"
                             ></path>

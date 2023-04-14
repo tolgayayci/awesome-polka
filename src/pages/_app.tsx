@@ -1,5 +1,4 @@
 // ** React Imports
-import { useEffect } from "react";
 import type { ReactElement, ReactNode } from "react";
 
 // ** Next Imports
@@ -52,10 +51,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       </Script>
       <ThirdwebProvider
         // Required configuration for the provider, but doesn't affect Auth.
-        activeChain="ethereum"
+        activeChain="polygon"
         authConfig={{
           // Set this to your domain to prevent phishing attacks
-          domain: "localhost:3000",
+          domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
+          authUrl: "/api/auth",
         }}
       >
         {getLayout(<Component {...pageProps} />)}

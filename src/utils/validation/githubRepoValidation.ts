@@ -7,7 +7,7 @@ export const validateGithubRepo = yup.object().shape({
       .url("Please enter a valid URL")
       .test(
         "is-github-repo",
-        "Please enter a valid GitHub repository URL, this should be in the format",
+        "Please enter a valid GitHub repository URL, for example https://github.com/username/repository-name/",
         (value) => {
           if (!value) return true;
           const pattern =

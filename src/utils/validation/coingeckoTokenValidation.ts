@@ -4,10 +4,10 @@ import * as yup from "yup";
 export const validateTokenSymbol = yup.object().shape({
     tokenUrl: yup
       .string()
-      .url("Please enter a valid URL")
+      .url("Please enter a URL")
       .test(
         "is-coingecko-url",
-        "Please enter a valid CoinGecko page URL, this should be in this format: https://www.coingecko.com/en/coins/ethereum",
+        "Please enter a valid CoinGecko page URL, should be in this format: https://www.coingecko.com/en/coins/ethereum",
         (value) => {
           if (!value) return true;
           const pattern =
@@ -16,5 +16,5 @@ export const validateTokenSymbol = yup.object().shape({
         }
       )
       .required("CoinGecko URL is required"),
-  });
+});
   

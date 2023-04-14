@@ -40,7 +40,7 @@ export default function Team() {
     actions: FormikHelpers<TeamProps> // The `actions` parameter is an object with utility functions for handling the form submission, such as `setSubmitting`
   ) {
     try {
-      // Call the `updateProjectAttribute` function with an object containing the project slug and the `tokenSymbol` fields from the `values` parameter.
+      // Call the `updateProjectAttribute` function with an object containing the project slug and the `team` fields from the `values` parameter.
       await updateProjectAttribute({
         slug: project?.slug as string,
         team: values.team.map((member) => JSON.stringify(member)),
@@ -62,13 +62,13 @@ export default function Team() {
       <section className="container max-w-8xl mx-auto mt-10">
         <div className="flex space-x-8">
           <div className="w-2/3">
-            <div className="border-[3dpx] border-indigo-900 rounded-lg bg-white">
+            <div className="rounded-lg bg-white">
               <div>
                 <div className="space-y-8 divide-y divide-gray-200">
                   <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
                     <div className="space-y-6 sm:space-y-5">
                       <div>
-                        <div className="pl-5 py-2 border-l-[3px]  border-l-indigo-700 ">
+                        <div className="pl-5 py-2 border-l-[3px]  border-l-indigo-700">
                           <h3 className="text-xl mb-2 font-semibold leading-6 text-indigo-700">
                             Your Awesome Team
                           </h3>
@@ -118,7 +118,7 @@ export default function Team() {
                                             key={index}
                                             className="space-y-6 sm:space-y-5 "
                                           >
-                                            <div className="border-2 border-indigo-500 rounded-lg px-16 py-14 my-8">
+                                            <div className="border-[3px] border-indigo-700 shadow-2xl rounded-lg p-16 my-8">
                                               <div className="grid grid-cols-1 gap-y-6 gap-x-6 sm:grid-cols-6">
                                                 <div className="col-span-full border-l-4 border-indigo-400 bg-indigo-50 p-4">
                                                   <div className="flex">
@@ -129,53 +129,51 @@ export default function Team() {
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <div className="sm:col-span-full">
-                                                  <div className="col-span-full">
-                                                    <label
-                                                      htmlFor="cover-photo"
-                                                      className="block text-sm font-medium leading-6 text-gray-900"
-                                                    >
-                                                      Profile photo
-                                                    </label>
-                                                    <Field
-                                                      name={`team.${index}.image`}
-                                                    >
-                                                      {({
-                                                        field,
-                                                      }: {
-                                                        field: FieldInputProps<string>;
-                                                      }) => (
-                                                        <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                                                          <FileUpload
-                                                            setPath={(path) =>
-                                                              arrayHelpers.replace(
-                                                                index,
-                                                                {
-                                                                  ...team,
-                                                                  image: path,
-                                                                }
-                                                              )
-                                                            }
-                                                          />
-                                                        </div>
-                                                      )}
-                                                    </Field>
-                                                    <ErrorMessage
-                                                      name={`team.${index}.image`}
-                                                      render={(msg) => (
-                                                        <div className="text-red-500 text-sm mt-1">
-                                                          {msg}
-                                                        </div>
-                                                      )}
-                                                    />
-                                                  </div>
+                                                <div className="col-span-full">
+                                                  <label
+                                                    htmlFor="cover-photo"
+                                                    className="block text-sm font-medium leading-6 text-indigo-700"
+                                                  >
+                                                    Profile photo
+                                                  </label>
+                                                  <Field
+                                                    name={`team.${index}.image`}
+                                                  >
+                                                    {({
+                                                      field,
+                                                    }: {
+                                                      field: FieldInputProps<string>;
+                                                    }) => (
+                                                      <div className="mt-2 flex justify-center rounded-lg border border-dashed border-indigo-900/25 px-6 py-10">
+                                                        <FileUpload
+                                                          setPath={(path) =>
+                                                            arrayHelpers.replace(
+                                                              index,
+                                                              {
+                                                                ...team,
+                                                                image: path,
+                                                              }
+                                                            )
+                                                          }
+                                                        />
+                                                      </div>
+                                                    )}
+                                                  </Field>
+                                                  <ErrorMessage
+                                                    name={`team.${index}.image`}
+                                                    render={(msg) => (
+                                                      <div className="text-red-500 text-sm mt-2">
+                                                        {msg}
+                                                      </div>
+                                                    )}
+                                                  />
                                                 </div>
                                                 <div className="sm:col-span-3">
                                                   <label
-                                                    htmlFor="name"
-                                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                                    htmlFor={`team.${index}.name`}
+                                                    className="block text-sm font-medium leading-6 text-indigo-700"
                                                   >
-                                                    First name
+                                                    First Name
                                                   </label>
                                                   <div className="mt-2">
                                                     <Field
@@ -191,9 +189,9 @@ export default function Team() {
                                                           type="text"
                                                           placeholder="Arif"
                                                           className={classNames(
-                                                            "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                                                            "w-full rounded-md border-2 border-indigo-500 py-1.5 text-gray-900 placeholder:text-gray-600 text-sm leading-6 pl-2 focus:ring-0",
                                                             {
-                                                              "ring-2 ring-red-500":
+                                                              "ring-2 ring-red-500 border-none focus:ring-2":
                                                                 errors.team &&
                                                                 errors.team[
                                                                   index
@@ -211,7 +209,7 @@ export default function Team() {
                                                     <ErrorMessage
                                                       name={`team.${index}.name`}
                                                       render={(msg) => (
-                                                        <div className="text-red-500 text-sm mt-1">
+                                                        <div className="text-red-500 text-sm mt-2">
                                                           {msg}
                                                         </div>
                                                       )}
@@ -220,56 +218,54 @@ export default function Team() {
                                                 </div>
                                                 <div className="sm:col-span-3">
                                                   <label
-                                                    htmlFor="surname"
-                                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                                    htmlFor={`team.${index}.surname`}
+                                                    className="block text-sm font-medium leading-6 text-indigo-700 mb-2"
                                                   >
-                                                    Last name
+                                                    Last Name
                                                   </label>
-                                                  <div className="mt-2">
-                                                    <Field
-                                                      name={`team.${index}.surname`}
-                                                    >
-                                                      {({
-                                                        field,
-                                                      }: {
-                                                        field: FieldInputProps<string>;
-                                                      }) => (
-                                                        <input
-                                                          {...field}
-                                                          type="text"
-                                                          placeholder="Işık"
-                                                          className={classNames(
-                                                            "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
-                                                            {
-                                                              "ring-2 ring-red-500":
-                                                                errors.team &&
+                                                  <Field
+                                                    name={`team.${index}.surname`}
+                                                  >
+                                                    {({
+                                                      field,
+                                                    }: {
+                                                      field: FieldInputProps<string>;
+                                                    }) => (
+                                                      <input
+                                                        {...field}
+                                                        type="text"
+                                                        placeholder="Işık"
+                                                        className={classNames(
+                                                          "w-full rounded-md border-2 border-indigo-500 py-1.5 text-gray-900 placeholder:text-gray-600 text-sm leading-6 pl-2 focus:ring-0",
+                                                          {
+                                                            "ring-2 ring-red-500 border-none focus:ring-2":
+                                                              errors.team &&
+                                                              errors.team[
+                                                                index
+                                                              ] &&
+                                                              (
                                                                 errors.team[
                                                                   index
-                                                                ] &&
-                                                                (
-                                                                  errors.team[
-                                                                    index
-                                                                  ] as TeamMember
-                                                                ).surname,
-                                                            }
-                                                          )}
-                                                        />
-                                                      )}
-                                                    </Field>
-                                                    <ErrorMessage
-                                                      name={`team.${index}.surname`}
-                                                      render={(msg) => (
-                                                        <div className="text-red-500 text-sm mt-1">
-                                                          {msg}
-                                                        </div>
-                                                      )}
-                                                    />
-                                                  </div>
+                                                                ] as TeamMember
+                                                              ).surname,
+                                                          }
+                                                        )}
+                                                      />
+                                                    )}
+                                                  </Field>
+                                                  <ErrorMessage
+                                                    name={`team.${index}.surname`}
+                                                    render={(msg) => (
+                                                      <div className="text-red-500 text-sm mt-2">
+                                                        {msg}
+                                                      </div>
+                                                    )}
+                                                  />
                                                 </div>
                                                 <div className="sm:col-span-full">
                                                   <label
-                                                    htmlFor="surname"
-                                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                                    htmlFor={`team.${index}.linkedIn`}
+                                                    className="block text-sm font-medium leading-6 text-indigo-700"
                                                   >
                                                     LinkedIn Profile
                                                   </label>
@@ -287,9 +283,9 @@ export default function Team() {
                                                           type="url"
                                                           placeholder="https://www.linkedin.com/in/arif-isik"
                                                           className={classNames(
-                                                            "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                                                            "w-full rounded-md border-2 border-indigo-500 py-1.5 text-gray-900 placeholder:text-gray-600 text-sm leading-6 pl-2 focus:ring-0",
                                                             {
-                                                              "ring-2 ring-red-500":
+                                                              "ring-2 ring-red-500 border-none focus:ring-2":
                                                                 errors.team &&
                                                                 errors.team[
                                                                   index
@@ -307,7 +303,7 @@ export default function Team() {
                                                     <ErrorMessage
                                                       name={`team.${index}.linkedIn`}
                                                       render={(msg) => (
-                                                        <div className="text-red-500 text-sm mt-1">
+                                                        <div className="text-red-500 text-sm mt-2">
                                                           {msg}
                                                         </div>
                                                       )}
@@ -316,8 +312,8 @@ export default function Team() {
                                                 </div>
                                                 <div className="sm:col-span-full">
                                                   <label
-                                                    htmlFor="surname"
-                                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                                    htmlFor={`team.${index}.role`}
+                                                    className="block text-sm font-medium leading-6 text-indigo-700"
                                                   >
                                                     Role
                                                   </label>
@@ -335,9 +331,9 @@ export default function Team() {
                                                           type="text"
                                                           placeholder="Co Founder"
                                                           className={classNames(
-                                                            "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                                                            "w-full rounded-md border-2 border-indigo-500 py-1.5 text-gray-900 placeholder:text-gray-600 text-sm leading-6 pl-2 focus:ring-0",
                                                             {
-                                                              "ring-2 ring-red-500":
+                                                              "ring-2 ring-red-500 border-none focus:ring-2":
                                                                 errors.team &&
                                                                 errors.team[
                                                                   index
@@ -355,7 +351,7 @@ export default function Team() {
                                                     <ErrorMessage
                                                       name={`team.${index}.role`}
                                                       render={(msg) => (
-                                                        <div className="text-red-500 text-sm mt-1">
+                                                        <div className="text-red-500 text-sm mt-2">
                                                           {msg}
                                                         </div>
                                                       )}
@@ -379,9 +375,12 @@ export default function Team() {
                                                   type="button"
                                                   onClick={() =>
                                                     arrayHelpers.insert(
-                                                      index,
+                                                      index + 1,
                                                       ""
                                                     )
+                                                  }
+                                                  disabled={
+                                                    values.team.length >= 5
                                                   }
                                                 >
                                                   <PlusIcon className="h-5 w-5" />
@@ -395,14 +394,14 @@ export default function Team() {
                                       <button
                                         type="button"
                                         onClick={() => arrayHelpers.push("")}
-                                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 mb-6 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                                        disabled={values.team.length >= 5}
+                                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-3 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm my-12"
                                       >
                                         Add Team Member
                                       </button>
                                     )}
 
-                                    {/**TODO: Refactor**/}
-                                    <div className="flex justify-end gap-x-3">
+                                    <div className="flex pt-5 justify-end gap-x-3">
                                       <button
                                         type="button"
                                         onClick={() => resetForm()}
@@ -453,9 +452,10 @@ export default function Team() {
                                       ) : (
                                         <button
                                           type="submit"
-                                          disabled={isSubmitting}
+                                          disabled={isSubmitting || !dirty}
                                           className={classNames(
-                                            "inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                            "inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                                            { "opacity-90": !dirty }
                                           )}
                                         >
                                           <span className="flex justify-center items-center">

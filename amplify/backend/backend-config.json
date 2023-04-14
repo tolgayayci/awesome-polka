@@ -4,19 +4,79 @@
       "dependsOn": [],
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [],
+          "additionalAuthenticationProviders": [
+            {
+              "apiKeyConfig": {
+                "apiKeyExpirationDate": "2023-04-19T12:33:46.025Z",
+                "apiKeyExpirationDays": 7,
+                "description": ""
+              },
+              "authenticationType": "API_KEY"
+            }
+          ],
           "defaultAuthentication": {
-            "apiKeyConfig": {
-              "apiKeyExpirationDate": "2023-04-24T13:08:46.361Z",
-              "apiKeyExpirationDays": 30,
-              "description": ""
-            },
-            "authenticationType": "API_KEY"
+            "authenticationType": "AWS_LAMBDA",
+            "lambdaAuthorizerConfig": {
+              "lambdaFunction": "graphQlLambdaAuthorizera4f086ce",
+              "ttlSeconds": "300"
+            }
           }
         }
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
+    }
+  },
+  "function": {
+    "graphQlLambdaAuthorizera4f086ce": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "awesomeweb3"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_graphQlLambdaAuthorizera4f086ce_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "graphQlLambdaAuthorizera4f086ce"
+        }
+      ]
+    },
+    "AMPLIFY_function_graphQlLambdaAuthorizera4f086ce_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "graphQlLambdaAuthorizera4f086ce"
+        }
+      ]
+    },
+    "AMPLIFY_function_graphQlLambdaAuthorizera4f086ce_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "graphQlLambdaAuthorizera4f086ce"
+        }
+      ]
+    },
+    "AMPLIFY_function_graphQlLambdaAuthorizera4f086ce_thirdwebAuthDomain": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "graphQlLambdaAuthorizera4f086ce"
+        }
+      ]
     }
   }
 }

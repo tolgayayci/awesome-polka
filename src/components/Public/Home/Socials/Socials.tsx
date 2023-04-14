@@ -34,8 +34,8 @@ export default function Socials() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
               fill="currentColor"
             ></path>
@@ -56,8 +56,8 @@ export default function Socials() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M17 8.5a8.5 8.5 0 0 1-12.431 7.538l-4.435.934a.1.1 0 0 1-.12-.109l.558-5.293A8.5 8.5 0 1 1 17 8.5Zm-4.25 0a4.25 4.25 0 0 1-6.216 3.77l-2.284.48.286-2.715A4.25 4.25 0 1 1 12.75 8.5Z"
                   fill="currentColor"
                 ></path>
@@ -77,8 +77,8 @@ export default function Socials() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
               fill="currentColor"
             ></path>
@@ -116,8 +116,8 @@ export default function Socials() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
               fill="currentColor"
             ></path>
@@ -155,8 +155,8 @@ export default function Socials() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
               fill="currentColor"
             ></path>

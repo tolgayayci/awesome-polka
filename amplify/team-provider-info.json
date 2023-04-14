@@ -12,6 +12,15 @@
       "AmplifyAppId": "d3dpg52quisf36"
     },
     "categories": {
+      "function": {
+        "thirdwebAuthorizer": {},
+        "graphQlLambdaAuthorizera4f086ce": {
+          "deploymentBucketName": "amplify-awesomeweb3-dev-160543-deployment",
+          "s3Key": "amplify-builds/graphQlLambdaAuthorizera4f086ce-337a4e326c575a386b65-build.zip",
+          "thirdwebAuthDomain": "localhost:3000",
+          "secretsPathAmplifyAppId": "d3dpg52quisf36"
+        }
+      },
       "api": {
         "awesomeweb3": {}
       }

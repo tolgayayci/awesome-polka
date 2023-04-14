@@ -1,0 +1,20 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "api": {
+      "awesomeweb3": [
+        "Query",
+        "Mutation"
+      ]
+    }
+  },
+  "secretNames": [
+    "THIRDWEB_AUTH_PRIVATE_KEY"
+  ],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "thirdwebAuthDomain",
+      "environmentVariableName": "THIRDWEB_AUTH_DOMAIN"
+    }
+  ]
+}

@@ -59,7 +59,7 @@ export default function Activity() {
       <section className="container max-w-8xl mx-auto mt-10">
         <div className="flex space-x-8">
           <div className="w-2/3">
-            <div className="border-[3px] border-indigo-900 rounded-lg px-20 py-16 bg-white">
+            <div className="border-[3px] border-indigo-700 shadow-2xl rounded-lg px-20 py-16 bg-white">
               <div className="space-y-8">
                 <div className="space-y-6 sm:space-y-5">
                   <div>
@@ -102,7 +102,7 @@ export default function Activity() {
                                     </div>
                                     <div className="ml-3">
                                       <h3 className="text-sm font-medium text-green-800">
-                                        Your token analytics are shown on your
+                                        Token analytics are shown on your
                                         project page
                                       </h3>
                                       <div className="mt-2 text-sm text-green-700">
@@ -127,12 +127,12 @@ export default function Activity() {
                                     </div>
                                     <div className="ml-3">
                                       <h3 className="text-sm font-medium text-yellow-800">
-                                        Token Analytics are not shown
+                                        Token Analytics Not Set
                                       </h3>
                                       <div className="mt-2 text-sm text-yellow-700">
                                         <p>
                                           You can add a token analytics module
-                                          to your page by adding a CoinGecko
+                                          to your page by adding below CoinGecko
                                           token page url.
                                         </p>
                                       </div>
@@ -146,7 +146,7 @@ export default function Activity() {
                                 htmlFor="tokenUrl"
                                 className="block text-sm font-medium leading-6 text-indigo-700"
                               >
-                                Token URL
+                                CoinGecko URL
                               </label>
                               <div className="mt-2">
                                 <Field name="tokenUrl">
@@ -163,9 +163,9 @@ export default function Activity() {
                                       }
                                       value={field.value}
                                       className={classNames(
-                                        "w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
+                                        "w-full rounded-md border-2 border-indigo-500 py-1.5 text-gray-900 placeholder:text-gray-600 text-sm leading-6 pl-2 focus:ring-0",
                                         {
-                                          "ring-2 ring-red-500":
+                                          "ring-2 ring-red-500 border-none focus:ring-2":
                                             errors.tokenUrl && touched.tokenUrl,
                                         }
                                       )}
@@ -175,7 +175,7 @@ export default function Activity() {
                                 <ErrorMessage
                                   name="tokenUrl"
                                   render={(msg) => (
-                                    <div className="text-red-500 text-sm mt-1">
+                                    <div className="text-red-500 text-sm mt-2">
                                       {msg}
                                     </div>
                                   )}
@@ -183,7 +183,6 @@ export default function Activity() {
                               </div>
                             </div>
                           </div>
-                          {/**TODO: Refactor**/}
                           <div className="flex pt-5 justify-end gap-x-3 mt-6">
                             <button
                               type="button"
@@ -227,9 +226,10 @@ export default function Activity() {
                             ) : (
                               <button
                                 type="submit"
-                                disabled={isSubmitting}
+                                disabled={isSubmitting || !dirty}
                                 className={classNames(
-                                  "inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                  "inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                                  { "opacity-90": !dirty }
                                 )}
                               >
                                 <span className="flex justify-center items-center">

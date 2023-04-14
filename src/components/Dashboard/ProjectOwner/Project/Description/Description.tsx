@@ -39,7 +39,7 @@ export default function ProjectDescription() {
       // Call the `updateProjectAttribute` function with an object containing the project slug and the `bio` and `description` fields from the `values` parameter.
       await updateProjectAttribute({
         slug: project?.slug as string,
-        bio: values.bio,
+        bio: values.bio as string,
         description: values.description,
       });
       actions.setStatus({ success: true });
@@ -59,7 +59,7 @@ export default function ProjectDescription() {
       <section className="container max-w-8xl mx-auto mt-10">
         <div className="flex space-x-8">
           <div className="w-2/3">
-            <div className="border-[3px] border-indigo-900 rounded-lg px-20 py-16 bg-white">
+            <div className="border-[3px] border-indigo-700 shadow-2xl rounded-lg px-20 py-16 bg-white">
               <div className="space-y-8">
                 <div className="space-y-6 sm:space-y-5">
                   <div>
@@ -73,7 +73,7 @@ export default function ProjectDescription() {
                     <Formik
                       initialValues={{
                         bio: project?.bio || "",
-                        description: project?.description || "",
+                        description: project?.description,
                       }}
                       validationSchema={validateDescription}
                       validateOnChange={true}
@@ -90,7 +90,7 @@ export default function ProjectDescription() {
                         resetForm,
                       }) => (
                         <Form>
-                          <div className="mt-6 pt-6 grid grid-cols-1 gap-x-6 gap-y-8 border-t-2 border-indigo-700">
+                          <div className="mt-6 pt-6 grid grid-cols-1 gap-x-4 gap-y-6 border-t-2 border-indigo-700">
                             <div className="col-span-full">
                               <label
                                 htmlFor="bio"
@@ -110,9 +110,9 @@ export default function ProjectDescription() {
                                       type="text"
                                       placeholder="A short description of your project like a tagline."
                                       className={classNames(
-                                        "w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
+                                        "w-full rounded-md border-2 border-indigo-500 py-1.5 text-gray-900 placeholder:text-gray-600 text-sm leading-6 pl-2 focus:ring-0",
                                         {
-                                          "ring-2 ring-red-500":
+                                          "ring-2 ring-red-500 border-none focus:ring-2":
                                             errors.bio && touched.bio,
                                         }
                                       )}
@@ -122,7 +122,7 @@ export default function ProjectDescription() {
                                 <ErrorMessage
                                   name="bio"
                                   render={(msg) => (
-                                    <div className="text-red-500 text-sm mt-1">
+                                    <div className="text-red-500 text-sm mt-2">
                                       {msg}
                                     </div>
                                   )}
@@ -151,9 +151,9 @@ export default function ProjectDescription() {
                                         field.onChange(e);
                                       }}
                                       className={classNames(
-                                        "w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
+                                        "w-full rounded-md border-2 border-indigo-500 py-1.5 text-gray-900 placeholder:text-gray-600 text-sm leading-6 pl-2 focus:ring-0",
                                         {
-                                          "ring-2 ring-red-500":
+                                          "ring-2 ring-red-500 border-none focus:ring-2":
                                             errors.description &&
                                             touched.description,
                                         }
@@ -164,7 +164,7 @@ export default function ProjectDescription() {
                                 <ErrorMessage
                                   name="description"
                                   render={(msg) => (
-                                    <div className="text-red-500 text-sm mt-1">
+                                    <div className="text-red-500 text-sm mt-2">
                                       {msg}
                                     </div>
                                   )}
@@ -172,7 +172,6 @@ export default function ProjectDescription() {
                               </div>
                             </div>
                           </div>
-                          {/**TODO: Refactor**/}
                           <div className="flex pt-5 justify-end gap-x-3 mt-6">
                             <button
                               type="button"
@@ -216,9 +215,10 @@ export default function ProjectDescription() {
                             ) : (
                               <button
                                 type="submit"
-                                disabled={isSubmitting}
+                                disabled={isSubmitting || !dirty}
                                 className={classNames(
-                                  "inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                  "inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                                  { "opacity-90": !dirty }
                                 )}
                               >
                                 <span className="flex justify-center items-center">

@@ -9,6 +9,7 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       walletAddress
+      nonce
       username
       type
       status
@@ -42,6 +43,7 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       walletAddress
+      nonce
       username
       type
       status
@@ -75,6 +77,7 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       walletAddress
+      nonce
       username
       type
       status
@@ -144,6 +147,7 @@ export const createProject = /* GraphQL */ `
       }
       user {
         walletAddress
+        nonce
         username
         type
         status
@@ -202,6 +206,7 @@ export const updateProject = /* GraphQL */ `
       }
       user {
         walletAddress
+        nonce
         username
         type
         status
@@ -260,6 +265,7 @@ export const deleteProject = /* GraphQL */ `
       }
       user {
         walletAddress
+        nonce
         username
         type
         status
@@ -307,6 +313,7 @@ export const createArticle = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -355,6 +362,7 @@ export const updateArticle = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -403,6 +411,7 @@ export const deleteArticle = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -519,6 +528,7 @@ export const createProjectCategories = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -572,6 +582,7 @@ export const updateProjectCategories = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
@@ -625,6 +636,7 @@ export const deleteProjectCategories = /* GraphQL */ `
         }
         user {
           walletAddress
+          nonce
           username
           type
           status
