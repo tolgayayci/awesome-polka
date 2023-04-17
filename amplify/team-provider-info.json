@@ -14,11 +14,10 @@
     "categories": {
       "function": {
         "thirdwebAuthorizer": {},
-        "graphQlLambdaAuthorizera4f086ce": {
+        "graphQlLambdaAuthorizera4f086ce": {},
+        "graphQlLambdaAuthorizer1c483541": {
           "deploymentBucketName": "amplify-awesomeweb3-dev-160543-deployment",
-          "s3Key": "amplify-builds/graphQlLambdaAuthorizera4f086ce-337a4e326c575a386b65-build.zip",
-          "thirdwebAuthDomain": "localhost:3000",
-          "secretsPathAmplifyAppId": "d3dpg52quisf36"
+          "s3Key": "amplify-builds/graphQlLambdaAuthorizer1c483541-4c6a6e75756179347956-build.zip"
         }
       },
       "api": {

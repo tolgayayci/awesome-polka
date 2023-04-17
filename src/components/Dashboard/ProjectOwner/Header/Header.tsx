@@ -3,14 +3,9 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
-// ** Thirdweb Imports
-import { ConnectWallet } from "@thirdweb-dev/react";
-
 // ** Style Imports
 import classNames from "classnames";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
-import { useEffect } from "react";
-import { ethers } from "ethers";
 
 export default function ProjectOwner() {
   const router = useRouter();
@@ -33,9 +28,7 @@ export default function ProjectOwner() {
                 alt="Awesome Lens Logo"
               />
             </Link>
-            <div className="flex items-center">
-              <ConnectWallet colorMode="light" accentColor="#4338CA" />
-            </div>
+            <div className="flex items-center">wallet</div>
           </div>
         </nav>
 

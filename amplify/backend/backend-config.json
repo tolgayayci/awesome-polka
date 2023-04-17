@@ -17,7 +17,7 @@
           "defaultAuthentication": {
             "authenticationType": "AWS_LAMBDA",
             "lambdaAuthorizerConfig": {
-              "lambdaFunction": "graphQlLambdaAuthorizera4f086ce",
+              "lambdaFunction": "graphQlLambdaAuthorizer1c483541",
               "ttlSeconds": "300"
             }
           }
@@ -28,53 +28,26 @@
     }
   },
   "function": {
-    "graphQlLambdaAuthorizera4f086ce": {
+    "graphQlLambdaAuthorizer1c483541": {
       "build": true,
-      "dependsOn": [
-        {
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ],
-          "category": "api",
-          "resourceName": "awesomeweb3"
-        }
-      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_graphQlLambdaAuthorizera4f086ce_deploymentBucketName": {
+    "AMPLIFY_function_graphQlLambdaAuthorizer1c483541_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "graphQlLambdaAuthorizera4f086ce"
+          "resourceName": "graphQlLambdaAuthorizer1c483541"
         }
       ]
     },
-    "AMPLIFY_function_graphQlLambdaAuthorizera4f086ce_s3Key": {
+    "AMPLIFY_function_graphQlLambdaAuthorizer1c483541_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "graphQlLambdaAuthorizera4f086ce"
-        }
-      ]
-    },
-    "AMPLIFY_function_graphQlLambdaAuthorizera4f086ce_secretsPathAmplifyAppId": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "graphQlLambdaAuthorizera4f086ce"
-        }
-      ]
-    },
-    "AMPLIFY_function_graphQlLambdaAuthorizera4f086ce_thirdwebAuthDomain": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "graphQlLambdaAuthorizera4f086ce"
+          "resourceName": "graphQlLambdaAuthorizer1c483541"
         }
       ]
     }

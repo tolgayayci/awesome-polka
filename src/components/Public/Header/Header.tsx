@@ -142,6 +142,7 @@ export default function Header() {
                     Search on Awesome Lens
                   </button>
                 </div>
+                <div></div>
               </nav>
             </div>
           ) : null}

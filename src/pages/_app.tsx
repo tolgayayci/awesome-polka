@@ -10,13 +10,21 @@ import type { AppProps } from "next/app";
 import { Amplify, API } from "aws-amplify";
 import awsExports from "../aws-exports";
 
+// ** Lens & Wagmi Imports
+import {
+  LensProvider,
+  LensConfig,
+  development,
+} from "@lens-protocol/react-web";
+import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
+import { polygonMumbai } from "wagmi/chains";
+import { publicProvider } from "wagmi/providers/public";
+
 // ** Styles
 import "../../styles/globals.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-
-// ** Auth
-import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 Amplify.register(API);
 Amplify.configure({ ...awsExports, ssr: true });
@@ -31,12 +39,28 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+const { provider, webSocketProvider } = configureChains(
+  [polygonMumbai],
+  [publicProvider()]
+);
+
+const client = createClient({
+  autoConnect: true,
+  provider: provider,
+  webSocketProvider,
+});
+
+const lensConfig: LensConfig = {
+  bindings: wagmiBindings(),
+  environment: development,
+};
+
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
     <>
-      <Script
+      {/* <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
       ></Script>
@@ -48,18 +72,12 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
       gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
       `}
-      </Script>
-      <ThirdwebProvider
-        // Required configuration for the provider, but doesn't affect Auth.
-        activeChain="polygon"
-        authConfig={{
-          // Set this to your domain to prevent phishing attacks
-          domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
-          authUrl: "/api/auth",
-        }}
-      >
-        {getLayout(<Component {...pageProps} />)}
-      </ThirdwebProvider>
+      </Script> */}
+      <WagmiConfig client={client}>
+        <LensProvider config={lensConfig}>
+          {getLayout(<Component {...pageProps} />)}
+        </LensProvider>
+      </WagmiConfig>
     </>
   );
 }

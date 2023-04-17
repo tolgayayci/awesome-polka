@@ -7,7 +7,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "graphQlLambdaAuthorizera4f086ce": {
+    "graphQlLambdaAuthorizer1c483541": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
