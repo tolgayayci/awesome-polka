@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
+import LoginButton from "../../../Public/Login/Login";
+
 // ** Style Imports
 import classNames from "classnames";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
@@ -28,7 +30,9 @@ export default function ProjectOwner() {
                 alt="Awesome Lens Logo"
               />
             </Link>
-            <div className="flex items-center">wallet</div>
+            <div className="flex items-center">
+              <LoginButton />
+            </div>
           </div>
         </nav>
 

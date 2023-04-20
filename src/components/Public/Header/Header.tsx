@@ -8,6 +8,7 @@ import { useState } from "react";
 
 // ** Custom Components
 import SearchBar from "./SearchBar/SearchBar";
+import LoginButton from "../Login/Login";
 
 // ** Style Imports
 import classNames from "classnames";
@@ -18,7 +19,6 @@ export default function Header() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isUserClicked, setIsUserClicked] = useState(false);
 
   return (
     <>
@@ -142,7 +142,6 @@ export default function Header() {
                     Search on Awesome Lens
                   </button>
                 </div>
-                <div></div>
               </nav>
             </div>
           ) : null}
@@ -233,8 +232,12 @@ export default function Header() {
                 </Link>
               </li>
             </ul>
+
             <div className="hidden xl:flex items-center justify-end w-full max-w-sm">
-              <SearchBar open={isSearchOpen} setOpen={setIsSearchOpen} />
+              <div>
+                <LoginButton />
+              </div>
+              {/* <SearchBar open={isSearchOpen} setOpen={setIsSearchOpen} />
               <button
                 type="button"
                 className="text-indigo-900 text-[15px] w-full bg-white hover:bg-gray-100 border-[3px] border-indigo-900 font-bold rounded-xl text-sm px-5 py-3.5 text-center inline-flex items-center mr-2"
@@ -245,7 +248,7 @@ export default function Header() {
                   aria-hidden="true"
                 />
                 Search on Awesome Lens
-              </button>
+              </button> */}
             </div>
           </nav>
         </div>

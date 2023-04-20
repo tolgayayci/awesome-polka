@@ -1,55 +1,163 @@
+import classNames from "classnames";
+import { ArrowUpIcon, ArrowDownIcon } from "@heroicons/react/20/solid";
+
 export default function ProjectOwnerHome() {
+  const stats = [
+    {
+      name: "Total Subscribers",
+      stat: "71,897",
+      previousStat: "70,946",
+      change: "12%",
+      changeType: "increase",
+    },
+    {
+      name: "Avg. Open Rate",
+      stat: "58.16%",
+      previousStat: "56.14%",
+      change: "2.02%",
+      changeType: "increase",
+    },
+    {
+      name: "Avg. Click Rate",
+      stat: "24.57%",
+      previousStat: "28.62%",
+      change: "4.05%",
+      changeType: "decrease",
+    },
+  ];
+
+  const stats2 = [
+    {
+      name: "Total Subscribers",
+      stat: "71,897",
+      previousStat: "70,946",
+      change: "12%",
+      changeType: "increase",
+    },
+    {
+      name: "Avg. Open Rate",
+      stat: "58.16%",
+      previousStat: "56.14%",
+      change: "2.02%",
+      changeType: "increase",
+    },
+    {
+      name: "Avg. Click Rate",
+      stat: "24.57%",
+      previousStat: "28.62%",
+      change: "4.05%",
+      changeType: "decrease",
+    },
+  ];
+
   return (
     <>
-      <section className="container max-w-8xl mx-auto mt-7">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-lg font-medium mb-4">Sales</h2>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              blandit, enim vitae convallis commodo, elit justo lobortis augue,
-              vel ullamcorper neque augue non urna.
-            </p>
+      <section className="container max-w-8xl mx-auto mt-10">
+        <div className="col-span-full mb-10">sadasds</div>
+        <div className="flex space-x-8">
+          <div className="w-1/2">
+            <h3 className="text-base font-semibold leading-6 text-indigo-700">
+              Profile Stats
+            </h3>
+            <dl className="mt-5 grid grid-cols-1 divide-y-2 bg-indigo-100/40 divide-indigo-700 overflow-hidden rounded-lg bg-whiteshadow border-2 border-indigo-700 ">
+              {stats.map((item) => (
+                <div key={item.name} className="sm:p-6 my-4">
+                  <dt className="text-base font-normal text-gray-900">
+                    {item.name}
+                  </dt>
+                  <dd className="mt-1 flex items-baseline justify-between md:block lg:flex">
+                    <div className="flex items-baseline text-2xl font-semibold text-indigo-600">
+                      {item.stat}
+                      <span className="ml-2 text-sm font-medium text-gray-500">
+                        from {item.previousStat}
+                      </span>
+                    </div>
+
+                    <div
+                      className={classNames(
+                        item.changeType === "increase"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800",
+                        "inline-flex items-baseline rounded-full px-2.5 py-0.5 text-sm font-medium md:mt-2 lg:mt-0"
+                      )}
+                    >
+                      {item.changeType === "increase" ? (
+                        <ArrowUpIcon
+                          className="-ml-1 mr-0.5 h-5 w-5 flex-shrink-0 self-center text-green-500"
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <ArrowDownIcon
+                          className="-ml-1 mr-0.5 h-5 w-5 flex-shrink-0 self-center text-red-500"
+                          aria-hidden="true"
+                        />
+                      )}
+
+                      <span className="sr-only">
+                        {" "}
+                        {item.changeType === "increase"
+                          ? "Increased"
+                          : "Decreased"}{" "}
+                        by{" "}
+                      </span>
+                      {item.change}
+                    </div>
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-lg font-medium mb-4">Visitors</h2>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              blandit, enim vitae convallis commodo, elit justo lobortis augue,
-              vel ullamcorper neque augue non urna.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-lg font-medium mb-4">Revenue</h2>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              blandit, enim vitae convallis commodo, elit justo lobortis augue,
-              vel ullamcorper neque augue non urna.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-lg font-medium mb-4">Subscribers</h2>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              blandit, enim vitae convallis commodo, elit justo lobortis augue,
-              vel ullamcorper neque augue non urna.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-lg font-medium mb-4">Expenses</h2>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              blandit, enim vitae convallis commodo, elit justo lobortis augue,
-              vel ullamcorper neque augue non urna.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-lg font-medium mb-4">Traffic</h2>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              blandit, enim vitae convallis commodo, elit justo lobortis augue,
-              vel ullamcorper neque augue non urna.
-            </p>
+          <div className="w-1/2">
+            <h3 className="text-base font-semibold leading-6 text-indigo-700">
+              Profile Stats
+            </h3>
+            <dl className="mt-5 grid grid-cols-1 divide-y bg-indigo-100/40 divide-indigo-700 overflow-hidden rounded-lg bg-whiteshadow border-2 border-indigo-700 ">
+              {stats.map((item) => (
+                <div key={item.name} className="sm:p-6 my-4">
+                  <dt className="text-base font-normal text-gray-900">
+                    {item.name}
+                  </dt>
+                  <dd className="mt-1 flex items-baseline justify-between md:block lg:flex">
+                    <div className="flex items-baseline text-2xl font-semibold text-indigo-600">
+                      {item.stat}
+                      <span className="ml-2 text-sm font-medium text-gray-500">
+                        from {item.previousStat}
+                      </span>
+                    </div>
+
+                    <div
+                      className={classNames(
+                        item.changeType === "increase"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800",
+                        "inline-flex items-baseline rounded-full px-2.5 py-0.5 text-sm font-medium md:mt-2 lg:mt-0"
+                      )}
+                    >
+                      {item.changeType === "increase" ? (
+                        <ArrowUpIcon
+                          className="-ml-1 mr-0.5 h-5 w-5 flex-shrink-0 self-center text-green-500"
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <ArrowDownIcon
+                          className="-ml-1 mr-0.5 h-5 w-5 flex-shrink-0 self-center text-red-500"
+                          aria-hidden="true"
+                        />
+                      )}
+
+                      <span className="sr-only">
+                        {" "}
+                        {item.changeType === "increase"
+                          ? "Increased"
+                          : "Decreased"}{" "}
+                        by{" "}
+                      </span>
+                      {item.change}
+                    </div>
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>

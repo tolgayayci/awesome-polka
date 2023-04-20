@@ -1,27 +1,45 @@
-// This is sample code. Please update this to suite your schema
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { request } = require('graphql-request');
 
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 exports.handler = async (event) => {
   console.log(`EVENT: ${JSON.stringify(event)}`);
+
   const {
     authorizationToken,
-    requestContext: { apiId, accountId },
+    requestContext: { apiId, requestId, accountId },
   } = event;
+  
+  const query = `{
+    verify(request: {
+      accessToken: "${authorizationToken}"
+    })
+  }`;
+
+  const checkToken = await request('https://api-mumbai.lens.dev/', query)
+
   const response = {
-    isAuthorized: authorizationToken === 'custom-authorized',
+    isAuthorized: checkToken.verify,
     resolverContext: {
-      userid: 'user-id',
+      walletAddress: 'user-wallet-address',
+      requestId: requestId,
       info: 'contextual information A',
-      more_info: 'contextual information B',
     },
     deniedFields: [
-      `arn:aws:appsync:${process.env.AWS_REGION}:${accountId}:apis/${apiId}/types/Event/fields/comments`,
-      `Mutation.createEvent`,
+      `Mutation.createUser`,
+      `Mutation.deleteUser`,
+      `Mutation.createProject`,
+      `Mutation.deleteProject`,
+      `Mutation.createCategory`,
+      `Mutation.updateCategory`,
+      `Mutation.deleteCategory`,
     ],
     ttlOverride: 300,
   };
+
   console.log(`response >`, JSON.stringify(response, null, 2));
+
   return response;
 };

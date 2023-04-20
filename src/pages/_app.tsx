@@ -17,9 +17,18 @@ import {
   development,
 } from "@lens-protocol/react-web";
 import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
+
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { polygonMumbai } from "wagmi/chains";
-import { publicProvider } from "wagmi/providers/public";
+
+import {
+  EthereumClient,
+  w3mConnectors,
+  w3mProvider,
+} from "@web3modal/ethereum";
+import { Web3Modal } from "@web3modal/react";
+
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 // ** Styles
 import "../../styles/globals.css";
@@ -39,16 +48,18 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-const { provider, webSocketProvider } = configureChains(
-  [polygonMumbai],
-  [publicProvider()]
-);
+const chains = [polygonMumbai];
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID as string;
 
-const client = createClient({
+const { provider } = configureChains(chains, [w3mProvider({ projectId })]);
+
+const wagmiClient = createClient({
   autoConnect: true,
-  provider: provider,
-  webSocketProvider,
+  connectors: w3mConnectors({ projectId, version: 1, chains }),
+  provider,
 });
+
+const ethereumClient = new EthereumClient(wagmiClient, chains);
 
 const lensConfig: LensConfig = {
   bindings: wagmiBindings(),
@@ -73,11 +84,15 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
       `}
       </Script> */}
-      <WagmiConfig client={client}>
+      <WagmiConfig client={wagmiClient}>
         <LensProvider config={lensConfig}>
-          {getLayout(<Component {...pageProps} />)}
+          <ThirdwebProvider>
+            {getLayout(<Component {...pageProps} />)}
+          </ThirdwebProvider>
         </LensProvider>
       </WagmiConfig>
+
+      <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
     </>
   );
 }

@@ -17,7 +17,7 @@
         "graphQlLambdaAuthorizera4f086ce": {},
         "graphQlLambdaAuthorizer1c483541": {
           "deploymentBucketName": "amplify-awesomeweb3-dev-160543-deployment",
-          "s3Key": "amplify-builds/graphQlLambdaAuthorizer1c483541-4c6a6e75756179347956-build.zip"
+          "s3Key": "amplify-builds/graphQlLambdaAuthorizer1c483541-68786e71417244534e69-build.zip"
         }
       },
       "api": {
