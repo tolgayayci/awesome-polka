@@ -246,7 +246,7 @@ export default function SearchBar(props: SearchBarProps) {
                             <p className="text-sm leading-6 text-center font-normal my-auto mb-8">
                               {selectedProject.description}
                             </p>
-                            <Link href={`/projects/lens-protocol`}>
+                            <Link href={`/projects/${selectedProject.slug}`}>
                               <button
                                 type="button"
                                 className="w-full rounded-md -mt-1 border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700"

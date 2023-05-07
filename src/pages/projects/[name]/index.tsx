@@ -30,11 +30,11 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async (context) => {
   const SSR = withSSRContext();
 
-  const data = await SSR.API.graphql(
-    graphqlOperation(getProject, {
-      slug: context.params?.name,
-    })
-  );
+  const data = await SSR.API.graphql({
+    query: getProject,
+    variables: { slug: context.params?.name },
+    authMode: "API_KEY",
+  });
 
   //TODO: Change approved to not approved
   if (data.data.getProject === null) {
@@ -138,7 +138,7 @@ export default function ProjectDetail({
               />
               <Team open={data.team ? true : false} project={data} />
               <Articles open={data.articles ? true : false} project={data} />
-              <Faq open={data.faq ? true : false} project={data} />
+              {/* <Faq open={data.faq ? true : false} project={data} /> */}
               <Jobs open={data.openJobs ? true : false} project={data} />
             </div>
           </div>

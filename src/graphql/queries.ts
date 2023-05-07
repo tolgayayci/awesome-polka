@@ -65,181 +65,6 @@ export const listUsers = /* GraphQL */ `
     }
   }
 `;
-export const getArticle = /* GraphQL */ `
-  query GetArticle($id: ID!) {
-    getArticle(id: $id) {
-      id
-      title
-      description
-      body
-      image
-      isExternal
-      externalUrl
-      project {
-        slug
-        name
-        bio
-        image
-        categories {
-          nextToken
-        }
-        socials
-        description
-        githubRepoUrl
-        tokenSymbol
-        openJobs
-        team
-        faq
-        articles {
-          nextToken
-        }
-        user {
-          walletAddress
-          nonce
-          username
-          type
-          status
-          createdAt
-          updatedAt
-        }
-        userWalletAddress
-        createdAt
-        updatedAt
-      }
-      projectSlug
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listArticles = /* GraphQL */ `
-  query ListArticles(
-    $filter: ModelArticleFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listArticles(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        title
-        description
-        body
-        image
-        isExternal
-        externalUrl
-        project {
-          slug
-          name
-          bio
-          image
-          socials
-          description
-          githubRepoUrl
-          tokenSymbol
-          openJobs
-          team
-          faq
-          userWalletAddress
-          createdAt
-          updatedAt
-        }
-        projectSlug
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getCategory = /* GraphQL */ `
-  query GetCategory($id: ID!) {
-    getCategory(id: $id) {
-      id
-      name
-      description
-      projects {
-        items {
-          id
-          projectSlug
-          categoryId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listCategories = /* GraphQL */ `
-  query ListCategories(
-    $filter: ModelCategoryFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listCategories(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        description
-        projects {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const articlesByProjectSlug = /* GraphQL */ `
-  query ArticlesByProjectSlug(
-    $projectSlug: String!
-    $sortDirection: ModelSortDirection
-    $filter: ModelArticleFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    articlesByProjectSlug(
-      projectSlug: $projectSlug
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        title
-        description
-        body
-        image
-        isExternal
-        externalUrl
-        project {
-          slug
-          name
-          bio
-          image
-          socials
-          description
-          githubRepoUrl
-          tokenSymbol
-          openJobs
-          team
-          faq
-          userWalletAddress
-          createdAt
-          updatedAt
-        }
-        projectSlug
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
 export const getProject = /* GraphQL */ `
   query GetProject($slug: String!) {
     getProject(slug: $slug) {
@@ -390,6 +215,181 @@ export const projectsByUserWalletAddress = /* GraphQL */ `
           updatedAt
         }
         userWalletAddress
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getArticle = /* GraphQL */ `
+  query GetArticle($id: ID!) {
+    getArticle(id: $id) {
+      id
+      title
+      description
+      body
+      image
+      isExternal
+      externalUrl
+      project {
+        slug
+        name
+        bio
+        image
+        categories {
+          nextToken
+        }
+        socials
+        description
+        githubRepoUrl
+        tokenSymbol
+        openJobs
+        team
+        faq
+        articles {
+          nextToken
+        }
+        user {
+          walletAddress
+          nonce
+          username
+          type
+          status
+          createdAt
+          updatedAt
+        }
+        userWalletAddress
+        createdAt
+        updatedAt
+      }
+      projectSlug
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listArticles = /* GraphQL */ `
+  query ListArticles(
+    $filter: ModelArticleFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listArticles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        description
+        body
+        image
+        isExternal
+        externalUrl
+        project {
+          slug
+          name
+          bio
+          image
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        projectSlug
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const articlesByProjectSlug = /* GraphQL */ `
+  query ArticlesByProjectSlug(
+    $projectSlug: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelArticleFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    articlesByProjectSlug(
+      projectSlug: $projectSlug
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        title
+        description
+        body
+        image
+        isExternal
+        externalUrl
+        project {
+          slug
+          name
+          bio
+          image
+          socials
+          description
+          githubRepoUrl
+          tokenSymbol
+          openJobs
+          team
+          faq
+          userWalletAddress
+          createdAt
+          updatedAt
+        }
+        projectSlug
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCategory = /* GraphQL */ `
+  query GetCategory($id: ID!) {
+    getCategory(id: $id) {
+      id
+      name
+      description
+      projects {
+        items {
+          id
+          projectSlug
+          categoryId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listCategories = /* GraphQL */ `
+  query ListCategories(
+    $filter: ModelCategoryFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCategories(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        description
+        projects {
+          nextToken
+        }
         createdAt
         updatedAt
       }

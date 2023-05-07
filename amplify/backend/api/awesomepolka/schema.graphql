@@ -9,7 +9,9 @@ enum UserStatus {
   BLOCKED
 }
 
-type User @model @auth(rules: [{ allow: custom }]) {
+type User
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: custom }]) {
   walletAddress: String! @primaryKey
   nonce: String!
   username: String!
@@ -38,7 +40,9 @@ type Project
   userWalletAddress: String! @index(name: "byUser")
 }
 
-type Article @model @auth(rules: [{ allow: custom }]) {
+type Article
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: custom }]) {
   id: ID!
   title: String!
   description: String!
@@ -50,7 +54,9 @@ type Article @model @auth(rules: [{ allow: custom }]) {
   projectSlug: String! @index(name: "byProject")
 }
 
-type Category @model @auth(rules: [{ allow: custom }]) {
+type Category
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: custom }]) {
   id: ID!
   name: String!
   description: String

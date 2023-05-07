@@ -1,5 +1,5 @@
 // ** React Imports
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 
 // Wallet Connect
 import { Web3Button } from "@web3modal/react";
@@ -12,6 +12,8 @@ import {
   authenticate,
   verifyToken,
 } from "../../../LENS_API";
+
+import { useUserStore } from "../../../data/store/userStore";
 
 export default function LoginButton() {
   const { setTheme } = useWeb3ModalTheme();
@@ -27,6 +29,7 @@ export default function LoginButton() {
     onDisconnect() {
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
+      useUserStore.setState({ user: null });
       console.log("Disconnected");
     },
   });

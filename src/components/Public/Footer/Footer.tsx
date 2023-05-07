@@ -4,11 +4,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 // ** Style Imports
-import styles from "./Footer.module.css";
 import classNames from "classnames";
+import { useCheckUser } from "../../../hooks/useCheckUser";
 
 export default function Footer() {
   const router = useRouter();
+  const { user } = useCheckUser();
 
   return (
     <section className="bg-indigo-200 pt-20">
@@ -119,6 +120,20 @@ export default function Footer() {
                     GitHub
                   </div>
                 </Link>
+                {user?.walletAddress ? (
+                  <Link
+                    href="/dashboard/project"
+                    className={classNames(
+                      "text-lg mr-8 2xl:mr-16 font-extrabold hover:text-indigo-800 pb-3 text-indigo-700",
+                      {
+                        "border-[3px] border-indigo-900 pb-3 xs:mb-3":
+                          router.pathname === "/dashboard/project",
+                      }
+                    )}
+                  >
+                    Dashboard
+                  </Link>
+                ) : null}
               </div>
             </div>
           </div>

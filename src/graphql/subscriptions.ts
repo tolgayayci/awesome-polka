@@ -98,6 +98,177 @@ export const onDeleteUser = /* GraphQL */ `
     }
   }
 `;
+export const onCreateProject = /* GraphQL */ `
+  subscription OnCreateProject($filter: ModelSubscriptionProjectFilterInput) {
+    onCreateProject(filter: $filter) {
+      slug
+      name
+      bio
+      image
+      categories {
+        items {
+          id
+          projectSlug
+          categoryId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      socials
+      description
+      githubRepoUrl
+      tokenSymbol
+      openJobs
+      team
+      faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        nonce
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateProject = /* GraphQL */ `
+  subscription OnUpdateProject($filter: ModelSubscriptionProjectFilterInput) {
+    onUpdateProject(filter: $filter) {
+      slug
+      name
+      bio
+      image
+      categories {
+        items {
+          id
+          projectSlug
+          categoryId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      socials
+      description
+      githubRepoUrl
+      tokenSymbol
+      openJobs
+      team
+      faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        nonce
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteProject = /* GraphQL */ `
+  subscription OnDeleteProject($filter: ModelSubscriptionProjectFilterInput) {
+    onDeleteProject(filter: $filter) {
+      slug
+      name
+      bio
+      image
+      categories {
+        items {
+          id
+          projectSlug
+          categoryId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      socials
+      description
+      githubRepoUrl
+      tokenSymbol
+      openJobs
+      team
+      faq
+      articles {
+        items {
+          id
+          title
+          description
+          body
+          image
+          isExternal
+          externalUrl
+          projectSlug
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      user {
+        walletAddress
+        nonce
+        username
+        type
+        status
+        project {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      userWalletAddress
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateArticle = /* GraphQL */ `
   subscription OnCreateArticle($filter: ModelSubscriptionArticleFilterInput) {
     onCreateArticle(filter: $filter) {
@@ -297,177 +468,6 @@ export const onDeleteCategory = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateProject = /* GraphQL */ `
-  subscription OnCreateProject($filter: ModelSubscriptionProjectFilterInput) {
-    onCreateProject(filter: $filter) {
-      slug
-      name
-      bio
-      image
-      categories {
-        items {
-          id
-          projectSlug
-          categoryId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      socials
-      description
-      githubRepoUrl
-      tokenSymbol
-      openJobs
-      team
-      faq
-      articles {
-        items {
-          id
-          title
-          description
-          body
-          image
-          isExternal
-          externalUrl
-          projectSlug
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      user {
-        walletAddress
-        nonce
-        username
-        type
-        status
-        project {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      userWalletAddress
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateProject = /* GraphQL */ `
-  subscription OnUpdateProject($filter: ModelSubscriptionProjectFilterInput) {
-    onUpdateProject(filter: $filter) {
-      slug
-      name
-      bio
-      image
-      categories {
-        items {
-          id
-          projectSlug
-          categoryId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      socials
-      description
-      githubRepoUrl
-      tokenSymbol
-      openJobs
-      team
-      faq
-      articles {
-        items {
-          id
-          title
-          description
-          body
-          image
-          isExternal
-          externalUrl
-          projectSlug
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      user {
-        walletAddress
-        nonce
-        username
-        type
-        status
-        project {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      userWalletAddress
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteProject = /* GraphQL */ `
-  subscription OnDeleteProject($filter: ModelSubscriptionProjectFilterInput) {
-    onDeleteProject(filter: $filter) {
-      slug
-      name
-      bio
-      image
-      categories {
-        items {
-          id
-          projectSlug
-          categoryId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      socials
-      description
-      githubRepoUrl
-      tokenSymbol
-      openJobs
-      team
-      faq
-      articles {
-        items {
-          id
-          title
-          description
-          body
-          image
-          isExternal
-          externalUrl
-          projectSlug
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      user {
-        walletAddress
-        nonce
-        username
-        type
-        status
-        project {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      userWalletAddress
       createdAt
       updatedAt
     }

@@ -2,40 +2,31 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import Image from "next/image";
-
-import { useState } from "react";
+import type { ReactElement } from "react";
 
 // ** Amplify Imports
-import { API, graphqlOperation, withSSRContext } from "aws-amplify";
+import { withSSRContext } from "aws-amplify";
 import { getArticle } from "../../../graphql/queries";
+import UserLayout from "../../../layouts/UserLayout";
 
 // ** Types
 import { Article } from "../../../API";
 
-// ** Icon Imports
-import {
-  FolderIcon,
-  HomeIcon,
-  UsersIcon,
-  DocumentTextIcon,
-  QuestionMarkCircleIcon,
-  BriefcaseIcon,
-} from "@heroicons/react/24/outline";
-
 export const getServerSideProps: GetServerSideProps<{
   data: Article;
 }> = async (context) => {
+  const { name } = context.query;
+
   const SSR = withSSRContext();
 
-  const data = await SSR.API.graphql(
-    graphqlOperation(getArticle, {
-      id: context.params?.name,
-    })
-  );
+  const data = await SSR.API.graphql({
+    query: getArticle,
+    variables: { id: name },
+    authMode: "API_KEY",
+  });
 
   //TODO: Change approved to not approved
-  if (data.data.getArticle === null) {
+  if (!data?.data?.getArticle) {
     return {
       notFound: true,
     };
@@ -69,8 +60,8 @@ export default function ArticleDetail({
       </Head>
       <section className="py-26 bg-white">
         <div className="container px-4 mx-auto">
-          {data.body}
-          {/* <div className="max-w-4xl mx-auto mb-12 text-center">
+          {/* {data.body} */}
+          <div className="max-w-4xl mx-auto mb-12 text-center">
             <p className="text-xl font-bold text-gray-400 mb-2">
               John Doe • 19 Jan 2022
             </p>
@@ -244,9 +235,13 @@ export default function ArticleDetail({
                 </svg>
               </a>
             </div>
-          </div> */}
+          </div>
         </div>
       </section>
     </>
   );
 }
+
+ArticleDetail.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};
