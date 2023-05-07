@@ -136,7 +136,7 @@ export default function ProjectDetail({
                 open={data.githubRepoUrl ? true : false}
                 project={data}
               />
-              <Team open={data.team ? true : false} project={data} />
+              <Team open={false} project={data} />
               <Articles open={data.articles ? true : false} project={data} />
               <Faq open={data.faq ? true : false} project={data} />
               <Jobs open={data.openJobs ? true : false} project={data} />
