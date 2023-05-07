@@ -87,7 +87,7 @@ Some Functionality
 
 3 - Unlike the official Celo docs page, Awesome Celo offers enhanced modules that can help project owners better explain their projects to the community, making it easier for people to understand the value of their work like github activity, token stats, job postings and so on.
 
-4 - Other blockchain communities, such as Near, Polkadot, and Lens, already have similar showcase platforms. As the Celo community continues to grow, there will be an increasing need for a platform like Awesome Celo to support the ecosystem.
+4 - Other blockchain communities, such as Near, Polkadot, and Polkadot, already have similar showcase platforms. As the Celo community continues to grow, there will be an increasing need for a platform like Awesome Celo to support the ecosystem.
 
 The Celo community needs a centralized platform like Awesome Celo that provides a comprehensive overview of all the projects in the ecosystem, making it easier for people to discover new projects and engage with the community.
 

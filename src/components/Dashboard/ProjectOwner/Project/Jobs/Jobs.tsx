@@ -15,7 +15,7 @@ import { validateJobs } from "../../../../../utils/validation/jobsValidation";
 import type { JobItem, JobProps } from "../../../../../types/types";
 
 //** Data */
-import { useCheckProject } from "../../../../../hooks/useCheckProject";
+import { useCheckUser } from "../../../../../hooks/useCheckUser";
 import { updateProjectAttribute } from "../../../../../data/mutations/updateProjectAttribute";
 
 //** Custom */
@@ -31,7 +31,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 export default function Jobs() {
-  const { project, isLoading } = useCheckProject("lens-protocol");
+  const { user, isLoading } = useCheckUser();
 
   // This is an async function that handles the form submission for updating a project's description.
   async function handleSubmit(
@@ -41,7 +41,7 @@ export default function Jobs() {
     try {
       // Call the `updateProjectAttribute` function with an object containing the project slug and the `openJobs` fields from the `values` parameter.
       await updateProjectAttribute({
-        slug: project?.slug as string,
+        slug: user?.project?.items[0]?.slug as string,
         openJobs: values.jobs.map((job) => JSON.stringify(job)),
       });
       actions.setStatus({ success: true });
@@ -78,7 +78,7 @@ export default function Jobs() {
                         </div>
                         <Formik
                           initialValues={{
-                            jobs: project?.openJobs?.map(
+                            jobs: user?.project?.items[0]?.openJobs?.map(
                               (job) => JSON.parse(job as string) as JobItem
                             ) || [
                               {

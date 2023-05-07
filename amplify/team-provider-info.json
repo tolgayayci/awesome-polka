@@ -1,27 +1,25 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-awesomeweb3-dev-160543-authRole",
-      "UnauthRoleArn": "arn:aws:iam::503570377412:role/amplify-awesomeweb3-dev-160543-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::503570377412:role/amplify-awesomeweb3-dev-160543-authRole",
+      "AuthRoleName": "amplify-awesomepolka-dev-141643-authRole",
+      "UnauthRoleArn": "arn:aws:iam::503570377412:role/amplify-awesomepolka-dev-141643-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::503570377412:role/amplify-awesomepolka-dev-141643-authRole",
       "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-awesomeweb3-dev-160543-deployment",
-      "UnauthRoleName": "amplify-awesomeweb3-dev-160543-unauthRole",
-      "StackName": "amplify-awesomeweb3-dev-160543",
-      "StackId": "arn:aws:cloudformation:eu-west-1:503570377412:stack/amplify-awesomeweb3-dev-160543/c173ab70-cb0d-11ed-9e2d-068e53d8d735",
-      "AmplifyAppId": "d3dpg52quisf36"
+      "DeploymentBucketName": "amplify-awesomepolka-dev-141643-deployment",
+      "UnauthRoleName": "amplify-awesomepolka-dev-141643-unauthRole",
+      "StackName": "amplify-awesomepolka-dev-141643",
+      "StackId": "arn:aws:cloudformation:eu-west-1:503570377412:stack/amplify-awesomepolka-dev-141643/520f9e30-eb36-11ed-8636-02024786dd33",
+      "AmplifyAppId": "d2w9071tuonpee"
     },
     "categories": {
       "function": {
-        "thirdwebAuthorizer": {},
-        "graphQlLambdaAuthorizera4f086ce": {},
-        "graphQlLambdaAuthorizer1c483541": {
-          "deploymentBucketName": "amplify-awesomeweb3-dev-160543-deployment",
-          "s3Key": "amplify-builds/graphQlLambdaAuthorizer1c483541-68786e71417244534e69-build.zip"
+        "graphQlLambdaAuthorizera584aec9": {
+          "deploymentBucketName": "amplify-awesomepolka-dev-141643-deployment",
+          "s3Key": "amplify-builds/graphQlLambdaAuthorizera584aec9-4835544a6775782f4144-build.zip"
         }
       },
       "api": {
-        "awesomeweb3": {}
+        "awesomepolka": {}
       }
     }
   }

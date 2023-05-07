@@ -18,6 +18,7 @@ export const createUser = /* GraphQL */ `
           slug
           name
           bio
+          image
           socials
           description
           githubRepoUrl
@@ -52,6 +53,7 @@ export const updateUser = /* GraphQL */ `
           slug
           name
           bio
+          image
           socials
           description
           githubRepoUrl
@@ -86,6 +88,7 @@ export const deleteUser = /* GraphQL */ `
           slug
           name
           bio
+          image
           socials
           description
           githubRepoUrl
@@ -113,6 +116,7 @@ export const createProject = /* GraphQL */ `
       slug
       name
       bio
+      image
       categories {
         items {
           id
@@ -172,6 +176,7 @@ export const updateProject = /* GraphQL */ `
       slug
       name
       bio
+      image
       categories {
         items {
           id
@@ -231,6 +236,7 @@ export const deleteProject = /* GraphQL */ `
       slug
       name
       bio
+      image
       categories {
         items {
           id
@@ -298,6 +304,7 @@ export const createArticle = /* GraphQL */ `
         slug
         name
         bio
+        image
         categories {
           nextToken
         }
@@ -347,6 +354,7 @@ export const updateArticle = /* GraphQL */ `
         slug
         name
         bio
+        image
         categories {
           nextToken
         }
@@ -396,6 +404,7 @@ export const deleteArticle = /* GraphQL */ `
         slug
         name
         bio
+        image
         categories {
           nextToken
         }
@@ -513,6 +522,7 @@ export const createProjectCategories = /* GraphQL */ `
         slug
         name
         bio
+        image
         categories {
           nextToken
         }
@@ -567,6 +577,7 @@ export const updateProjectCategories = /* GraphQL */ `
         slug
         name
         bio
+        image
         categories {
           nextToken
         }
@@ -621,6 +632,7 @@ export const deleteProjectCategories = /* GraphQL */ `
         slug
         name
         bio
+        image
         categories {
           nextToken
         }

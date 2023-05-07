@@ -14,7 +14,7 @@ import { validateDescription } from "../../../../../utils/validation/description
 import type { DescriptionProps } from "../../../../../types/types";
 
 //** Data & Hooks */
-import { useCheckProject } from "../../../../../hooks/useCheckProject";
+import { useCheckUser } from "../../../../../hooks/useCheckUser";
 import { updateProjectAttribute } from "../../../../../data/mutations/updateProjectAttribute";
 
 //** Custom */
@@ -28,7 +28,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 export default function ProjectDescription() {
-  const { project, isLoading } = useCheckProject("lens-protocol");
+  const { user, isLoading } = useCheckUser();
 
   // This is an async function that handles the form submission for updating a project's description.
   async function handleSubmit(
@@ -38,7 +38,7 @@ export default function ProjectDescription() {
     try {
       // Call the `updateProjectAttribute` function with an object containing the project slug and the `bio` and `description` fields from the `values` parameter.
       await updateProjectAttribute({
-        slug: project?.slug as string,
+        slug: user?.project?.items[0]?.slug as string,
         bio: values.bio as string,
         description: values.description,
       });
@@ -72,8 +72,8 @@ export default function ProjectDescription() {
                     </p>
                     <Formik
                       initialValues={{
-                        bio: project?.bio || "",
-                        description: project?.description,
+                        bio: user?.project?.items[0]?.bio || "",
+                        description: user?.project?.items[0]?.description,
                       }}
                       validationSchema={validateDescription}
                       validateOnChange={true}

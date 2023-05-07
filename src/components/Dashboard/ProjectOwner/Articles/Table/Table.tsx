@@ -115,7 +115,7 @@ export default function Table(props: { articles: ModelArticleConnection }) {
   );
 
   return (
-    <section className="relative container mx-auto scroll-smooth max-w-8xl mb-20">
+    <section className="relative container mx-auto scroll-smooth max-w-8xl">
       <div className="container mx-auto">
         <div className="flex justify-between mb-6">
           <GlobalFilter

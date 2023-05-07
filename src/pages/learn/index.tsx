@@ -41,7 +41,7 @@ export default function Learn() {
               </h1>
               <p className="text-lg md:text-xl font-semibold leading-7 border-t-4 border-indigo-900 pt-6 max-w-lg">
                 Core concepts and tools you will need to get started building on
-                Lens
+                Polkadot
               </p>
               <div className="max-w-2xl mx-auto"></div>
             </div>
@@ -50,7 +50,7 @@ export default function Learn() {
         <div className="container mb-16">
           <div className="container">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-              <Link href="https://docs.lens.xyz/docs" target="blank">
+              <Link href="https://wiki.polkadot.network/" target="blank">
                 <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
                   <div className="flex min-w-0 grow flex-col items-start justify-start">
                     <div className="mb-3 text-primary-gray-100">
@@ -80,7 +80,7 @@ export default function Learn() {
                           height={16}
                           className="mr-2 text-white"
                         />
-                        Learn Lens
+                        Learn Polkadot
                       </button>
                     </div>
                   </div>
@@ -122,10 +122,7 @@ export default function Learn() {
                   </div>
                 </div>
               </Link>
-              <Link
-                href="https://github.com/lens-protocol/lens-sdk"
-                target="blank"
-              >
+              <Link href="https://guide.kusama.network/" target="blank">
                 <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
                   <div className="flex min-w-0 grow flex-col items-start justify-start">
                     <div className="mb-3 text-primary-gray-100">
@@ -138,10 +135,10 @@ export default function Learn() {
                       />
                     </div>
                     <div className="mb-3 truncate	text-ellipsis whitespace-nowrap font-display text-3xl font-bold text-indigo-700">
-                      GitHub
+                      Kusama
                     </div>
                     <div className="text-start font-semibold text-primary-gray-100 py-2">
-                      Learn about official Lens SDK and interact with it.
+                      Learn about Kusama - Polkadot Canary Network
                     </div>
                     <div className="mt-5">
                       <button
@@ -155,7 +152,7 @@ export default function Learn() {
                           height={16}
                           className="mr-2 text-white"
                         />
-                        Explore Lens SDK
+                        Explore Kusama
                       </button>
                     </div>
                   </div>
@@ -165,7 +162,7 @@ export default function Learn() {
           </div>
         </div>
         <div className="container mb-16">
-          <div className="grid grid-cols-1 pb-8 bg-[#20802d] rounded-lg gap-x-4 bg-gray-dark md:grid-cols-3 md:flex-row md:px-10">
+          <div className="grid grid-cols-1 pb-8 bg-indigo-800 rounded-lg gap-x-4 bg-gray-dark md:grid-cols-3 md:flex-row md:px-10">
             <div className="px-8 pt-12 md:row-start-1 row-start-1 grid-column-start-1">
               <h6 className="text-h6 mb-2 flex items-center text-white text-lg font-bold tracking-wider">
                 <span className="mr-2 max-w-[36px] text-gray-300">
@@ -222,8 +219,8 @@ export default function Learn() {
                     width="1.5em"
                   >
                     <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
                       d="m1.027 27.904 15.69 8.823 14.903-8.604L32.818 9.56 16.837.238.945 9.413l.082 18.49ZM9.521 5.112 1.788 9.576l6.164 3.596 7.828-4.52-6.26-3.54Zm.566-.327L16.835.89 23 4.484l-6.653 3.841-6.26-3.54Zm6.829 3.862 6.643-3.836 8.405 4.903-6.513 3.76-8.535-4.827Zm8.814 5.317 6.48-3.742-.631 9.795-6.088 3.515.24-9.568Zm-.81 9.898.239-9.568-7.962 4.596-.108 9.443.044.024 7.787-4.495Zm.555.33 6.06-3.5-.457 7.093-5.776 3.335.173-6.928Zm-.745 7.258.173-6.928-7.765 4.483-.056-.032-.079 6.938 7.727-4.46Zm.155-17.649-8.536-4.827-7.837 4.525 8.405 4.902 7.968-4.6Zm-16.58.229 8.328 4.857-.104 9.135-8.182-4.542-.042-9.45Zm.045 10.096 8.172 4.537-.082 7.261-8.058-4.53-.032-7.268Zm-.532 6.95-.032-7.264-6.23-3.457.033 7.218 6.229 3.503ZM1.554 19.709l6.229 3.458L7.74 13.7l-6.229-3.633.043 9.642Z"
                       fill="currentColor"
                     ></path>
@@ -258,14 +255,14 @@ export default function Learn() {
             <div className="divide-y divide-gray-100 px-4 md:row-start-2 md:pb-4 row-start-2">
               <div className="divided-item-hover">
                 <a
-                  href="https://docs.lens.xyz/docs/what-is-lens"
+                  href="https://wiki.polkadot.network/docs/getting-started"
                   target="blank"
                   rel="noreferrer"
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      What is Lens? 🌿
+                      Getting Started
                       <div>
                         <div className="pr-[3px] pt-[2px]">
                           <svg
@@ -275,8 +272,8 @@ export default function Learn() {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
                               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
                               fill="currentColor"
                             ></path>
@@ -286,7 +283,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #introduction
+                        #overview
                       </span>
                     </div>
                   </span>
@@ -295,12 +292,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.lens.xyz/docs/overview"
+                  href="https://wiki.polkadot.network/docs/learn-parachains"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Overview
+                      Parachains
                       <div>
                         <svg
                           width="25"
@@ -320,7 +317,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #architecture
+                        #xcm
                       </span>
                     </div>
                   </span>
@@ -329,12 +326,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.lens.xyz/docs/developer-quickstart"
+                  href="https://wiki.polkadot.network/docs/learn-staking"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Developer Quickstart
+                      Staking
                       <div>
                         <svg
                           width="25"
@@ -354,7 +351,10 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #api
+                        #PoS
+                      </span>
+                      <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
+                        #NPoS
                       </span>
                     </div>
                   </span>
@@ -395,12 +395,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.lens.xyz/docs/introduction"
+                  href="https://wiki.polkadot.network/docs/learn-account-generation"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Lens API
+                      Creating an Account
                       <div>
                         <svg
                           width="25"
@@ -420,7 +420,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #guides
+                        #account
                       </span>
                     </div>
                   </span>
@@ -429,12 +429,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.lens.xyz/docs/public-big-query"
+                  href="https://wiki.polkadot.network/docs/learn-balance-transfers"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Public BigQuery
+                      Balance Transfers
                       <div>
                         <svg
                           width="25"
@@ -454,10 +454,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #data
-                      </span>
-                      <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs">
-                        #query
+                        #transactions
                       </span>
                     </div>
                   </span>
@@ -466,12 +463,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.lens.xyz/docs/nfts"
+                  href="https://wiki.polkadot.network/docs/learn-treasury#creating-the-proposal"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      NFT
+                      Make Proposals
                       <div>
                         <svg
                           width="25"
@@ -491,10 +488,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #ethereum
-                      </span>
-                      <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #polygon
+                        #governance
                       </span>
                     </div>
                   </span>
@@ -503,7 +497,7 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.lens.xyz/docs"
+                  href="https://wiki.polkadot.network/"
                   target="blank"
                 >
                   <span className="display-block py-4">
@@ -534,14 +528,14 @@ export default function Learn() {
             <div className="divide-y divide-gray-100 px-4 divide-gray-400 md:row-start-2 md:pb-4 row-start-6">
               <div className="divided-item-hover">
                 <a
-                  href="https://docs.lens.xyz/docs/primer"
+                  href="https://wiki.polkadot.network/docs/build-smart-contracts#building-a-smart-contract"
                   target="blank"
                   rel="noreferrer"
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Primer
+                      Building a Smart Contract
                       <div>
                         <div className="pr-[3px] pt-[2px]">
                           <svg
@@ -551,8 +545,8 @@ export default function Learn() {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
                               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
                               fill="currentColor"
                             ></path>
@@ -562,10 +556,10 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #summary
+                        #substrate
                       </span>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #api
+                        #pallet
                       </span>
                     </div>
                   </span>
@@ -574,12 +568,12 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="https://docs.lens.xyz/docs/deploying-the-protocol"
+                  href="https://wiki.polkadot.network/docs/build-smart-contracts#parachains"
                   target="blank"
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Deploying The Protocol
+                      Parachains
                       <div>
                         <svg
                           width="25"
@@ -599,7 +593,13 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #local
+                        #moonbeam
+                      </span>
+                      <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
+                        #astar
+                      </span>
+                      <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
+                        #acala
                       </span>
                     </div>
                   </span>
@@ -607,14 +607,14 @@ export default function Learn() {
               </div>
               <div className="divided-item-hover">
                 <a
-                  href="https://docs.lens.xyz/docs/creating-a-profile"
+                  href="https://wiki.polkadot.network/docs/faq"
                   target="blank"
                   rel="noreferrer"
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
                 >
                   <span className="display-block py-4">
                     <div className="flex justify-between text-[15px] text-white mb-1 tracking-wide">
-                      Creating a Profile
+                      Frequently Asked Questions
                       <div>
                         <div className="pr-[3px] pt-[2px]">
                           <svg
@@ -624,8 +624,8 @@ export default function Learn() {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
                               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
                               fill="currentColor"
                             ></path>
@@ -635,7 +635,7 @@ export default function Learn() {
                     </div>
                     <div>
                       <span className="mr-2 rounded bg-gray-50 px-1 py-1 font-mono text-xs ">
-                        #lens
+                        #faq
                       </span>
                     </div>
                   </span>
@@ -644,7 +644,7 @@ export default function Learn() {
               <div className="divided-item-hover">
                 <a
                   className=" link-card-3-column-link group flex flex-col rounded-lg px-4 text-sm hover:bg-indigo-600 "
-                  href="#"
+                  href="https://wiki.polkadot.network/docs/build-smart-contracts"
                   target="blank"
                 >
                   <span className="display-block py-4">

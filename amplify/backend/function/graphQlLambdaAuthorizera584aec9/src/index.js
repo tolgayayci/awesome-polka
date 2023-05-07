@@ -39,7 +39,6 @@ exports.handler = async (event) => {
     ttlOverride: 300,
   };
 
-  console.log(`response >`, JSON.stringify(response, null, 2));
-
   return response;
 };
+

@@ -1,10 +1,15 @@
 import classNames from "classnames";
 import { ArrowUpIcon, ArrowDownIcon } from "@heroicons/react/20/solid";
 
+import { useCheckUser } from "../../../../hooks/useCheckUser";
+import Loader from "../../Loader/Loader";
+
 export default function ProjectOwnerHome() {
+  const { user, isLoading } = useCheckUser();
+
   const stats = [
     {
-      name: "Total Subscribers",
+      name: "Total Visitors",
       stat: "71,897",
       previousStat: "70,946",
       change: "12%",
@@ -18,8 +23,8 @@ export default function ProjectOwnerHome() {
       changeType: "increase",
     },
     {
-      name: "Avg. Click Rate",
-      stat: "24.57%",
+      name: "Completion Rate",
+      stat: "w3ww",
       previousStat: "28.62%",
       change: "4.05%",
       changeType: "decrease",
@@ -50,10 +55,14 @@ export default function ProjectOwnerHome() {
     },
   ];
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <>
       <section className="container max-w-8xl mx-auto mt-10">
-        <div className="col-span-full mb-10">sadasds</div>
+        <div className="col-span-full mb-10">{user?.walletAddress}</div>
         <div className="flex space-x-8">
           <div className="w-1/2">
             <h3 className="text-base font-semibold leading-6 text-indigo-700">

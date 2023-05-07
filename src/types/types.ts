@@ -46,6 +46,13 @@ export interface JobProps {
     jobs: JobItem[];
 }
 
+export interface ProjectProps {
+    slug: string;
+    name: string;
+    bio: string;
+    photo: string;
+}
+
 export interface FileUploadProps {
     setPath: (path: string) => void;
 }

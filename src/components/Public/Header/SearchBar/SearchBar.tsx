@@ -240,7 +240,7 @@ export default function SearchBar(props: SearchBarProps) {
                               Submit your project to be featured on
                               <span className="text-indigo-700">
                                 {" "}
-                                Awesome Lens!
+                                Awesome Polka!
                               </span>
                             </h1> */}
                             <p className="text-sm leading-6 text-center font-normal my-auto mb-8">

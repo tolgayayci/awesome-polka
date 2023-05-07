@@ -94,7 +94,7 @@ export default function GitHubActivity(props: GitHubActivityProps) {
       },
       series: [
         {
-          name: `Lens Commit History By Weeks`,
+          name: `Polkadot Commit History By Weeks`,
           type: "line",
           smooth: true,
           symbol: "none",

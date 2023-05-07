@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 // ** Form Imports */
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useProjectStore } from "../../../../../../data/store/projectStore";
+import { useCheckArticle } from "../../../../../../hooks/useCheckArticle";
+import { createArticleAttribute } from "../../../../../../data/mutations/createArticleAttribute";
 import { validateArticle } from "../../../../../../utils/validation/articleValidation";
-import { readProjectAttribute } from "../../../../../../data/queries/readProjectAttribute";
 import FileUpload from "../../../../FileUpload/FileUpload";
 import Loader from "../../../../Loader/Loader";
 
@@ -18,28 +18,15 @@ import "react-quill/dist/quill.snow.css";
 import { LightBulbIcon, CheckIcon, FireIcon } from "@heroicons/react/20/solid";
 import { Switch } from "@headlessui/react";
 
-import { createArticleAttribute } from "../../../../../../data/mutations/createArticleAttribute";
+import { useRouter } from "next/router";
+import { updateArticleAttribute } from "../../../../../../data/mutations/updateArticleAttribute";
+import SideNav from "../../../SideNav/SideNav";
 
 export default function EditArticle() {
-  const project = useProjectStore((state) => state.project);
-  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+  const { edit } = router.query;
 
-  async function check() {
-    try {
-      if (!project) {
-        //TODO: Change parameter to project slug
-        await readProjectAttribute("lens-protocol");
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    check();
-  });
+  const { article, isLoading } = useCheckArticle(edit as string);
 
   if (isLoading) {
     return <Loader />;
@@ -59,30 +46,24 @@ export default function EditArticle() {
     ],
   };
 
-  const initialValues: CreateArticleInput = {
-    title: "",
-    description: "",
-    body: "",
-    isExternal: false,
-    externalUrl: "",
-    image: "https://picsum.photos/200/300",
-    projectSlug: project?.slug as string,
-  };
-
   return (
     <div className="container max-w-8xl mx-auto">
       <div className="flex space-x-8">
         <div className="w-2/3">
           <div className="border-[3px] border-indigo-900 rounded-lg px-20 py-16 bg-white">
             <Formik
-              initialValues={initialValues}
+              initialValues={{
+                id: article?.id || "",
+                title: article?.title || "",
+                description: article?.description || "",
+                image: article?.image || "",
+                isExternal: article?.isExternal || false,
+                body: article?.body || "",
+                externalUrl: article?.externalUrl || "",
+              }}
               validationSchema={validateArticle}
               onSubmit={async (values, actions) => {
-                if (!project) {
-                  console.log("No project found");
-                  return;
-                }
-                await createArticleAttribute(values);
+                await updateArticleAttribute(values);
                 actions.setSubmitting(false);
               }}
             >
@@ -245,7 +226,7 @@ export default function EditArticle() {
                           value={values.body || ""}
                           onChange={(value) => setFieldValue("body", value)}
                           modules={modules}
-                          className="h-full"
+                          className="h-full pb-16"
                         />
                       </div>
                     ) : (
@@ -305,45 +286,7 @@ export default function EditArticle() {
           </div>
         </div>
         <div className="w-1/3">
-          <div className="border-[3px] border-indigo-900 rounded-lg px-12 py-16 bg-white">
-            <ul className="space-y-4">
-              <li>
-                <h2 className="text-lg font-semibold mb-2 text-indigo-600 flex items-center">
-                  <LightBulbIcon className="h-6 w-6 mr-2" />
-                  Start with a hook
-                </h2>
-                <p className="text-gray-700 text-[14px]">
-                  Your project page description should start with a hook that
-                  grabs the reader attention and gives them a reason to keep
-                  reading.
-                </p>
-              </li>
-              <li>
-                <h2 className="text-lg font-semibold mb-2 mt-8 text-indigo-600 flex items-center">
-                  <CheckIcon className="h-6 w-6 mr-2" />
-                  Highlight key features
-                </h2>
-                <p className="text-gray-700 text-[14px]">
-                  Focus on the most important features or benefits of your
-                  project that make it unique or valuable. This could include a
-                  description of the problem your project solves or the benefits
-                  it provides to users.
-                </p>
-              </li>
-              <li>
-                <h2 className="text-lg font-semibold mb-2 mt-8 text-indigo-600 flex items-center">
-                  <FireIcon className="h-6 w-6 mr-2" />
-                  Be concise and easy to read
-                </h2>
-                <p className="text-gray-700 text-[14px]">
-                  Keep your description concise and easy to read by using short
-                  paragraphs, bullet points, and headings to break up the text.
-                  Avoid using jargon or technical terms that may confuse readers
-                  who are not familiar with your project domain.
-                </p>
-              </li>
-            </ul>
-          </div>
+          <SideNav />
         </div>
       </div>
     </div>

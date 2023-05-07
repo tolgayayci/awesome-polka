@@ -35,7 +35,7 @@ export default function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Image
-                      src="/Awesome_Lens_Logo.svg"
+                      src="/Awesome_Polkadot_Logo.svg"
                       alt="Awesome Lens Logo"
                       width={250}
                       height={100}
@@ -151,9 +151,9 @@ export default function Header() {
               className="text-3xl mr-10 2xl:mr-16 font-extrabold text-indigo-800"
             >
               <Image
-                src="/Awesome_Lens_Logo.svg"
+                src="/Awesome_Polkadot_Logo.svg"
                 height={100}
-                width={250}
+                width={330}
                 alt="awesome lens logo"
               />
             </Link>
@@ -233,22 +233,26 @@ export default function Header() {
               </li>
             </ul>
 
-            <div className="hidden xl:flex items-center justify-end w-full max-w-sm">
+            <div className="hidden xl:flex items-center justify-end w-full">
               <div>
                 <LoginButton />
               </div>
-              {/* <SearchBar open={isSearchOpen} setOpen={setIsSearchOpen} />
-              <button
-                type="button"
-                className="text-indigo-900 text-[15px] w-full bg-white hover:bg-gray-100 border-[3px] border-indigo-900 font-bold rounded-xl text-sm px-5 py-3.5 text-center inline-flex items-center mr-2"
-                onClick={() => setIsSearchOpen(!isSearchOpen)}
-              >
-                <MagnifyingGlassIcon
-                  className="h-5 w-5 text-gray-800 font-extrabold mr-2"
-                  aria-hidden="true"
-                />
-                Search on Awesome Lens
-              </button> */}
+              <div className="ml-4">
+                <SearchBar open={isSearchOpen} setOpen={setIsSearchOpen} />
+                <button
+                  type="button"
+                  className="text-indigo-900 text-[15px] w-full bg-white hover:bg-gray-100 border-[3px] border-indigo-900 font-bold rounded-xl text-sm px-5 py-2 text-center inline-flex items-center mr-2"
+                  onClick={() => (
+                    setIsMobileMenuOpen(false), setIsSearchOpen(true)
+                  )}
+                >
+                  <MagnifyingGlassIcon
+                    className="h-5 w-5 text-gray-800 font-extrabold mr-2"
+                    aria-hidden="true"
+                  />
+                  Search on Awesome Polka
+                </button>
+              </div>
             </div>
           </nav>
         </div>

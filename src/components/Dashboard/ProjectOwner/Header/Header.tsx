@@ -13,10 +13,6 @@ export default function ProjectOwner() {
   const router = useRouter();
   const currentPage = router.pathname.split("/");
 
-  // useEffect(() => {
-  //   console.log(ethers.Wallet.createRandom().privateKey);
-  // });
-
   return (
     <>
       <section className="container mx-auto max-w-8xl">
@@ -24,10 +20,10 @@ export default function ProjectOwner() {
           <div className="flex flex-wrap justify-between items-center py-2.5">
             <Link href="/" className="flex">
               <Image
-                src="/Awesome_Lens_Logo.svg"
+                src="/Awesome_Polkadot_Logo.svg"
                 width={250}
                 height={100}
-                alt="Awesome Lens Logo"
+                alt="Awesome Polka Logo"
               />
             </Link>
             <div className="flex items-center">
@@ -38,7 +34,7 @@ export default function ProjectOwner() {
 
         <nav className="border-b border-gray-200 dark:border-gray-700 bg-indigo-700 rounded-lg py-1">
           <ul className="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 ">
-            <li className="flex items-center mr-2 ml-2">
+            {/* <li className="flex items-center mr-2 ml-2">
               <Link
                 href="/dashboard"
                 className={classNames(
@@ -61,8 +57,8 @@ export default function ProjectOwner() {
                 </svg>
                 Dashboard
               </Link>
-            </li>
-            <li className="flex items-center mr-2">
+            </li> */}
+            <li className="flex items-center mr-2 ml-2">
               <Link
                 href="/dashboard/project"
                 className={classNames(
@@ -154,7 +150,7 @@ export default function ProjectOwner() {
                         href="/dashboard"
                         className="text-sm font-medium text-black  hover:text-indigo-600"
                       >
-                        Awesome Lens
+                        Awesome Polka
                       </Link>
                     </div>
                   </li>

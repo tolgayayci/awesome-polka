@@ -25,7 +25,7 @@ export default function Articles(props: IArticlesProps) {
                   Latest Articles
                 </h2>
                 <p className="mb-8 md:mb-12 text-gray-600 font-medium leading-relaxed">
-                  Latest news and announcements from the Lens Team.
+                  Latest news and announcements from the Polkadot Team.
                 </p>
               </div>
               <div className="flex flex-wrap -m-8">
@@ -48,7 +48,7 @@ export default function Articles(props: IArticlesProps) {
                           <div className="mb-2">
                             <div className="mb-2">
                               <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                                Lens
+                                Polkadot
                               </span>
                               <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
                                 Announcement
@@ -60,14 +60,14 @@ export default function Articles(props: IArticlesProps) {
                               target="blank"
                             >
                               <h3 className="text-xl font-semibold leading-normal">
-                                Lens BigQuery Public Dataset is Live 🔍
+                                Polkadot BigQuery Public Dataset is Live 🔍
                               </h3>
                             </a>
                           </div>
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/lens_logo.jpg"
+                                src="/polkadot_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -76,7 +76,7 @@ export default function Articles(props: IArticlesProps) {
                             </div>
                             <div className="w-auto p-1">
                               <p className="text-sm font-semibold leading-relaxed">
-                                By Lens
+                                By Polkadot
                               </p>
                             </div>
                           </div>
@@ -104,7 +104,7 @@ export default function Articles(props: IArticlesProps) {
                           <div className="mb-2">
                             <div className="mb-2">
                               <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                                Lens
+                                Polkadot
                               </span>
                               <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
                                 Blog
@@ -123,7 +123,7 @@ export default function Articles(props: IArticlesProps) {
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/lens_logo.jpg"
+                                src="/polkadot_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -132,7 +132,7 @@ export default function Articles(props: IArticlesProps) {
                             </div>
                             <div className="w-auto p-1">
                               <p className="text-sm font-semibold leading-relaxed">
-                                By Lens
+                                By Polkadot
                               </p>
                             </div>
                           </div>
@@ -160,7 +160,7 @@ export default function Articles(props: IArticlesProps) {
                           <div className="mb-2">
                             <div className="mb-2">
                               <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                                Lens
+                                Polkadot
                               </span>
                               <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
                                 Announcement
@@ -172,14 +172,14 @@ export default function Articles(props: IArticlesProps) {
                               target="blank"
                             >
                               <h3 className="text-xl font-semibold leading-normal">
-                                Introducing direct messaging with Lens API
+                                Introducing direct messaging with Polkadot API
                               </h3>
                             </a>
                           </div>
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/lens_logo.jpg"
+                                src="/polkadot_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -188,7 +188,7 @@ export default function Articles(props: IArticlesProps) {
                             </div>
                             <div className="w-auto p-1">
                               <p className="text-sm font-semibold leading-relaxed">
-                                By Lens
+                                By Polkadot
                               </p>
                             </div>
                           </div>
@@ -216,7 +216,7 @@ export default function Articles(props: IArticlesProps) {
                           <div className="mb-2">
                             <div className="mb-2">
                               <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                                Lens
+                                Polkadot
                               </span>
                               <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
                                 Blog
@@ -235,7 +235,7 @@ export default function Articles(props: IArticlesProps) {
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/lens_logo.jpg"
+                                src="/polkadot_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -244,7 +244,7 @@ export default function Articles(props: IArticlesProps) {
                             </div>
                             <div className="w-auto p-1">
                               <p className="text-sm font-semibold leading-relaxed">
-                                By Lens
+                                By Polkadot
                               </p>
                             </div>
                           </div>

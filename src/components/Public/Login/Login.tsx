@@ -25,6 +25,8 @@ export default function LoginButton() {
       }
     },
     onDisconnect() {
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
       console.log("Disconnected");
     },
   });
@@ -42,7 +44,7 @@ export default function LoginButton() {
     const token = window.localStorage.getItem("accessToken");
 
     if (token) {
-      const result = verifyToken(token);
+      const result = await verifyToken(token);
 
       if (!result) {
         console.log("Token is expired or invalid");
@@ -51,7 +53,6 @@ export default function LoginButton() {
           message: challenge,
         });
       }
-      console.log("Token is valid");
       return;
     } else {
       console.log("token is expired or invalid");

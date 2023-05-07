@@ -25,7 +25,9 @@ export default function Description(props: IDescriptionProps) {
               <div className="flex flex-wrap">
                 <div className="w-full p-2">
                   <div>
-                    <h3 className="mb-2 text-[40px] font-bold">About Lens</h3>
+                    <h3 className="mb-2 text-[40px] font-bold">
+                      About Polkadot
+                    </h3>
                     <h5 className="mb-7 text-[20px] text-gray-700 font-semibold">
                       LENS PROTOCOL
                     </h5>

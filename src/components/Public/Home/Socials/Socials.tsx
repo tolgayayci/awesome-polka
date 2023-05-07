@@ -3,7 +3,7 @@ export default function Socials() {
     <section className="mb-16 md:mb-24 container max-w-8xl mx-auto px-6 lg:px-0">
       <div className="grid grid-cols-1 px-4 md:grid-cols-2 md:px-0 rounded-lg bg-indigo-300">
         <a
-          href="https://github.com/lens-protocol"
+          href="https://github.com/paritytech/polkadot"
           target="blank"
           rel="noreferrer"
           className="flex items-center justify-between py-6 px-2 hover:cursor-pointer hover:opacity-70 md:px-10 border-b border-r-0 md:border-r"
@@ -24,7 +24,7 @@ export default function Socials() {
             </div>
             <div className="ml-6 items-center pt-2">
               <h4 className="text-xl font-semibold">Github</h4>
-              <p>All repos maintained by the core contributors of Lens.</p>
+              <p>All repos maintained by the core contributors of Polkadot.</p>
             </div>
           </div>
           <svg
@@ -34,15 +34,15 @@ export default function Socials() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fillRule="evenodd"
-              clipRule="evenodd"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
               fill="currentColor"
             ></path>
           </svg>
         </a>
         <a
-          href="https://www.lens.xyz/"
+          href="https://forum.polkadot.network/"
           target="blank"
           rel="noreferrer"
           className="flex items-center justify-between py-6 px-2 hover:cursor-pointer hover:opacity-70 md:px-10 border-b"
@@ -56,8 +56,8 @@ export default function Socials() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
                   d="M17 8.5a8.5 8.5 0 0 1-12.431 7.538l-4.435.934a.1.1 0 0 1-.12-.109l.558-5.293A8.5 8.5 0 1 1 17 8.5Zm-4.25 0a4.25 4.25 0 0 1-6.216 3.77l-2.284.48.286-2.715A4.25 4.25 0 1 1 12.75 8.5Z"
                   fill="currentColor"
                 ></path>
@@ -77,15 +77,15 @@ export default function Socials() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fillRule="evenodd"
-              clipRule="evenodd"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
               fill="currentColor"
             ></path>
           </svg>
         </a>
         <a
-          href="https://discord.gg/lensprotocol"
+          href="https://dot.li/discord"
           target="blank"
           rel="noreferrer"
           className="flex items-center justify-between py-6 px-2 hover:cursor-pointer hover:opacity-70 md:px-10 border-b border-r-0 md:border-b-0 md:border-r"
@@ -116,15 +116,15 @@ export default function Socials() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fillRule="evenodd"
-              clipRule="evenodd"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
               fill="currentColor"
             ></path>
           </svg>
         </a>
         <a
-          href="https://twitter.com/LensProtocol"
+          href="https://twitter.com/Polkadot"
           target="blank"
           rel="noreferrer"
           className="flex items-center justify-between py-6 px-2 hover:cursor-pointer hover:opacity-70 md:px-10 undefined"
@@ -145,7 +145,7 @@ export default function Socials() {
             </div>
             <div className="ml-6 items-center pt-2">
               <h4 className="text-xl font-semibold">Twitter</h4>
-              <p>Checkout the latest happenings on Lens.</p>
+              <p>Checkout the latest happenings on Polkadot.</p>
             </div>
           </div>
           <svg
@@ -155,8 +155,8 @@ export default function Socials() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fillRule="evenodd"
-              clipRule="evenodd"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
               d="M10 5.825a.9.9 0 0 0 0 1.8h5.102l-8.688 8.688a.9.9 0 1 0 1.272 1.273l8.863-8.863v5.452a.9.9 0 1 0 1.8 0v-7.45a.9.9 0 0 0-.9-.9H10Z"
               fill="currentColor"
             ></path>

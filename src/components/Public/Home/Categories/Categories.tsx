@@ -7,12 +7,12 @@ export default function Categories() {
       <div className="container">
         <div className="text-h2 pb-16 md:pb-20 group flex flex-col md:flex-row md:items-center px-2 md:px-0">
           <span className="inline text-4xl font-semibold text-indigo-700 md:order-1">
-            Start Discovering <br /> Awesome Lens
+            Start Discovering <br /> Awesome Polka
           </span>
           <p className="text-lg font-semibold md:px-10 pt-10 md:pt-0 max-w-[800px] md:order-2 md:ml-24">
-            Get ready to discover some really cool projects on Awesome Lens! You
-            will find them all neatly sorted into different categories, so it is
-            easy to find what interests you most!
+            Get ready to discover some really cool projects on Awesome Polka!
+            You will find them all neatly sorted into different categories, so
+            it is easy to find what interests you most!
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
@@ -108,7 +108,7 @@ export default function Categories() {
                   Integrations
                 </div>
                 <div className="text-start font-semibold text-primary-gray-100 py-2">
-                  Lens Protocol integrations combine different blockchain
+                  Polkadot Protocol integrations combine different blockchain
                   systems or applications for a more efficient and secure
                   ecosystem to achieve a platforms goal.
                 </div>

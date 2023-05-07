@@ -15,7 +15,7 @@ import { validateTeam } from "../../../../../utils/validation/teamValidation";
 import type { TeamMember, TeamProps } from "../../../../../types/types";
 
 //** Data */
-import { useCheckProject } from "../../../../../hooks/useCheckProject";
+import { useCheckUser } from "../../../../../hooks/useCheckUser";
 import { updateProjectAttribute } from "../../../../../data/mutations/updateProjectAttribute";
 
 //** Custom */
@@ -32,7 +32,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 export default function Team() {
-  const { project, isLoading } = useCheckProject("lens-protocol");
+  const { user, isLoading } = useCheckUser();
 
   // This is an async function that handles the form submission for updating a project's description.
   async function handleSubmit(
@@ -42,7 +42,7 @@ export default function Team() {
     try {
       // Call the `updateProjectAttribute` function with an object containing the project slug and the `team` fields from the `values` parameter.
       await updateProjectAttribute({
-        slug: project?.slug as string,
+        slug: user?.project?.items[0]?.slug as string,
         team: values.team.map((member) => JSON.stringify(member)),
       });
       actions.setStatus({ success: true });
@@ -79,7 +79,7 @@ export default function Team() {
                         </div>
                         <Formik
                           initialValues={{
-                            team: project?.team?.map(
+                            team: user?.project?.items[0]?.team?.map(
                               (member) =>
                                 JSON.parse(member as string) as TeamMember
                             ) || [

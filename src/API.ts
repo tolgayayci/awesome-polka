@@ -106,6 +106,7 @@ export type Project = {
   slug: string,
   name: string,
   bio: string,
+  image?: string | null,
   categories?: ModelProjectCategoriesConnection | null,
   socials?: Array< string | null > | null,
   description?: string | null,
@@ -185,6 +186,7 @@ export type CreateProjectInput = {
   slug: string,
   name: string,
   bio: string,
+  image?: string | null,
   socials?: Array< string | null > | null,
   description?: string | null,
   githubRepoUrl?: string | null,
@@ -198,6 +200,7 @@ export type CreateProjectInput = {
 export type ModelProjectConditionInput = {
   name?: ModelStringInput | null,
   bio?: ModelStringInput | null,
+  image?: ModelStringInput | null,
   socials?: ModelStringInput | null,
   description?: ModelStringInput | null,
   githubRepoUrl?: ModelStringInput | null,
@@ -215,6 +218,7 @@ export type UpdateProjectInput = {
   slug: string,
   name?: string | null,
   bio?: string | null,
+  image?: string | null,
   socials?: Array< string | null > | null,
   description?: string | null,
   githubRepoUrl?: string | null,
@@ -362,23 +366,6 @@ export type ModelUserConnection = {
   nextToken?: string | null,
 };
 
-export type ModelProjectFilterInput = {
-  slug?: ModelStringInput | null,
-  name?: ModelStringInput | null,
-  bio?: ModelStringInput | null,
-  socials?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  githubRepoUrl?: ModelStringInput | null,
-  tokenSymbol?: ModelStringInput | null,
-  openJobs?: ModelStringInput | null,
-  team?: ModelStringInput | null,
-  faq?: ModelStringInput | null,
-  userWalletAddress?: ModelStringInput | null,
-  and?: Array< ModelProjectFilterInput | null > | null,
-  or?: Array< ModelProjectFilterInput | null > | null,
-  not?: ModelProjectFilterInput | null,
-};
-
 export type ModelArticleFilterInput = {
   id?: ModelIDInput | null,
   title?: ModelStringInput | null,
@@ -406,6 +393,24 @@ export type ModelCategoryConnection = {
   __typename: "ModelCategoryConnection",
   items:  Array<Category | null >,
   nextToken?: string | null,
+};
+
+export type ModelProjectFilterInput = {
+  slug?: ModelStringInput | null,
+  name?: ModelStringInput | null,
+  bio?: ModelStringInput | null,
+  image?: ModelStringInput | null,
+  socials?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  githubRepoUrl?: ModelStringInput | null,
+  tokenSymbol?: ModelStringInput | null,
+  openJobs?: ModelStringInput | null,
+  team?: ModelStringInput | null,
+  faq?: ModelStringInput | null,
+  userWalletAddress?: ModelStringInput | null,
+  and?: Array< ModelProjectFilterInput | null > | null,
+  or?: Array< ModelProjectFilterInput | null > | null,
+  not?: ModelProjectFilterInput | null,
 };
 
 export type ModelProjectCategoriesFilterInput = {
@@ -440,22 +445,6 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null,
   in?: Array< string | null > | null,
   notIn?: Array< string | null > | null,
-};
-
-export type ModelSubscriptionProjectFilterInput = {
-  slug?: ModelSubscriptionStringInput | null,
-  name?: ModelSubscriptionStringInput | null,
-  bio?: ModelSubscriptionStringInput | null,
-  socials?: ModelSubscriptionStringInput | null,
-  description?: ModelSubscriptionStringInput | null,
-  githubRepoUrl?: ModelSubscriptionStringInput | null,
-  tokenSymbol?: ModelSubscriptionStringInput | null,
-  openJobs?: ModelSubscriptionStringInput | null,
-  team?: ModelSubscriptionStringInput | null,
-  faq?: ModelSubscriptionStringInput | null,
-  userWalletAddress?: ModelSubscriptionStringInput | null,
-  and?: Array< ModelSubscriptionProjectFilterInput | null > | null,
-  or?: Array< ModelSubscriptionProjectFilterInput | null > | null,
 };
 
 export type ModelSubscriptionArticleFilterInput = {
@@ -499,6 +488,23 @@ export type ModelSubscriptionCategoryFilterInput = {
   or?: Array< ModelSubscriptionCategoryFilterInput | null > | null,
 };
 
+export type ModelSubscriptionProjectFilterInput = {
+  slug?: ModelSubscriptionStringInput | null,
+  name?: ModelSubscriptionStringInput | null,
+  bio?: ModelSubscriptionStringInput | null,
+  image?: ModelSubscriptionStringInput | null,
+  socials?: ModelSubscriptionStringInput | null,
+  description?: ModelSubscriptionStringInput | null,
+  githubRepoUrl?: ModelSubscriptionStringInput | null,
+  tokenSymbol?: ModelSubscriptionStringInput | null,
+  openJobs?: ModelSubscriptionStringInput | null,
+  team?: ModelSubscriptionStringInput | null,
+  faq?: ModelSubscriptionStringInput | null,
+  userWalletAddress?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionProjectFilterInput | null > | null,
+  or?: Array< ModelSubscriptionProjectFilterInput | null > | null,
+};
+
 export type ModelSubscriptionProjectCategoriesFilterInput = {
   id?: ModelSubscriptionIDInput | null,
   projectSlug?: ModelSubscriptionStringInput | null,
@@ -527,6 +533,7 @@ export type CreateUserMutation = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -565,6 +572,7 @@ export type UpdateUserMutation = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -603,6 +611,7 @@ export type DeleteUserMutation = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -632,6 +641,7 @@ export type CreateProjectMutation = {
     slug: string,
     name: string,
     bio: string,
+    image?: string | null,
     categories?:  {
       __typename: "ModelProjectCategoriesConnection",
       items:  Array< {
@@ -699,6 +709,7 @@ export type UpdateProjectMutation = {
     slug: string,
     name: string,
     bio: string,
+    image?: string | null,
     categories?:  {
       __typename: "ModelProjectCategoriesConnection",
       items:  Array< {
@@ -766,6 +777,7 @@ export type DeleteProjectMutation = {
     slug: string,
     name: string,
     bio: string,
+    image?: string | null,
     categories?:  {
       __typename: "ModelProjectCategoriesConnection",
       items:  Array< {
@@ -842,6 +854,7 @@ export type CreateArticleMutation = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -897,6 +910,7 @@ export type UpdateArticleMutation = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -952,6 +966,7 @@ export type DeleteArticleMutation = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -1087,6 +1102,7 @@ export type CreateProjectCategoriesMutation = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -1149,6 +1165,7 @@ export type UpdateProjectCategoriesMutation = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -1211,6 +1228,7 @@ export type DeleteProjectCategoriesMutation = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -1276,6 +1294,7 @@ export type GetUserQuery = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -1323,6 +1342,201 @@ export type ListUsersQuery = {
   } | null,
 };
 
+export type GetArticleQueryVariables = {
+  id: string,
+};
+
+export type GetArticleQuery = {
+  getArticle?:  {
+    __typename: "Article",
+    id: string,
+    title: string,
+    description: string,
+    body?: string | null,
+    image: string,
+    isExternal: boolean,
+    externalUrl?: string | null,
+    project?:  {
+      __typename: "Project",
+      slug: string,
+      name: string,
+      bio: string,
+      image?: string | null,
+      categories?:  {
+        __typename: "ModelProjectCategoriesConnection",
+        nextToken?: string | null,
+      } | null,
+      socials?: Array< string | null > | null,
+      description?: string | null,
+      githubRepoUrl?: string | null,
+      tokenSymbol?: string | null,
+      openJobs?: Array< string | null > | null,
+      team?: Array< string | null > | null,
+      faq?: Array< string > | null,
+      articles?:  {
+        __typename: "ModelArticleConnection",
+        nextToken?: string | null,
+      } | null,
+      user?:  {
+        __typename: "User",
+        walletAddress: string,
+        nonce: string,
+        username: string,
+        type: UserType,
+        status: UserStatus,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      userWalletAddress: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    projectSlug: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListArticlesQueryVariables = {
+  filter?: ModelArticleFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListArticlesQuery = {
+  listArticles?:  {
+    __typename: "ModelArticleConnection",
+    items:  Array< {
+      __typename: "Article",
+      id: string,
+      title: string,
+      description: string,
+      body?: string | null,
+      image: string,
+      isExternal: boolean,
+      externalUrl?: string | null,
+      project?:  {
+        __typename: "Project",
+        slug: string,
+        name: string,
+        bio: string,
+        image?: string | null,
+        socials?: Array< string | null > | null,
+        description?: string | null,
+        githubRepoUrl?: string | null,
+        tokenSymbol?: string | null,
+        openJobs?: Array< string | null > | null,
+        team?: Array< string | null > | null,
+        faq?: Array< string > | null,
+        userWalletAddress: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      projectSlug: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetCategoryQueryVariables = {
+  id: string,
+};
+
+export type GetCategoryQuery = {
+  getCategory?:  {
+    __typename: "Category",
+    id: string,
+    name: string,
+    description?: string | null,
+    projects?:  {
+      __typename: "ModelProjectCategoriesConnection",
+      items:  Array< {
+        __typename: "ProjectCategories",
+        id: string,
+        projectSlug: string,
+        categoryId: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListCategoriesQueryVariables = {
+  filter?: ModelCategoryFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListCategoriesQuery = {
+  listCategories?:  {
+    __typename: "ModelCategoryConnection",
+    items:  Array< {
+      __typename: "Category",
+      id: string,
+      name: string,
+      description?: string | null,
+      projects?:  {
+        __typename: "ModelProjectCategoriesConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type ArticlesByProjectSlugQueryVariables = {
+  projectSlug: string,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelArticleFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ArticlesByProjectSlugQuery = {
+  articlesByProjectSlug?:  {
+    __typename: "ModelArticleConnection",
+    items:  Array< {
+      __typename: "Article",
+      id: string,
+      title: string,
+      description: string,
+      body?: string | null,
+      image: string,
+      isExternal: boolean,
+      externalUrl?: string | null,
+      project?:  {
+        __typename: "Project",
+        slug: string,
+        name: string,
+        bio: string,
+        image?: string | null,
+        socials?: Array< string | null > | null,
+        description?: string | null,
+        githubRepoUrl?: string | null,
+        tokenSymbol?: string | null,
+        openJobs?: Array< string | null > | null,
+        team?: Array< string | null > | null,
+        faq?: Array< string > | null,
+        userWalletAddress: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      projectSlug: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type GetProjectQueryVariables = {
   slug: string,
 };
@@ -1333,6 +1547,7 @@ export type GetProjectQuery = {
     slug: string,
     name: string,
     bio: string,
+    image?: string | null,
     categories?:  {
       __typename: "ModelProjectCategoriesConnection",
       items:  Array< {
@@ -1405,6 +1620,7 @@ export type ListProjectsQuery = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -1438,25 +1654,23 @@ export type ListProjectsQuery = {
   } | null,
 };
 
-export type GetArticleQueryVariables = {
-  id: string,
+export type ProjectsByUserWalletAddressQueryVariables = {
+  userWalletAddress: string,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelProjectFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
 };
 
-export type GetArticleQuery = {
-  getArticle?:  {
-    __typename: "Article",
-    id: string,
-    title: string,
-    description: string,
-    body?: string | null,
-    image: string,
-    isExternal: boolean,
-    externalUrl?: string | null,
-    project?:  {
+export type ProjectsByUserWalletAddressQuery = {
+  projectsByUserWalletAddress?:  {
+    __typename: "ModelProjectConnection",
+    items:  Array< {
       __typename: "Project",
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -1483,102 +1697,6 @@ export type GetArticleQuery = {
         updatedAt: string,
       } | null,
       userWalletAddress: string,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    projectSlug: string,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type ListArticlesQueryVariables = {
-  filter?: ModelArticleFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListArticlesQuery = {
-  listArticles?:  {
-    __typename: "ModelArticleConnection",
-    items:  Array< {
-      __typename: "Article",
-      id: string,
-      title: string,
-      description: string,
-      body?: string | null,
-      image: string,
-      isExternal: boolean,
-      externalUrl?: string | null,
-      project?:  {
-        __typename: "Project",
-        slug: string,
-        name: string,
-        bio: string,
-        socials?: Array< string | null > | null,
-        description?: string | null,
-        githubRepoUrl?: string | null,
-        tokenSymbol?: string | null,
-        openJobs?: Array< string | null > | null,
-        team?: Array< string | null > | null,
-        faq?: Array< string > | null,
-        userWalletAddress: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      projectSlug: string,
-      createdAt: string,
-      updatedAt: string,
-    } | null >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type GetCategoryQueryVariables = {
-  id: string,
-};
-
-export type GetCategoryQuery = {
-  getCategory?:  {
-    __typename: "Category",
-    id: string,
-    name: string,
-    description?: string | null,
-    projects?:  {
-      __typename: "ModelProjectCategoriesConnection",
-      items:  Array< {
-        __typename: "ProjectCategories",
-        id: string,
-        projectSlug: string,
-        categoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type ListCategoriesQueryVariables = {
-  filter?: ModelCategoryFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListCategoriesQuery = {
-  listCategories?:  {
-    __typename: "ModelCategoryConnection",
-    items:  Array< {
-      __typename: "Category",
-      id: string,
-      name: string,
-      description?: string | null,
-      projects?:  {
-        __typename: "ModelProjectCategoriesConnection",
-        nextToken?: string | null,
-      } | null,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -1601,6 +1719,7 @@ export type GetProjectCategoriesQuery = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -1666,6 +1785,7 @@ export type ListProjectCategoriesQuery = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -1685,99 +1805,6 @@ export type ListProjectCategoriesQuery = {
         createdAt: string,
         updatedAt: string,
       },
-      createdAt: string,
-      updatedAt: string,
-    } | null >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type ProjectsByUserWalletAddressQueryVariables = {
-  userWalletAddress: string,
-  sortDirection?: ModelSortDirection | null,
-  filter?: ModelProjectFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ProjectsByUserWalletAddressQuery = {
-  projectsByUserWalletAddress?:  {
-    __typename: "ModelProjectConnection",
-    items:  Array< {
-      __typename: "Project",
-      slug: string,
-      name: string,
-      bio: string,
-      categories?:  {
-        __typename: "ModelProjectCategoriesConnection",
-        nextToken?: string | null,
-      } | null,
-      socials?: Array< string | null > | null,
-      description?: string | null,
-      githubRepoUrl?: string | null,
-      tokenSymbol?: string | null,
-      openJobs?: Array< string | null > | null,
-      team?: Array< string | null > | null,
-      faq?: Array< string > | null,
-      articles?:  {
-        __typename: "ModelArticleConnection",
-        nextToken?: string | null,
-      } | null,
-      user?:  {
-        __typename: "User",
-        walletAddress: string,
-        nonce: string,
-        username: string,
-        type: UserType,
-        status: UserStatus,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      userWalletAddress: string,
-      createdAt: string,
-      updatedAt: string,
-    } | null >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type ArticlesByProjectSlugQueryVariables = {
-  projectSlug: string,
-  sortDirection?: ModelSortDirection | null,
-  filter?: ModelArticleFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ArticlesByProjectSlugQuery = {
-  articlesByProjectSlug?:  {
-    __typename: "ModelArticleConnection",
-    items:  Array< {
-      __typename: "Article",
-      id: string,
-      title: string,
-      description: string,
-      body?: string | null,
-      image: string,
-      isExternal: boolean,
-      externalUrl?: string | null,
-      project?:  {
-        __typename: "Project",
-        slug: string,
-        name: string,
-        bio: string,
-        socials?: Array< string | null > | null,
-        description?: string | null,
-        githubRepoUrl?: string | null,
-        tokenSymbol?: string | null,
-        openJobs?: Array< string | null > | null,
-        team?: Array< string | null > | null,
-        faq?: Array< string > | null,
-        userWalletAddress: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null,
-      projectSlug: string,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -1806,6 +1833,7 @@ export type ProjectCategoriesByProjectSlugQuery = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -1853,6 +1881,7 @@ export type ProjectCategoriesByCategoryIdQuery = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -1898,6 +1927,7 @@ export type OnCreateUserSubscription = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -1935,6 +1965,7 @@ export type OnUpdateUserSubscription = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -1972,6 +2003,7 @@ export type OnDeleteUserSubscription = {
         slug: string,
         name: string,
         bio: string,
+        image?: string | null,
         socials?: Array< string | null > | null,
         description?: string | null,
         githubRepoUrl?: string | null,
@@ -1985,204 +2017,6 @@ export type OnDeleteUserSubscription = {
       } | null >,
       nextToken?: string | null,
     } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnCreateProjectSubscriptionVariables = {
-  filter?: ModelSubscriptionProjectFilterInput | null,
-};
-
-export type OnCreateProjectSubscription = {
-  onCreateProject?:  {
-    __typename: "Project",
-    slug: string,
-    name: string,
-    bio: string,
-    categories?:  {
-      __typename: "ModelProjectCategoriesConnection",
-      items:  Array< {
-        __typename: "ProjectCategories",
-        id: string,
-        projectSlug: string,
-        categoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    socials?: Array< string | null > | null,
-    description?: string | null,
-    githubRepoUrl?: string | null,
-    tokenSymbol?: string | null,
-    openJobs?: Array< string | null > | null,
-    team?: Array< string | null > | null,
-    faq?: Array< string > | null,
-    articles?:  {
-      __typename: "ModelArticleConnection",
-      items:  Array< {
-        __typename: "Article",
-        id: string,
-        title: string,
-        description: string,
-        body?: string | null,
-        image: string,
-        isExternal: boolean,
-        externalUrl?: string | null,
-        projectSlug: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    user?:  {
-      __typename: "User",
-      walletAddress: string,
-      nonce: string,
-      username: string,
-      type: UserType,
-      status: UserStatus,
-      project?:  {
-        __typename: "ModelProjectConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    userWalletAddress: string,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnUpdateProjectSubscriptionVariables = {
-  filter?: ModelSubscriptionProjectFilterInput | null,
-};
-
-export type OnUpdateProjectSubscription = {
-  onUpdateProject?:  {
-    __typename: "Project",
-    slug: string,
-    name: string,
-    bio: string,
-    categories?:  {
-      __typename: "ModelProjectCategoriesConnection",
-      items:  Array< {
-        __typename: "ProjectCategories",
-        id: string,
-        projectSlug: string,
-        categoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    socials?: Array< string | null > | null,
-    description?: string | null,
-    githubRepoUrl?: string | null,
-    tokenSymbol?: string | null,
-    openJobs?: Array< string | null > | null,
-    team?: Array< string | null > | null,
-    faq?: Array< string > | null,
-    articles?:  {
-      __typename: "ModelArticleConnection",
-      items:  Array< {
-        __typename: "Article",
-        id: string,
-        title: string,
-        description: string,
-        body?: string | null,
-        image: string,
-        isExternal: boolean,
-        externalUrl?: string | null,
-        projectSlug: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    user?:  {
-      __typename: "User",
-      walletAddress: string,
-      nonce: string,
-      username: string,
-      type: UserType,
-      status: UserStatus,
-      project?:  {
-        __typename: "ModelProjectConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    userWalletAddress: string,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnDeleteProjectSubscriptionVariables = {
-  filter?: ModelSubscriptionProjectFilterInput | null,
-};
-
-export type OnDeleteProjectSubscription = {
-  onDeleteProject?:  {
-    __typename: "Project",
-    slug: string,
-    name: string,
-    bio: string,
-    categories?:  {
-      __typename: "ModelProjectCategoriesConnection",
-      items:  Array< {
-        __typename: "ProjectCategories",
-        id: string,
-        projectSlug: string,
-        categoryId: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    socials?: Array< string | null > | null,
-    description?: string | null,
-    githubRepoUrl?: string | null,
-    tokenSymbol?: string | null,
-    openJobs?: Array< string | null > | null,
-    team?: Array< string | null > | null,
-    faq?: Array< string > | null,
-    articles?:  {
-      __typename: "ModelArticleConnection",
-      items:  Array< {
-        __typename: "Article",
-        id: string,
-        title: string,
-        description: string,
-        body?: string | null,
-        image: string,
-        isExternal: boolean,
-        externalUrl?: string | null,
-        projectSlug: string,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    user?:  {
-      __typename: "User",
-      walletAddress: string,
-      nonce: string,
-      username: string,
-      type: UserType,
-      status: UserStatus,
-      project?:  {
-        __typename: "ModelProjectConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null,
-    userWalletAddress: string,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -2207,6 +2041,7 @@ export type OnCreateArticleSubscription = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -2261,6 +2096,7 @@ export type OnUpdateArticleSubscription = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -2315,6 +2151,7 @@ export type OnDeleteArticleSubscription = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -2431,6 +2268,207 @@ export type OnDeleteCategorySubscription = {
   } | null,
 };
 
+export type OnCreateProjectSubscriptionVariables = {
+  filter?: ModelSubscriptionProjectFilterInput | null,
+};
+
+export type OnCreateProjectSubscription = {
+  onCreateProject?:  {
+    __typename: "Project",
+    slug: string,
+    name: string,
+    bio: string,
+    image?: string | null,
+    categories?:  {
+      __typename: "ModelProjectCategoriesConnection",
+      items:  Array< {
+        __typename: "ProjectCategories",
+        id: string,
+        projectSlug: string,
+        categoryId: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    socials?: Array< string | null > | null,
+    description?: string | null,
+    githubRepoUrl?: string | null,
+    tokenSymbol?: string | null,
+    openJobs?: Array< string | null > | null,
+    team?: Array< string | null > | null,
+    faq?: Array< string > | null,
+    articles?:  {
+      __typename: "ModelArticleConnection",
+      items:  Array< {
+        __typename: "Article",
+        id: string,
+        title: string,
+        description: string,
+        body?: string | null,
+        image: string,
+        isExternal: boolean,
+        externalUrl?: string | null,
+        projectSlug: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    user?:  {
+      __typename: "User",
+      walletAddress: string,
+      nonce: string,
+      username: string,
+      type: UserType,
+      status: UserStatus,
+      project?:  {
+        __typename: "ModelProjectConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    userWalletAddress: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateProjectSubscriptionVariables = {
+  filter?: ModelSubscriptionProjectFilterInput | null,
+};
+
+export type OnUpdateProjectSubscription = {
+  onUpdateProject?:  {
+    __typename: "Project",
+    slug: string,
+    name: string,
+    bio: string,
+    image?: string | null,
+    categories?:  {
+      __typename: "ModelProjectCategoriesConnection",
+      items:  Array< {
+        __typename: "ProjectCategories",
+        id: string,
+        projectSlug: string,
+        categoryId: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    socials?: Array< string | null > | null,
+    description?: string | null,
+    githubRepoUrl?: string | null,
+    tokenSymbol?: string | null,
+    openJobs?: Array< string | null > | null,
+    team?: Array< string | null > | null,
+    faq?: Array< string > | null,
+    articles?:  {
+      __typename: "ModelArticleConnection",
+      items:  Array< {
+        __typename: "Article",
+        id: string,
+        title: string,
+        description: string,
+        body?: string | null,
+        image: string,
+        isExternal: boolean,
+        externalUrl?: string | null,
+        projectSlug: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    user?:  {
+      __typename: "User",
+      walletAddress: string,
+      nonce: string,
+      username: string,
+      type: UserType,
+      status: UserStatus,
+      project?:  {
+        __typename: "ModelProjectConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    userWalletAddress: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteProjectSubscriptionVariables = {
+  filter?: ModelSubscriptionProjectFilterInput | null,
+};
+
+export type OnDeleteProjectSubscription = {
+  onDeleteProject?:  {
+    __typename: "Project",
+    slug: string,
+    name: string,
+    bio: string,
+    image?: string | null,
+    categories?:  {
+      __typename: "ModelProjectCategoriesConnection",
+      items:  Array< {
+        __typename: "ProjectCategories",
+        id: string,
+        projectSlug: string,
+        categoryId: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    socials?: Array< string | null > | null,
+    description?: string | null,
+    githubRepoUrl?: string | null,
+    tokenSymbol?: string | null,
+    openJobs?: Array< string | null > | null,
+    team?: Array< string | null > | null,
+    faq?: Array< string > | null,
+    articles?:  {
+      __typename: "ModelArticleConnection",
+      items:  Array< {
+        __typename: "Article",
+        id: string,
+        title: string,
+        description: string,
+        body?: string | null,
+        image: string,
+        isExternal: boolean,
+        externalUrl?: string | null,
+        projectSlug: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    user?:  {
+      __typename: "User",
+      walletAddress: string,
+      nonce: string,
+      username: string,
+      type: UserType,
+      status: UserStatus,
+      project?:  {
+        __typename: "ModelProjectConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    userWalletAddress: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type OnCreateProjectCategoriesSubscriptionVariables = {
   filter?: ModelSubscriptionProjectCategoriesFilterInput | null,
 };
@@ -2446,6 +2484,7 @@ export type OnCreateProjectCategoriesSubscription = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -2507,6 +2546,7 @@ export type OnUpdateProjectCategoriesSubscription = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,
@@ -2568,6 +2608,7 @@ export type OnDeleteProjectCategoriesSubscription = {
       slug: string,
       name: string,
       bio: string,
+      image?: string | null,
       categories?:  {
         __typename: "ModelProjectCategoriesConnection",
         nextToken?: string | null,

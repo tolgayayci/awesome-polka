@@ -18,14 +18,14 @@ export default function Footer() {
             <div className="w-full md:w-1/3 mb-12">
               <Link className="inline-block mx-auto mb-8" href="/">
                 <Image
-                  src="/Awesome_Lens_Logo.svg"
+                  src="/Awesome_Polkadot_Logo.svg"
                   height={100}
                   width={250}
                   alt="awesome lens logo"
                 />
               </Link>
               <p className="max-w-md text-lg font-extrabold leading-8">
-                Discover the best projects and teams <br /> on the Lens
+                Discover the best projects and teams <br /> on the Polkadot
                 ecosystem.
               </p>
             </div>
@@ -102,19 +102,7 @@ export default function Footer() {
                   Learn
                 </Link>
                 <Link
-                  href="/login"
-                  className={classNames(
-                    "text-lg mr-8 2xl:mr-16 font-extrabold hover:text-indigo-800 pb-3",
-                    {
-                      "border-b-[3px] border-indigo-900 pb-3 xs:mb-3":
-                        router.pathname === "/login",
-                    }
-                  )}
-                >
-                  Login
-                </Link>
-                <Link
-                  href="https://github.com/tolgayayci/awesome-lens/tree/dev"
+                  href="https://github.com/tolgayayci/awesome-polka/tree/dev"
                   target="blank"
                   className={classNames(
                     "text-lg mr-8 2xl:mr-16 font-extrabold hover:text-indigo-800 pb-3"

@@ -14,7 +14,7 @@ import { validateTokenSymbol } from "../../../../../utils/validation/coingeckoTo
 import type { TokenProps } from "../../../../../types/types";
 
 //** Data */
-import { useCheckProject } from "../../../../../hooks/useCheckProject";
+import { useCheckUser } from "../../../../../hooks/useCheckUser";
 import { updateProjectAttribute } from "../../../../../data/mutations/updateProjectAttribute";
 
 //** Custom */
@@ -29,7 +29,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 export default function Activity() {
-  const { project, isLoading } = useCheckProject("lens-protocol");
+  const { user, isLoading } = useCheckUser();
 
   // This is an async function that handles the form submission for updating a project's description.
   async function handleSubmit(
@@ -39,7 +39,7 @@ export default function Activity() {
     try {
       // Call the `updateProjectAttribute` function with an object containing the project slug and the `tokenSymbol` fields from the `values` parameter.
       await updateProjectAttribute({
-        slug: project?.slug as string,
+        slug: user?.project?.items[0]?.slug as string,
         tokenSymbol: values.tokenUrl,
       });
       actions.setStatus({ success: true });
@@ -72,7 +72,7 @@ export default function Activity() {
                     </p>
                     <Formik
                       initialValues={{
-                        tokenUrl: project?.tokenSymbol,
+                        tokenUrl: user?.project?.items[0]?.tokenSymbol,
                       }}
                       validationSchema={validateTokenSymbol}
                       validateOnChange={true}
@@ -91,7 +91,7 @@ export default function Activity() {
                         <Form>
                           <div className="mt-6 pt-6 grid grid-cols-1 gap-x-6 gap-y-6 border-t-2 border-indigo-700">
                             <div className="col-span-full">
-                              {project?.tokenSymbol ? (
+                              {user?.project?.items[0]?.tokenSymbol ? (
                                 <div className="rounded-md bg-green-50 p-4 border-2 border-emerald-800">
                                   <div className="flex">
                                     <div className="flex-shrink-0">
@@ -110,7 +110,7 @@ export default function Activity() {
                                           target="blank"
                                           className="hover:underline"
                                         >
-                                          {project?.tokenSymbol}
+                                          {user?.project?.items[0]?.tokenSymbol}
                                         </a>
                                       </div>
                                     </div>

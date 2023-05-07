@@ -22,7 +22,7 @@ export default function Team(props: ITeamProps) {
           <div className="bg-white rounded-2xl py-8 px-6 md:px-10 md:py-20 ">
             <div className="container px-4 mx-auto">
               <h2 className="mb-4 mt-4 md:mt-0 text-3xl md:text-4xl xl:text-5xl font-bold font-heading tracking-px-n leading-none">
-                The team behind Lens
+                The team behind Polkadot
               </h2>
               <p className="mb-6 md:mb-12 text-gray-600 font-medium leading-relaxed">
                 People who make this project possible

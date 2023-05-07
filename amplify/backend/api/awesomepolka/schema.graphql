@@ -18,10 +18,13 @@ type User @model @auth(rules: [{ allow: custom }]) {
   project: [Project] @hasMany(indexName: "byUser", fields: ["walletAddress"])
 }
 
-type Project @model @auth(rules: [{ allow: custom }]) {
+type Project
+  @model
+  @auth(rules: [{ allow: public, operations: [read] }, { allow: custom }]) {
   slug: String! @primaryKey
   name: String!
   bio: String!
+  image: AWSURL
   categories: [Category] @manyToMany(relationName: "ProjectCategories")
   socials: [AWSJSON]
   description: String

@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "graphQlLambdaAuthorizer1c483541",
+            "graphQlLambdaAuthorizera584aec9",
             {
               "Fn::Join": [
                 "",
                 [
-                  "graphQlLambdaAuthorizer1c483541",
+                  "graphQlLambdaAuthorizera584aec9",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "awesomeweb3LambdaRole47c64fef",
+            "awesomepolkaLambdaRoleae14c33f",
             {
               "Fn::Join": [
                 "",
                 [
-                  "awesomeweb3LambdaRole47c64fef",
+                  "awesomepolkaLambdaRoleae14c33f",
                   "-",
                   {
                     "Ref": "env"

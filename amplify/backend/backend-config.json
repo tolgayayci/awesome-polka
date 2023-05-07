@@ -1,15 +1,15 @@
 {
   "api": {
-    "awesomeweb3": {
+    "awesomepolka": {
       "dependsOn": [],
       "output": {
         "authConfig": {
           "additionalAuthenticationProviders": [
             {
               "apiKeyConfig": {
-                "apiKeyExpirationDate": "2023-04-19T12:33:46.025Z",
-                "apiKeyExpirationDays": 7,
-                "description": ""
+                "apiKeyExpirationDate": "2023-06-04T11:53:06.137Z",
+                "apiKeyExpirationDays": 30,
+                "description": "demo"
               },
               "authenticationType": "API_KEY"
             }
@@ -17,7 +17,7 @@
           "defaultAuthentication": {
             "authenticationType": "AWS_LAMBDA",
             "lambdaAuthorizerConfig": {
-              "lambdaFunction": "graphQlLambdaAuthorizer1c483541",
+              "lambdaFunction": "graphQlLambdaAuthorizera584aec9",
               "ttlSeconds": "300"
             }
           }
@@ -28,26 +28,26 @@
     }
   },
   "function": {
-    "graphQlLambdaAuthorizer1c483541": {
+    "graphQlLambdaAuthorizera584aec9": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_graphQlLambdaAuthorizer1c483541_deploymentBucketName": {
+    "AMPLIFY_function_graphQlLambdaAuthorizera584aec9_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "graphQlLambdaAuthorizer1c483541"
+          "resourceName": "graphQlLambdaAuthorizera584aec9"
         }
       ]
     },
-    "AMPLIFY_function_graphQlLambdaAuthorizer1c483541_s3Key": {
+    "AMPLIFY_function_graphQlLambdaAuthorizera584aec9_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "graphQlLambdaAuthorizer1c483541"
+          "resourceName": "graphQlLambdaAuthorizera584aec9"
         }
       ]
     }

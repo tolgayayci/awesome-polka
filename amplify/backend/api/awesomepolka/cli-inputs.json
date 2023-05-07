@@ -1,19 +1,19 @@
 {
   "version": 1,
   "serviceConfiguration": {
-    "apiName": "awesomeweb3",
+    "apiName": "awesomepolka",
     "serviceName": "AppSync",
     "defaultAuthType": {
       "mode": "AWS_LAMBDA",
-      "lambdaFunction": "graphQlLambdaAuthorizer1c483541",
+      "lambdaFunction": "graphQlLambdaAuthorizera584aec9",
       "ttlSeconds": "300"
     },
     "additionalAuthTypes": [
       {
         "mode": "API_KEY",
-        "expirationTime": 7,
-        "apiKeyExpirationDate": "2023-04-19T12:33:46.025Z",
-        "keyDescription": ""
+        "expirationTime": 30,
+        "apiKeyExpirationDate": "2023-06-04T11:53:06.137Z",
+        "keyDescription": "demo"
       }
     ],
     "conflictResolution": {}

@@ -10,7 +10,7 @@ import type { AppProps } from "next/app";
 import { Amplify, API } from "aws-amplify";
 import awsExports from "../aws-exports";
 
-// ** Lens & Wagmi Imports
+// ** Polkadot & Wagmi Imports
 import {
   LensProvider,
   LensConfig,

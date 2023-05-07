@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useCheckProject } from "../../../../hooks/useCheckProject";
+import { useCheckUser } from "../../../../hooks/useCheckUser";
 import Loader from "../../../Dashboard/Loader/Loader";
 
 export default function Project() {
-  const { project, isLoading } = useCheckProject("lens-protocol");
+  const { user, isLoading } = useCheckUser();
 
   if (isLoading) {
     return <Loader />;
@@ -24,7 +24,7 @@ export default function Project() {
                       Description
                     </div>
                     <div className="flex items-center py-4">
-                      {project?.description ? (
+                      {user?.project?.items[0]?.description ? (
                         <>
                           <span className="bg-green-100 text-green-800 text-xs mr-2 px-2.5 py-1 rounded border-2 border-green-900 font-bold">
                             PUBLISHED
@@ -67,7 +67,7 @@ export default function Project() {
                       Token Stats
                     </div>
                     <div className="flex items-center py-4">
-                      {project?.tokenSymbol ? (
+                      {user?.project?.items[0]?.tokenSymbol ? (
                         <>
                           <span className="bg-green-100 text-green-800 text-xs mr-2 px-2.5 py-1 rounded border-2 border-green-900 font-bold">
                             PUBLISHED
@@ -110,7 +110,7 @@ export default function Project() {
                       GitHub Activity
                     </div>
                     <div className="flex items-center py-4">
-                      {project?.githubRepoUrl ? (
+                      {user?.project?.items[0]?.githubRepoUrl ? (
                         <>
                           <span className="bg-green-100 text-green-800 text-xs mr-2 px-2.5 py-1 rounded border-2 border-green-900 font-bold">
                             PUBLISHED
@@ -153,7 +153,7 @@ export default function Project() {
                       Team
                     </div>
                     <div className="flex items-center py-4">
-                      {project?.team ? (
+                      {user?.project?.items[0]?.team ? (
                         <>
                           <span className="bg-green-100 text-green-800 text-xs mr-2 px-2.5 py-1 rounded border-2 border-green-900 font-bold">
                             PUBLISHED
@@ -195,7 +195,7 @@ export default function Project() {
                       FAQ
                     </div>
                     <div className="flex items-center py-4">
-                      {project?.faq ? (
+                      {user?.project?.items[0]?.faq ? (
                         <>
                           <span className="bg-green-100 text-green-800 text-xs mr-2 px-2.5 py-1 rounded border-2 border-green-900 font-bold">
                             PUBLISHED
@@ -238,7 +238,7 @@ export default function Project() {
                       Jobs
                     </div>
                     <div className="flex items-center py-4">
-                      {project?.openJobs ? (
+                      {user?.project?.items[0]?.openJobs ? (
                         <>
                           <span className="bg-green-100 text-green-800 text-xs mr-2 px-2.5 py-1 rounded border-2 border-green-900 font-bold">
                             PUBLISHED

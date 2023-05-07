@@ -1,34 +1,17 @@
-import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import Loader from "../../../Dashboard/Loader/Loader";
-import { useProjectStore } from "../../../../data/store/projectStore";
-import { readProjectAttribute } from "../../../../data/queries/readProjectAttribute";
+import { useCheckUser } from "../../../../hooks/useCheckUser";
+import { useCheckProject } from "../../../../hooks/useCheckProject";
 
 import Table from "./Table/Table";
+import { ModelArticleConnection } from "../../../../API";
 
 export default function Articles() {
-  const [isLoading, setIsLoading] = useState(true);
-  const project = useProjectStore((state) => state.project);
+  const { user, isLoading } = useCheckUser();
+  const { project } = useCheckProject(user?.project?.items[0]?.slug || "");
 
-  async function check() {
-    try {
-      if (!project) {
-        //TODO: Change parameter to project slug
-        await readProjectAttribute("lens-protocol");
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    check();
-  });
-
-  if (isLoading) {
+  if (isLoading && !project) {
     return <Loader />;
   }
 
@@ -207,19 +190,19 @@ export default function Articles() {
               </div>
             </div>
           </div>
-          <div className="w-2/3 bg-indigo-200/30">
-            {project?.articles && project.articles.items.length > 0 ? (
-              <div className="border-[3px] border-indigo-800 rounded-lg px-16 pt-16">
+          <div className="w-2/3">
+            {(project?.articles?.items.length as number) > 0 ? (
+              <div className="border-[3px] border-indigo-800 rounded-lg px-16 pt-16 h-full">
                 <h2 className="text-2xl font-bold mb-6 text-indigo-700 border-b-[3px] border-indigo-700 pb-4 max-w-xs">
                   Published Articles
                 </h2>
-                <Table articles={project.articles} />
+                <Table articles={project?.articles as ModelArticleConnection} />
               </div>
             ) : (
               <Link href="/dashboard/articles/editor">
                 <button
                   type="button"
-                  className="relative block w-full rounded-lg border-2 border-dashed border-indigo-300 p-36 text-center hover:border-indigo-700"
+                  className="relative block w-full rounded-lg border-2 border-dashed border-indigo-300 p-36 text-center hover:border-indigo-700 h-full"
                 >
                   <svg
                     className="mx-auto h-12 w-12 text-gray-400"
