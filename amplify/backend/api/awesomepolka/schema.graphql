@@ -34,7 +34,7 @@ type Project
   tokenSymbol: AWSURL
   openJobs: [AWSJSON]
   team: [AWSJSON]
-  faq: [AWSJSON!]
+  faq: [AWSJSON]
   articles: [Article] @hasMany(indexName: "byProject", fields: ["slug"])
   user: User @belongsTo(fields: ["userWalletAddress"])
   userWalletAddress: String! @index(name: "byUser")

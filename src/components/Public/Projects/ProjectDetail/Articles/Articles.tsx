@@ -29,63 +29,73 @@ export default function Articles(props: IArticlesProps) {
                 </p>
               </div>
               <div className="flex flex-wrap -m-8">
-                <div className="w-full md:w-1/2 p-8">
-                  <div className="flex flex-wrap lg:items-center -m-4">
-                    <div className="w-auto p-4">
-                      <div className="overflow-hidden rounded-xl">
-                        <Image
-                          src="https://mirror-media.imgix.net/publication-images/oE6r8eybCdEyZiIlpH_MI.png?height=1075&width=2150&h=1075&w=2150&auto=compress"
-                          alt="Picture of the author"
-                          width={300}
-                          height={300}
-                          className="w-full block object-cover h-24"
-                        />
+                {props.project.articles?.items.map((article, i) => (
+                  <div className="w-full md:w-1/2 p-8" key={i}>
+                    <div className="flex flex-wrap lg:items-center -m-4">
+                      <div className="w-auto p-4">
+                        <div className="overflow-hidden rounded-xl">
+                          <Image
+                            src={article?.image as string}
+                            alt="Picture of the author"
+                            width={300}
+                            height={300}
+                            className="w-full block object-cover h-24"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex-1 p-4">
-                      <div className="md:max-w-xs">
-                        <div className="flex flex-col justify-between h-full">
-                          <div className="mb-2">
+                      <div className="flex-1 p-4">
+                        <div className="md:max-w-xs">
+                          <div className="flex flex-col justify-between h-full">
                             <div className="mb-2">
-                              <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                                Polkadot
-                              </span>
-                              <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
-                                Announcement
-                              </span>
+                              <div className="mb-2">
+                                <span className="inline-flex mr-3 h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
+                                  {props.project.name}
+                                </span>
+                                <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
+                                  Blog
+                                </span>
+                              </div>
+                              <a
+                                className="inline-block hover:text-gray-800 hover:underline"
+                                href={
+                                  article?.isExternal
+                                    ? article?.externalUrl
+                                    : `/articles/${article?.id}`
+                                }
+                                target="blank"
+                              >
+                                <h3 className="text-xl font-semibold leading-normal">
+                                  {article?.title}
+                                </h3>
+                              </a>
                             </div>
-                            <a
-                              className="inline-block hover:text-gray-800 hover:underline"
-                              href="https://mirror.xyz/lensprotocol.eth/L-VyE549sOOdi4nBgos6XNAUgf3H1oErfkAtndU6RHY"
-                              target="blank"
-                            >
-                              <h3 className="text-xl font-semibold leading-normal">
-                                Polkadot BigQuery Public Dataset is Live 🔍
-                              </h3>
-                            </a>
-                          </div>
-                          <div className="flex flex-wrap items-center -m-1">
-                            <div className="w-auto p-1">
-                              <Image
-                                src="/polkadot_logo.jpg"
-                                alt=""
-                                width={20}
-                                height={20}
-                                className="transform hover:scale-105 transition ease-in-out duration-1000 rounded-full"
-                              />
-                            </div>
-                            <div className="w-auto p-1">
-                              <p className="text-sm font-semibold leading-relaxed">
-                                By Polkadot
-                              </p>
+                            <div className="flex flex-wrap items-center -m-1">
+                              <div className="w-auto p-1">
+                                <Image
+                                  src={
+                                    (props.project.image as string) ||
+                                    "/polkadot_logo.jpg"
+                                  }
+                                  alt=""
+                                  width={20}
+                                  height={20}
+                                  className="transform hover:scale-105 transition ease-in-out duration-1000 rounded-full"
+                                />
+                              </div>
+                              <div className="w-auto p-1">
+                                <p className="text-sm font-semibold leading-relaxed">
+                                  {props.project.name}
+                                </p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="w-full md:w-1/2 p-8">
+                ))}
+
+                {/* <div className="w-full md:w-1/2 p-8">
                   <div className="flex flex-wrap lg:items-center -m-4">
                     <div className="w-auto p-4">
                       <div className="overflow-hidden rounded-xl">
@@ -252,7 +262,7 @@ export default function Articles(props: IArticlesProps) {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

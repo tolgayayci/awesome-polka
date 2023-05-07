@@ -7,7 +7,7 @@ import Image from "next/image";
 import type { ReactElement } from "react";
 
 // ** Amplify Imports
-import { graphqlOperation, withSSRContext } from "aws-amplify";
+import { withSSRContext } from "aws-amplify";
 import { getProject } from "../../../graphql/queries";
 
 // ** Custom Components
@@ -114,7 +114,7 @@ export default function ProjectDetail({
                       {data.name}
                     </span>
                     <span className="inline-flex h-6 items-center justify-center text-xs font-extrabold px-3 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
-                      Protocol
+                      Community
                     </span>
                   </div>
                   <div className="max-w-2xl mx-auto"></div>
@@ -129,7 +129,7 @@ export default function ProjectDetail({
             <div className="grid grid-cols-1">
               <Description open={true} project={data} />
               <TokenStats
-                open={data.tokenSymbol ? false : false}
+                open={data.tokenSymbol ? true : false}
                 project={data}
               />
               <GitHubActivity
@@ -138,13 +138,13 @@ export default function ProjectDetail({
               />
               <Team open={data.team ? true : false} project={data} />
               <Articles open={data.articles ? true : false} project={data} />
-              {/* <Faq open={data.faq ? true : false} project={data} /> */}
+              <Faq open={data.faq ? true : false} project={data} />
               <Jobs open={data.openJobs ? true : false} project={data} />
             </div>
           </div>
           <div className="sticky top-0 hidden md:block lg:block">
             <div className="col-span-1 sticky top-[60px] scroll-smooth sm:hidden md:hidden lg:block">
-              <SideNavbar open={true} />
+              <SideNavbar data={data} open={true} />
             </div>
           </div>
         </div>

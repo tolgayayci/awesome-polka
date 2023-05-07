@@ -1,56 +1,74 @@
 //** React Imports */
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 // ** Icon Imports
 import {
   FolderIcon,
   HomeIcon,
   UsersIcon,
+  CurrencyDollarIcon,
   DocumentTextIcon,
   QuestionMarkCircleIcon,
   BriefcaseIcon,
 } from "@heroicons/react/24/outline";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import type { Project } from "../../../../../API";
 
 interface SideNavbarProps {
   open: boolean;
+  data: Project;
 }
 
 export default function SideNavbar(props: SideNavbarProps) {
-  //TODO: Auto Handle with Scroll Position
-  const ref = useRef(null);
-
   const [navigation, setNavigation] = useState([
     {
       name: "Project Detail",
       href: "#description",
       icon: HomeIcon,
-      current: false,
+      current: true,
+      disabled: props.data.description ? false : true,
     },
-
+    {
+      name: "Token Stats",
+      href: "#token-stats",
+      icon: CurrencyDollarIcon,
+      current: false,
+      disabled: props.data.tokenSymbol ? false : true,
+    },
     {
       name: "GitHub Activity",
       href: "#github-activity",
       icon: FolderIcon,
       current: false,
+      disabled: props.data.githubRepoUrl ? false : true,
     },
-
+    {
+      name: "Team",
+      href: "#team",
+      icon: UsersIcon,
+      current: false,
+      disabled: props.data.team ? false : true,
+    },
     {
       name: "Articles",
       href: "#articles",
       icon: DocumentTextIcon,
       current: false,
+      disabled: props.data.articles ? false : true,
     },
-    { name: "FAQ", href: "#faq", icon: QuestionMarkCircleIcon, current: false },
+    {
+      name: "FAQ",
+      href: "#faq",
+      icon: QuestionMarkCircleIcon,
+      current: false,
+      disabled: props.data.faq ? false : true,
+    },
     {
       name: "Job Openings",
       href: "#jobs",
       icon: BriefcaseIcon,
       current: false,
+      disabled: props.data.openJobs ? false : true,
     },
   ]);
 
@@ -73,40 +91,38 @@ export default function SideNavbar(props: SideNavbarProps) {
     return classes.filter(Boolean).join(" ");
   }
 
-  function handleVote() {
-    console.log("Voted");
-  }
-
   return (
     <>
       <div className="rounded-2xl shadow-xl border-4 border-indigo-900">
         <div className="bg-white rounded-2xl px-10 py-10">
           <div className="flex-1 overflow-y-auto">
             <nav className="space-y-1">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "bg-gray-100 border-[3px] border-indigo-900 rounded-xl"
-                      : "px-4 py-3 text-lg font-semibold",
-                    "group flex items-center px-2 py-3 text-base font-medium rounded-md"
-                  )}
-                  onClick={() => handleClick(item)}
-                >
-                  <item.icon
+              {navigation
+                .filter((item) => !item.disabled)
+                .map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.href}
                     className={classNames(
                       item.current
-                        ? "text-gray-500"
-                        : "text-gray-400 group-hover:text-gray-500",
-                      "mr-4 flex-shrink-0 h-6 w-6"
+                        ? "bg-gray-100 border-[3px] border-indigo-900 rounded-xl"
+                        : "px-4 py-3 text-lg font-semibold",
+                      "group flex items-center px-2 py-3 text-base font-medium rounded-md"
                     )}
-                    aria-hidden="true"
-                  />
-                  {item.name}
-                </a>
-              ))}
+                    onClick={() => handleClick(item)}
+                  >
+                    <item.icon
+                      className={classNames(
+                        item.current
+                          ? "text-gray-500"
+                          : "text-gray-400 group-hover:text-gray-500",
+                        "mr-4 flex-shrink-0 h-6 w-6"
+                      )}
+                      aria-hidden="true"
+                    />
+                    {item.name}
+                  </a>
+                ))}
             </nav>
           </div>
         </div>

@@ -5,12 +5,8 @@ import { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 
 // ** Style Imports
-import styles from "./TokenStats.module.css";
 import classNames from "classnames";
-
-// ** Icon Imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
+import Loader from "../../../../Dashboard/Loader/Loader";
 
 import { Project } from "../../../../../API";
 
@@ -32,7 +28,11 @@ export default function TokenStats(props: ITokenStatsProps) {
     day: "max",
   });
 
-  async function selectOption(coin: string, day: string, chartType: string) {
+  async function selectOption(
+    coin: string | undefined,
+    day: string,
+    chartType: string
+  ) {
     const response = await fetch(
       `https://api.coingecko.com/api/v3/coins/${coin}/market_chart/?vs_currency=usd&days=${day}&interval=daily`
     );
@@ -175,8 +175,12 @@ export default function TokenStats(props: ITokenStatsProps) {
   }
 
   useEffect(() => {
-    selectOption("aave", userOptions.day, userOptions.chartType);
-  }, [userOptions]);
+    selectOption(
+      props.project.tokenSymbol?.split("/coins/")[1],
+      userOptions.day,
+      userOptions.chartType
+    );
+  });
 
   return (
     <>
@@ -195,14 +199,16 @@ export default function TokenStats(props: ITokenStatsProps) {
                         Token Stats
                       </h2>
                       <p className="mb-6 md:mb-10 text-gray-600 font-semibold md:font-medium md:leading-relaxed">
-                        The Polkadot token (AAVE) is the native currency for the
-                        Polkadot network and the keystone for a new, inclusive,
-                        and borderless digital economy.
+                        The {props.project.name} token{" "}
+                        {"(" +
+                          props.project.tokenSymbol?.split("/coins/")[1] +
+                          ")"}{" "}
+                        is the currency for the {props.project.name} network.
                       </p>
                     </div>
                     {isLoading ? (
-                      <div className="block">
-                        <h1>Loading</h1>
+                      <div className="block mt-6">
+                        <Loader />
                       </div>
                     ) : (
                       <div className="block">

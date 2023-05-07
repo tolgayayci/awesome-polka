@@ -42,55 +42,51 @@ export default function Faq(props: IFaqProps) {
                     </div>
                     <div className="block">
                       <div className="flex flex-wrap">
-                        {
-                          //eslint-disable-next-line
-                          // @ts-ignore
-                          JSON.parse(props.project?.faq).map((faq, i) => (
-                            <div className="w-full mb-7" key={i}>
-                              <button
-                                className="w-full"
-                                onClick={() => handleClick(i)}
-                              >
-                                <div className="flex flex-wrap -m-1.5">
-                                  <div className="flex-1 p-1.5">
-                                    <div className="flex justify-between border-b border-indigo-400">
-                                      <h3 className="pb-5 text-[18px] md:text-lg font-bold font-heading leading-normal text-left">
-                                        question
-                                      </h3>
-                                      <svg
-                                        className={classNames(
-                                          "w-6 h-6 shrink-0 rotate-180",
-                                          {
-                                            "rotate-0": index !== i,
-                                          }
-                                        )}
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <path
-                                          fillRule="evenodd"
-                                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                          clipRule="evenodd"
-                                        ></path>
-                                      </svg>
-                                    </div>
-                                    <p
+                        {props.project?.faq?.map((faq, i) => (
+                          <div className="w-full mb-7" key={i}>
+                            <button
+                              className="w-full"
+                              onClick={() => handleClick(i)}
+                            >
+                              <div className="flex flex-wrap -m-1.5">
+                                <div className="flex-1 p-1.5">
+                                  <div className="flex justify-between border-b border-indigo-400">
+                                    <h3 className="pb-5 text-[18px] md:text-lg font-bold font-heading leading-normal text-left">
+                                      {JSON.parse(faq as string).question}
+                                    </h3>
+                                    <svg
                                       className={classNames(
-                                        "pt-5 text-md font-medium leading-7 text-gray-700 text-left",
+                                        "w-6 h-6 shrink-0 rotate-180",
                                         {
-                                          hidden: index !== i,
+                                          "rotate-0": index !== i,
                                         }
                                       )}
+                                      fill="currentColor"
+                                      viewBox="0 0 20 20"
+                                      xmlns="http://www.w3.org/2000/svg"
                                     >
-                                      answer
-                                    </p>
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clipRule="evenodd"
+                                      ></path>
+                                    </svg>
                                   </div>
+                                  <p
+                                    className={classNames(
+                                      "pt-5 text-md font-medium leading-7 text-gray-700 text-left",
+                                      {
+                                        hidden: index !== i,
+                                      }
+                                    )}
+                                  >
+                                    {JSON.parse(faq as string).answer}
+                                  </p>
                                 </div>
-                              </button>
-                            </div>
-                          ))
-                        }
+                              </div>
+                            </button>
+                          </div>
+                        ))}
                       </div>
                       <p className="font-medium text-gray-600 mt-2 mb-6 md:mb-0">
                         <span>Still have any questions? </span>

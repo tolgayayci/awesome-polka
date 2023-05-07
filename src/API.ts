@@ -114,7 +114,7 @@ export type Project = {
   tokenSymbol?: string | null,
   openJobs?: Array< string | null > | null,
   team?: Array< string | null > | null,
-  faq?: Array< string > | null,
+  faq?: Array< string | null > | null,
   articles?: ModelArticleConnection | null,
   user?: User | null,
   userWalletAddress: string,
@@ -193,7 +193,7 @@ export type CreateProjectInput = {
   tokenSymbol?: string | null,
   openJobs?: Array< string | null > | null,
   team?: Array< string | null > | null,
-  faq?: Array< string > | null,
+  faq?: Array< string | null > | null,
   userWalletAddress: string,
 };
 
@@ -225,7 +225,7 @@ export type UpdateProjectInput = {
   tokenSymbol?: string | null,
   openJobs?: Array< string | null > | null,
   team?: Array< string | null > | null,
-  faq?: Array< string > | null,
+  faq?: Array< string | null > | null,
   userWalletAddress?: string | null,
 };
 
@@ -540,7 +540,7 @@ export type CreateUserMutation = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -579,7 +579,7 @@ export type UpdateUserMutation = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -618,7 +618,7 @@ export type DeleteUserMutation = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -660,7 +660,7 @@ export type CreateProjectMutation = {
     tokenSymbol?: string | null,
     openJobs?: Array< string | null > | null,
     team?: Array< string | null > | null,
-    faq?: Array< string > | null,
+    faq?: Array< string | null > | null,
     articles?:  {
       __typename: "ModelArticleConnection",
       items:  Array< {
@@ -728,7 +728,7 @@ export type UpdateProjectMutation = {
     tokenSymbol?: string | null,
     openJobs?: Array< string | null > | null,
     team?: Array< string | null > | null,
-    faq?: Array< string > | null,
+    faq?: Array< string | null > | null,
     articles?:  {
       __typename: "ModelArticleConnection",
       items:  Array< {
@@ -796,7 +796,7 @@ export type DeleteProjectMutation = {
     tokenSymbol?: string | null,
     openJobs?: Array< string | null > | null,
     team?: Array< string | null > | null,
-    faq?: Array< string > | null,
+    faq?: Array< string | null > | null,
     articles?:  {
       __typename: "ModelArticleConnection",
       items:  Array< {
@@ -865,7 +865,7 @@ export type CreateArticleMutation = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -921,7 +921,7 @@ export type UpdateArticleMutation = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -977,7 +977,7 @@ export type DeleteArticleMutation = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -1113,7 +1113,7 @@ export type CreateProjectCategoriesMutation = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -1176,7 +1176,7 @@ export type UpdateProjectCategoriesMutation = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -1239,7 +1239,7 @@ export type DeleteProjectCategoriesMutation = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -1301,7 +1301,7 @@ export type GetUserQuery = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -1371,7 +1371,7 @@ export type GetProjectQuery = {
     tokenSymbol?: string | null,
     openJobs?: Array< string | null > | null,
     team?: Array< string | null > | null,
-    faq?: Array< string > | null,
+    faq?: Array< string | null > | null,
     articles?:  {
       __typename: "ModelArticleConnection",
       items:  Array< {
@@ -1436,7 +1436,7 @@ export type ListProjectsQuery = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -1486,7 +1486,7 @@ export type ProjectsByUserWalletAddressQuery = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -1539,7 +1539,7 @@ export type GetArticleQuery = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -1594,7 +1594,7 @@ export type ListArticlesQuery = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -1639,7 +1639,7 @@ export type ArticlesByProjectSlugQuery = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -1730,7 +1730,7 @@ export type GetProjectCategoriesQuery = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -1792,7 +1792,7 @@ export type ListProjectCategoriesQuery = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -1840,7 +1840,7 @@ export type ProjectCategoriesByProjectSlugQuery = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -1888,7 +1888,7 @@ export type ProjectCategoriesByCategoryIdQuery = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -1934,7 +1934,7 @@ export type OnCreateUserSubscription = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -1972,7 +1972,7 @@ export type OnUpdateUserSubscription = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -2010,7 +2010,7 @@ export type OnDeleteUserSubscription = {
         tokenSymbol?: string | null,
         openJobs?: Array< string | null > | null,
         team?: Array< string | null > | null,
-        faq?: Array< string > | null,
+        faq?: Array< string | null > | null,
         userWalletAddress: string,
         createdAt: string,
         updatedAt: string,
@@ -2051,7 +2051,7 @@ export type OnCreateProjectSubscription = {
     tokenSymbol?: string | null,
     openJobs?: Array< string | null > | null,
     team?: Array< string | null > | null,
-    faq?: Array< string > | null,
+    faq?: Array< string | null > | null,
     articles?:  {
       __typename: "ModelArticleConnection",
       items:  Array< {
@@ -2118,7 +2118,7 @@ export type OnUpdateProjectSubscription = {
     tokenSymbol?: string | null,
     openJobs?: Array< string | null > | null,
     team?: Array< string | null > | null,
-    faq?: Array< string > | null,
+    faq?: Array< string | null > | null,
     articles?:  {
       __typename: "ModelArticleConnection",
       items:  Array< {
@@ -2185,7 +2185,7 @@ export type OnDeleteProjectSubscription = {
     tokenSymbol?: string | null,
     openJobs?: Array< string | null > | null,
     team?: Array< string | null > | null,
-    faq?: Array< string > | null,
+    faq?: Array< string | null > | null,
     articles?:  {
       __typename: "ModelArticleConnection",
       items:  Array< {
@@ -2253,7 +2253,7 @@ export type OnCreateArticleSubscription = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -2308,7 +2308,7 @@ export type OnUpdateArticleSubscription = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -2363,7 +2363,7 @@ export type OnDeleteArticleSubscription = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -2495,7 +2495,7 @@ export type OnCreateProjectCategoriesSubscription = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -2557,7 +2557,7 @@ export type OnUpdateProjectCategoriesSubscription = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,
@@ -2619,7 +2619,7 @@ export type OnDeleteProjectCategoriesSubscription = {
       tokenSymbol?: string | null,
       openJobs?: Array< string | null > | null,
       team?: Array< string | null > | null,
-      faq?: Array< string > | null,
+      faq?: Array< string | null > | null,
       articles?:  {
         __typename: "ModelArticleConnection",
         nextToken?: string | null,

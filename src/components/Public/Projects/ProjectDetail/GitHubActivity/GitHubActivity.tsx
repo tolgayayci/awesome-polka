@@ -3,12 +3,8 @@ import { useEffect, useState } from "react";
 // ** Chart Imports
 import ReactECharts from "echarts-for-react";
 
-// ** Style Imports
-import styles from "./GitHubActivity.module.css";
-
-import classNames from "classnames";
-
 import { Project } from "../../../../../API";
+import Loader from "../../../../Dashboard/Loader/Loader";
 
 interface GitHubActivityProps {
   open: boolean;
@@ -22,7 +18,9 @@ export default function GitHubActivity(props: GitHubActivityProps) {
   async function getCommitHistoryByWeeks() {
     // get github repo stats
     const response = await fetch(
-      "https://api.github.com/repos/lens-protocol/lens-sdk/stats/participation"
+      `https://api.github.com/repos/${
+        props.project.githubRepoUrl?.split("github.com/")[1]
+      }stats/participation`
     );
 
     const data = await response.json();
@@ -128,13 +126,14 @@ export default function GitHubActivity(props: GitHubActivityProps) {
                         GitHub Activity
                       </h2>
                       <p className="mb-4 text-gray-600 font-medium leading-relaxed">
-                        Stats for lens-protocol/lens-sdk over the past year by
-                        week.
+                        Stats for{" "}
+                        {props.project.githubRepoUrl?.split("github.com/")[1]}{" "}
+                        over the past year by week.
                       </p>
                     </div>
                     {isLoading ? (
-                      <div className="block">
-                        <h1>Loading</h1>
+                      <div className="block mt-6">
+                        <Loader />
                       </div>
                     ) : (
                       <ReactECharts
