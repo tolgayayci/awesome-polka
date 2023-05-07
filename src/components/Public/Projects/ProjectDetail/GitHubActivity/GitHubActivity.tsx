@@ -32,18 +32,18 @@ export default function GitHubActivity(props: GitHubActivityProps) {
     let opt = options;
 
     function getOneWeekBefore(key: number, length: number) {
-      let reverseIndex = length - key;
-      var today = new Date();
+      const reverseIndex = length - key;
+      const today = new Date();
 
-      var lastWeek = new Date(
+      const lastWeek = new Date(
         today.getFullYear(),
         today.getMonth(),
         today.getDate() - 7 * reverseIndex
       );
 
-      var mm = String(lastWeek.getMonth() + 1).padStart(2, "0"); //January is 0!
+      let mm = String(lastWeek.getMonth() + 1).padStart(2, "0"); //January is 0!
       // format months as "Jan", "Feb", etc. instead of "01", "02", etc.
-      var months = [
+      const months = [
         "Jan",
         "Feb",
         "Mar",
@@ -58,7 +58,7 @@ export default function GitHubActivity(props: GitHubActivityProps) {
         "Dec",
       ];
       mm = months[parseInt(mm) - 1];
-      var yyyy = lastWeek.getFullYear();
+      const yyyy = lastWeek.getFullYear();
 
       return mm + " " + yyyy;
     }
@@ -68,7 +68,6 @@ export default function GitHubActivity(props: GitHubActivityProps) {
         trigger: "axis",
       },
       xAxis: {
-        //@ts-ignore
         data: data.all.map((index, key) =>
           getOneWeekBefore(key, data.all.length)
         ),

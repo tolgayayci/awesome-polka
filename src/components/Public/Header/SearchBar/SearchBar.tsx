@@ -21,22 +21,25 @@ import {
 } from "react-instantsearch-hooks-web";
 
 //** Types */
-import { Project, Article } from "../../../../types/types";
+import { ProjectProps, ArticleProps } from "../../../../types/types";
 
 interface SearchBarProps {
   open: boolean;
   setOpen: (open: boolean) => void;
 }
 
-//@ts-ignore
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function SearchBar(props: SearchBarProps) {
   const [query, setQuery] = useState("");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(
+    null
+  );
+  const [selectedArticle, setSelectedArticle] = useState<ProjectProps | null>(
+    null
+  );
 
   const searchClient = algoliasearch(
     process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID as string,
@@ -229,10 +232,7 @@ export default function SearchBar(props: SearchBarProps) {
                               {selectedProject.name}
                             </h2>
                             <span className="inline-flex ml-3 mt-3 h-6 items-center justify-center text-xs font-extrabold px-2 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                              {
-                                // @ts-ignore
-                                selectedProject["categories.lvl0"][0]
-                              }
+                              {selectedProject["categories.lvl0"][0]}
                             </span>
                           </div>
                           <div className="flex flex-auto flex-col justify-between p-6">
@@ -275,10 +275,7 @@ export default function SearchBar(props: SearchBarProps) {
                               {selectedArticle.title}
                             </h2>
                             <span className="inline-flex ml-3 mt-3 h-6 items-center justify-center text-xs font-extrabold px-2 text-indigo-900 rounded border-2 border-indigo-900 bg-orange-200 uppercase shadow-sm">
-                              {
-                                // @ts-ignore
-                                selectedArticle.category
-                              }
+                              {selectedArticle.category}
                             </span>
                           </div>
                           <div className="flex flex-auto flex-col justify-between p-6">

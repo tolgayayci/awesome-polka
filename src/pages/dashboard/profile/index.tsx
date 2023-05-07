@@ -2,10 +2,7 @@ import type { ReactElement } from "react";
 
 import Profile from "../../../components/Dashboard/ProjectOwner/Profile/Profile";
 
-import AdminLayout from "../../../layouts/AdminLayout";
 import ProjectOwnerLayout from "../../../layouts/ProjectOwnerLayout";
-
-let userType = "projectOwner";
 
 export default function ProfilePage() {
   return (
@@ -17,12 +14,7 @@ export default function ProfilePage() {
   );
 }
 
+ProfilePage.auth = false;
 ProfilePage.getLayout = function getLayout(page: ReactElement) {
-  if (userType === "admin") {
-    return <AdminLayout>{page}</AdminLayout>;
-  } else if (userType === "projectOwner") {
-    return <ProjectOwnerLayout>{page}</ProjectOwnerLayout>;
-  } else {
-    return null;
-  }
+  return <ProjectOwnerLayout>{page}</ProjectOwnerLayout>;
 };

@@ -1,17 +1,16 @@
 {
-  "name": "awesome-web3",
+  "name": "awesome-polka",
   "version": "0.1.0",
-  "description": "Awesome Web 3 is a decentralized, open-source, and community-driven project social hub framework",
+  "description": "Awesome Polka is a decentralized, open-source, and community-driven project social hub for Polkadot Projects",
   "author": {
     "name": "Tolga Yaycı",
     "email": "tolgayayci@protonmail.com"
   },
   "bugs": {
-    "url": "https://github.com/tolgayayci/awesome-web3/issues"
+    "url": "https://github.com/tolgayayci/awesome-polka/issues"
   },
-  "homepage": "https://github.com/tolgayayci/awesome-web3/#readme",
+  "homepage": "https://github.com/tolgayayci/awesome-polka/#readme",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",

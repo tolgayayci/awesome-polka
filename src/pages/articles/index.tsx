@@ -80,7 +80,8 @@ export default function Articles() {
           <div className="container mx-auto px-6 md:px-0">
             <InfiniteHits
               showPrevious={false}
-              // @ts-ignore
+              //eslint-disable-next-line
+              //@ts-ignore
               hitComponent={(e) => <ArticleCard hits={e.hit} />}
               classNames={{
                 list: "grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-8",

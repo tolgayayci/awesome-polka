@@ -32,7 +32,7 @@ const fetchInfo = async () => {
     "the-graph",
   ];
 
-  let obj: any = [];
+  const obj: any = [];
 
   await Promise.all(
     projects.map(async (project) => {
@@ -43,7 +43,7 @@ const fetchInfo = async () => {
       const data = await response.json();
 
       if (data) {
-        let temp = {
+        const temp = {
           id: data.id,
           project: {
             name: data.name,
@@ -214,7 +214,6 @@ export default function Table() {
     setGlobalFilter,
   } = useTable(
     {
-      // @ts-ignore
       columns,
       data,
     },

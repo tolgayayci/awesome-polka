@@ -106,6 +106,8 @@ export default function Table(props: { articles: ModelArticleConnection }) {
   } = useTable(
     {
       columns,
+      // eslint-disable-next-line
+      // @ts-ignore
       data,
     },
     useFilters,

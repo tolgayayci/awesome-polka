@@ -54,24 +54,21 @@ export default function SideNavbar(props: SideNavbarProps) {
     },
   ]);
 
-  // @ts-ignore
   function handleClick(item) {
-    // @ts-ignore
     if (item.href) {
       navigation.forEach((item) => {
         item.current = false;
       });
-      // @ts-ignore
+
       const index = navigation.findIndex((x) => x.href === item.href);
-      // @ts-ignore
+
       const newNavigation = [...navigation];
-      // @ts-ignore
+
       newNavigation[index].current = true;
       setNavigation(newNavigation);
     }
   }
 
-  // @ts-ignore
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }

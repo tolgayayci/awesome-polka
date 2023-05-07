@@ -40,6 +40,7 @@ Amplify.configure({ ...awsExports, ssr: true });
 
 config.autoAddCss = false;
 
+//eslint-disable-next-line @typescript-eslint/ban-types
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -71,7 +72,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <>
-      {/* <Script
+      <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
       ></Script>
@@ -83,7 +84,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
       gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
       `}
-      </Script> */}
+      </Script>
       <WagmiConfig client={wagmiClient}>
         <LensProvider config={lensConfig}>
           <ThirdwebProvider>

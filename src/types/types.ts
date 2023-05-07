@@ -1,5 +1,27 @@
 import { Project } from "../API";
 
+export interface ProjectProps {
+    logo: string;
+    title: string;
+    image: string;
+    category: string;
+    description: string;
+    originalLink: string;
+}
+
+export interface ArticleProps {
+    hits: {
+        title: string;
+        image: string;
+        category: string;
+        description: string;
+        originalLink: string;
+        project: string;
+        date: string;
+    }
+}
+
+
 export interface DescriptionProps {
     bio: Project["bio"];
     description: Project["description"];

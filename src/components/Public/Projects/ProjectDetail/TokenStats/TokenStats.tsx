@@ -32,7 +32,7 @@ export default function TokenStats(props: ITokenStatsProps) {
     day: "max",
   });
 
-  async function selectOption(coin: string, day: number, chartType: string) {
+  async function selectOption(coin: string, day: string, chartType: string) {
     const response = await fetch(
       `https://api.coingecko.com/api/v3/coins/${coin}/market_chart/?vs_currency=usd&days=${day}&interval=daily`
     );
@@ -175,7 +175,6 @@ export default function TokenStats(props: ITokenStatsProps) {
   }
 
   useEffect(() => {
-    //@ts-ignore
     selectOption("aave", userOptions.day, userOptions.chartType);
   }, [userOptions]);
 

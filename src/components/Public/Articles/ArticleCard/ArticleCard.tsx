@@ -2,14 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// ** Style Imports
-import styles from "./ArticleCard.module.css";
-
 // ** Types
-import { Article } from "../../../types/types";
+import type { ArticleProps } from "../../../../types/types";
 
 interface ArticleCardProps {
-  hits: Article;
+  hits: ArticleProps["hits"];
 }
 
 export default function ArticleCard({ hits }: ArticleCardProps) {

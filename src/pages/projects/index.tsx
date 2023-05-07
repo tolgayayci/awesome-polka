@@ -41,7 +41,8 @@ export default function Projects() {
   useEffect(() => {
     if (router.query) {
       setSelectedItem(
-        //@ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         router.query["dev_projects[hierarchicalMenu][categories.lvl0][0]"]
       );
     }
@@ -128,7 +129,6 @@ export default function Projects() {
                       onClick={(event) => {
                         event.preventDefault();
                         setSelectedItem(
-                          //@ts-ignore
                           event.target["firstChild"]["nodeValue"]
                         );
                       }}
@@ -144,7 +144,8 @@ export default function Projects() {
                   id="countries"
                   className="w-full border-[3px] border-indigo-900 text-gray-900 text-[15px] font-semibold rounded-lg py-3"
                   onSelect={(event) => {
-                    //@ts-ignore
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     setSelectedItem(event.target.value);
                   }}
                   value={selectedItem as string}
