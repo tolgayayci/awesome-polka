@@ -59,7 +59,7 @@ export default function Articles(props: IArticlesProps) {
                                 className="inline-block hover:text-gray-800 hover:underline"
                                 href={
                                   article?.isExternal
-                                    ? article?.externalUrl
+                                    ? (article?.externalUrl as string)
                                     : `/articles/${article?.id}`
                                 }
                                 target="blank"

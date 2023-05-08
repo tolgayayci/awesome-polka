@@ -21,7 +21,7 @@ describe('validateFaq', () => {
         },
       ],
     };
-    expect(() => validateFaq.validateSync(faq)).toThrow('Required');
+    expect(() => validateFaq.validateSync(faq)).toThrow('Question is required');
   });
 
   test('faq object with invalid question length fails validation', () => {

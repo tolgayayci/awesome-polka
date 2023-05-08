@@ -91,7 +91,7 @@ export default function ArticleDetail({
           </div>
           <div
             className="text-justify max-w-3xl mx-auto"
-            dangerouslySetInnerHTML={{ __html: data.body }}
+            dangerouslySetInnerHTML={{ __html: data.body as string }}
           ></div>
           <div className="md:flex justify-center items-center mt-12">
             <a
