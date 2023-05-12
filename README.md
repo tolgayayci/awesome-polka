@@ -59,10 +59,15 @@ amplify status
 ### 4 - Algolia (Search Infrastructure)
 
 **4.1 -** Create an Algolia account on this [link](https://www.algolia.com/users/sign_up)
+
 **4.2 -** Visit Algolia Dashboard and create an application 
+
 **4.3 -** Copy application ıd (algolia-app-id) and search only api key (algolia-search-only-api-key) from this dashboard and paste to relevant areas in .env.local
+
 **4.4 -** Create ```dev_projects``` index
+
 **4.5 -** Add this example data (manually) to ```dev_projects``` like below
+
 ```
 [
     {
@@ -104,9 +109,13 @@ amplify status
 ]
 ```
 **4.6 -** Select configuration on index detail tab and click searchable attributes button on side navigation, add these searchable attributes ```categories.lvl0```, ```description```, ```name```
+
 **4.7 -** Select configuration on index detail tab and click facets button on side navigation, add ann atribute like ```categories.lvl0```, ```description```, ```name```
+
 **4.8 -** Create ```dev_articles``` index
+
 **4.9 -** Add data (manually) to ```dev_articles``` like below
+
 ```
 [
     {
