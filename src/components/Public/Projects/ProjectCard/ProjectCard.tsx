@@ -14,7 +14,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
 
 interface ProjectCardProps {
   hits: any;

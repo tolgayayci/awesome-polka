@@ -15,7 +15,6 @@ import type { FieldInputProps } from "formik";
 
 import classNames from "classnames";
 import "react-quill/dist/quill.snow.css";
-import { LightBulbIcon, CheckIcon, FireIcon } from "@heroicons/react/20/solid";
 import { Switch } from "@headlessui/react";
 
 import { createArticleAttribute } from "../../../../../data/mutations/createArticleAttribute";

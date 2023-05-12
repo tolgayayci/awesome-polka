@@ -1,5 +1,5 @@
 // ** React Imports
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 
 // Wallet Connect
 import { Web3Button } from "@web3modal/react";
@@ -74,7 +74,7 @@ export default function LoginButton() {
         "--w3m-accent-color": "#3f51b5",
       },
     });
-  }, []);
+  });
 
   return <Web3Button />;
 }

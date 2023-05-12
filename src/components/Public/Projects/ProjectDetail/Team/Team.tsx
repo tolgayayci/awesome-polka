@@ -1,9 +1,6 @@
 // ** Next Imports
 import Image from "next/image";
 
-// ** Style Imports
-import styles from "./Team.module.css";
-
 import { Project } from "../../../../../API";
 
 interface ITeamProps {

@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Combobox, Dialog, Transition } from "@headlessui/react";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-import { UsersIcon } from "@heroicons/react/24/outline";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
 //** Algolia Imports */
@@ -13,15 +11,12 @@ import {
   InstantSearch,
   Hits,
   Configure,
-  useSearchBox,
-  UseSearchBoxProps,
   Index,
-  HitsProps,
   SearchBox,
 } from "react-instantsearch-hooks-web";
 
 //** Types */
-import { ProjectProps, ArticleProps } from "../../../../types/types";
+import { ProjectProps } from "../../../../types/types";
 
 interface SearchBarProps {
   open: boolean;

@@ -6,18 +6,12 @@ import { Toaster } from "react-hot-toast";
 
 import { useCheckAuth } from "../hooks/useCheckAuth";
 
-import Loader from "../components/Dashboard/Loader/Loader";
-
 interface Props {
   children: ReactNode;
 }
 
 export default function ProjectOwnerLayout({ children }: Props) {
-  const { isAuthenticated, isLoading } = useCheckAuth();
-
-  if (isLoading) {
-    console.log("Auth Status Checking");
-  }
+  const { isAuthenticated } = useCheckAuth();
 
   return (
     <>

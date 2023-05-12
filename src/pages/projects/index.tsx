@@ -30,14 +30,6 @@ export default function Projects() {
 
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
-  function RouteCategory(category: string) {
-    router.push(
-      `/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=${category}`
-    );
-
-    window.location.reload();
-  }
-
   useEffect(() => {
     if (router.query) {
       setSelectedItem(

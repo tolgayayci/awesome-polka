@@ -5,17 +5,14 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 // ** Form Imports */
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useCheckArticle } from "../../../../../../hooks/useCheckArticle";
-import { createArticleAttribute } from "../../../../../../data/mutations/createArticleAttribute";
 import { validateArticle } from "../../../../../../utils/validation/articleValidation";
 import FileUpload from "../../../../FileUpload/FileUpload";
 import Loader from "../../../../Loader/Loader";
 
-import type { CreateArticleInput } from "../../../../../../API";
 import type { FieldInputProps } from "formik";
 
 import classNames from "classnames";
 import "react-quill/dist/quill.snow.css";
-import { LightBulbIcon, CheckIcon, FireIcon } from "@heroicons/react/20/solid";
 import { Switch } from "@headlessui/react";
 
 import { useRouter } from "next/router";

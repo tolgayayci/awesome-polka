@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import type { ReactElement } from "react";
 
 import Head from "next/head";
-import styles from "../../styles/Home.module.css";
 
 // **Custom Components
 import Banner from "../components/Public/Home/Banner/Banner";
