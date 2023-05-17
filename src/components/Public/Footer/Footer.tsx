@@ -30,28 +30,6 @@ export default function Footer() {
                 ecosystem.
               </p>
             </div>
-            <div className="w-full md:w-1/3 mb-12 md:text-right">
-              <div className="mb-4">
-                <a className="inline-block w-auto" href="#">
-                  <Image
-                    src="/google-play.svg"
-                    alt="Picture of the author"
-                    width={170}
-                    height={100}
-                  />
-                </a>
-              </div>
-              <div>
-                <a className="inline-block w-auto" href="#">
-                  <Image
-                    src="/app-store.svg"
-                    alt="Picture of the author"
-                    width={170}
-                    height={100}
-                  />
-                </a>
-              </div>
-            </div>
             <div className="w-full">
               <div className="flex flex-wrap items-center -mb-6">
                 <Link

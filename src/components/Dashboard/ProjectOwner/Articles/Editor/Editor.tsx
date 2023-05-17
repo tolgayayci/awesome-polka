@@ -4,7 +4,7 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 // ** Form Imports */
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useProjectStore } from "../../../../../data/store/projectStore";
+import { useCheckUser } from "../../../../../hooks/useCheckUser";
 import { validateArticle } from "../../../../../utils/validation/articleValidation";
 import { readProjectAttribute } from "../../../../../data/queries/readProjectAttribute";
 import FileUpload from "../../../FileUpload/FileUpload";
@@ -20,26 +20,10 @@ import { Switch } from "@headlessui/react";
 import { createArticleAttribute } from "../../../../../data/mutations/createArticleAttribute";
 import SideNav from "../../SideNav/SideNav";
 
+import { PlusCircleIcon } from "@heroicons/react/20/solid";
+
 export default function ArticleEditor() {
-  const project = useProjectStore((state) => state.project);
-  const [isLoading, setIsLoading] = useState(true);
-
-  async function check() {
-    try {
-      if (!project) {
-        //TODO: Change parameter to project slug
-        await readProjectAttribute("lens-protocol");
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    check();
-  });
+  const { user, isLoading } = useCheckUser();
 
   if (isLoading) {
     return <Loader />;
@@ -64,9 +48,9 @@ export default function ArticleEditor() {
     description: "",
     body: "",
     isExternal: false,
-    externalUrl: "",
+    externalUrl: `https://awesomepolka.org/projects/${user?.project?.items[0]?.slug}`,
     image: "https://picsum.photos/200/300",
-    projectSlug: project?.slug as string,
+    projectSlug: user?.project?.items[0]?.slug as string,
   };
 
   return (
@@ -75,10 +59,12 @@ export default function ArticleEditor() {
         <div className="w-2/3">
           <div className="border-[3px] border-indigo-900 rounded-lg px-20 py-16 bg-white">
             <Formik
-              initialValues={initialValues}
+              initialValues={{
+                ...initialValues,
+              }}
               validationSchema={validateArticle}
               onSubmit={async (values, actions) => {
-                if (!project) {
+                if (!user?.project?.items[0]) {
                   console.log("No project found");
                   return;
                 }
@@ -86,7 +72,15 @@ export default function ArticleEditor() {
                 actions.setSubmitting(false);
               }}
             >
-              {({ values, setFieldValue, errors, touched, dirty }) => (
+              {({
+                values,
+                setFieldValue,
+                errors,
+                touched,
+                dirty,
+                resetForm,
+                isSubmitting,
+              }) => (
                 <Form>
                   <div className="grid grid-cols-3 gap-4">
                     <div className="col-span-full border-b-2 border-indigo-900 mb-3">
@@ -263,7 +257,7 @@ export default function ArticleEditor() {
                               type="text"
                               placeholder="External Url"
                               className={classNames(
-                                "lock w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
+                                "block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2",
                                 {
                                   "ring-2 ring-red-500":
                                     errors.externalUrl && touched.externalUrl,
@@ -286,16 +280,27 @@ export default function ArticleEditor() {
                       <div className="flex pt-5 justify-end gap-x-3 border-t-2 border-indigo-600">
                         <button
                           type="button"
-                          className="rounded-md bg-white py-2 px-3 text-sm font-semibold border border-red-500 text-red-500 shadow-sm hover:bg-gray-50"
+                          onClick={() => resetForm()}
+                          disabled={!dirty || isSubmitting || !touched}
+                          className={classNames(
+                            "rounded-md bg-white py-2 px-3 text-sm font-semibold border border-red-500 text-red-500 shadow-sm hover:bg-gray-50",
+                            { "opacity-50": !dirty }
+                          )}
                         >
                           Cancel Changes
                         </button>
                         <button
                           type="submit"
-                          className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                          disabled={!dirty}
+                          disabled={isSubmitting || !dirty}
+                          className={classNames(
+                            "inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                            { "opacity-90": !dirty }
+                          )}
                         >
-                          Update
+                          <span className="flex justify-center items-center">
+                            Save Changes
+                            <PlusCircleIcon width={25} className="ml-2" />
+                          </span>
                         </button>
                       </div>
                     </div>

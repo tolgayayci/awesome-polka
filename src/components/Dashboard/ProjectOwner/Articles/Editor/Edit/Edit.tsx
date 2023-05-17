@@ -263,12 +263,6 @@ export default function EditArticle() {
                     <div className="col-span-full mt-6">
                       <div className="flex pt-5 justify-end gap-x-3 border-t-2 border-indigo-600">
                         <button
-                          type="button"
-                          className="rounded-md bg-white py-2 px-3 text-sm font-semibold border border-red-500 text-red-500 shadow-sm hover:bg-gray-50"
-                        >
-                          Delete Article
-                        </button>
-                        <button
                           type="submit"
                           className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
