@@ -9,6 +9,7 @@ import {
   useFilters,
   useSortBy,
   usePagination,
+  UseRowStateCellProps,
 } from "react-table";
 
 import GlobalFilter from "./GlobalFilter/GlobalFilter";
@@ -24,7 +25,7 @@ export default function Table(props: { articles: ModelArticleConnection }) {
   useEffect(() => {
     console.log(props.articles?.items);
     setInfo(props.articles?.items);
-  }, [props.articles?.items]);
+  }, []);
 
   const columns = useMemo(
     () => [

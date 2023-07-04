@@ -1,6 +1,10 @@
 // ** Next Imports
 import Image from "next/image";
 import Link from "next/link";
+
+// ** Style Imports
+import styles from "./ArticleDetail.module.css";
+
 interface ArticleCardProps {
   hits: any;
 }

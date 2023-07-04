@@ -1,4 +1,4 @@
-import { useStorageUpload } from "@thirdweb-dev/react";
+// import { useStorageUpload } from "@thirdweb-dev/react";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
@@ -6,30 +6,30 @@ import { PhotoIcon } from "@heroicons/react/20/solid";
 
 import type { FileUploadProps } from "../../../types/types";
 
-import "react-image-crop/src/ReactCrop.scss";
+// import "react-image-crop/src/ReactCrop.scss";
 
 export default function FileUpload(props: FileUploadProps) {
-  const { mutateAsync: upload } = useStorageUpload();
+  // const { mutateAsync: upload } = useStorageUpload();
 
-  const onDrop = useCallback(
-    async (acceptedFiles: File[]) => {
-      const uris = await upload({ data: acceptedFiles });
-      props.setPath(uris[0]);
-    },
-    [upload, props]
-  );
+  // const onDrop = useCallback(
+  //   async (acceptedFiles: File[]) => {
+  //     const uris = await upload({ data: acceptedFiles });
+  //     props.setPath(uris[0]);
+  //   },
+  //   [upload, props]
+  // );
 
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
-    accept: {
-      "image/png": [".png", ".jpg"],
-    },
-    maxFiles: 1,
-    maxSize: 2097152,
-  });
+  // const { getRootProps, getInputProps } = useDropzone({
+  //   onDrop,
+  //   accept: {
+  //     "image/png": [".png", ".jpg"],
+  //   },
+  //   maxFiles: 1,
+  //   maxSize: 2097152,
+  // });
 
   return (
-    <div {...getRootProps()}>
+    <div>
       <div className="text-center">
         <PhotoIcon
           className="mx-auto h-12 w-12 text-gray-300"
@@ -46,7 +46,7 @@ export default function FileUpload(props: FileUploadProps) {
               name="file-upload"
               type="file"
               className="sr-only "
-              {...getInputProps()}
+              // {...getInputProps()}
             />
           </label>
           <p className="pl-1">or drag and drop</p>

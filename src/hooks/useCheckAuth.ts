@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useCheckUser } from "./useCheckUser";
 import { useAccount } from "wagmi";
 import { verifyToken } from "../LENS_API";
+import { UserStatus } from "../API";
 
 export function useCheckAuth() {
 
@@ -28,9 +29,11 @@ export function useCheckAuth() {
         }
         
         if (account?.address === user?.walletAddress) {
-            console.log("Token is valid")
+          if(user?.status === UserStatus.APPROVED){
             setIsAuthenticated(true);
             setIsLoading(false);
+          }
+          return;
         }
     }
     else{
@@ -44,5 +47,5 @@ export function useCheckAuth() {
     checkToken();
   });
 
-  return { isAuthenticated, isLoading};
+  return { isAuthenticated, isLoading, user};
 }

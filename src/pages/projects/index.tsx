@@ -98,9 +98,9 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 mb-24">
+          <div className="grid grid-cols-4 gap-16 mb-24">
             <Configure analytics={false} hitsPerPage={9} />
-            <div className="col-span-3 md:col-span-1 max-w-[320px] hidden md:block">
+            <div className="col-span-4 md:col-span-1 max-w-[430px] hidden lg:block xl:block 2xl:block">
               <div className="sticky top-[60px]">
                 <div className="col-span-1 sticky top-[60px] scroll-smooth">
                   <nav className="space-y-1">
@@ -130,7 +130,7 @@ export default function Projects() {
               </div>
             </div>
 
-            <div className="col-span-3 block md:hidden lg:hidden">
+            <div className="col-span-4 block xl:hidden lg:hidden">
               <div className="col-span-1">
                 <select
                   id="countries"
@@ -143,26 +143,31 @@ export default function Projects() {
                   value={selectedItem as string}
                 >
                   <option value="All">All</option>
-                  <option value="Analytics">Analytics</option>
-                  <option value="Community">Community</option>
-                  <option value="DAO">DAO</option>
-                  <option value="DeFi">DeFi</option>
-                  <option value="Educational">Educational</option>
-                  <option value="Platforms">Platforms</option>
-                  <option value="Protocols">Protocols</option>
-                  <option value="Tools">Tools</option>
+                  <option value="Algorithms 🧮">Algorithms 🧮</option>
+                  <option value="Automation 🤖">Automation 🤖</option>
+                  <option value="DAO Tools 🗳">DAO Tools 🗳</option>
+                  <option value="Music 🎶">Music 🎶</option>
+                  <option value="Gaming 🎮">Gaming 🎮</option>
+                  <option value="Community 👨‍👩‍👧‍👧">Community 👨‍👩‍👧‍👧</option>
+                  <option value="Monetization 💰">Monetization 💰</option>
+                  <option value="Analytics 📊">Analytics 📊</option>
+                  <option value="Tools 🛠">Tools 🛠</option>
+                  <option value="Identity 🎭">Identity 🎭</option>
+                  <option value="Social Media ❤️‍🔥">Social Media ❤️‍🔥</option>
+                  <option value="Developers 👨🏼‍💻">Developers 👨🏼‍💻</option>
+                  <option value="Other ✨">Other ✨</option>
                 </select>
               </div>
             </div>
 
-            <div className="col-span-3 md:col-span-2 md:-ml-36 mx-auto">
+            <div className="col-span-4 md:col-span-3 mx-auto">
               <div className="container">
                 <InfiniteHits
                   showPrevious={false}
                   hitComponent={(e) => <ProjectCard hits={e.hit} />}
                   classNames={{
                     list: "grid grid-cols-3 gap-12",
-                    item: "col-span-3 md:col-span-1",
+                    item: "2xl:col-span-1 xl:col-span-1 col-span-3",
                     disabledLoadMore: "hidden",
                     loadMore:
                       "w-full mt-12 mx-auto text-center inline-block py-4 text-center leading-6 text-lg text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 border-3 border-indigo-900 shadow rounded transition duration-200",

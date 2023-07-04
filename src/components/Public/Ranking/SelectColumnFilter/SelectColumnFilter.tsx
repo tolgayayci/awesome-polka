@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { UseFiltersInstanceProps } from "react-table";
 
 export function SelectColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id } = {} as any,

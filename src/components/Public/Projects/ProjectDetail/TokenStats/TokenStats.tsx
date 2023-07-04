@@ -338,6 +338,7 @@ export default function TokenStats(props: ITokenStatsProps) {
                         </div>
 
                         <ReactECharts option={options} lazyUpdate={false} />
+
                         <p className="mt-5 mb-8 md:mb-0 text-gray-600 font-medium text-center leading-relaxed">
                           Data Source: Coin Gecko
                         </p>

@@ -36,7 +36,7 @@ export default function Header() {
                   >
                     <Image
                       src="/Awesome_Polkadot_Logo.svg"
-                      alt="Awesome Lens Logo"
+                      alt="Awesome Polka Logo"
                       width={250}
                       height={100}
                     />
@@ -139,7 +139,7 @@ export default function Header() {
                       className="h-5 w-5 text-gray-800 font-extrabold mr-2"
                       aria-hidden="true"
                     />
-                    Search on Awesome Lens
+                    Search on Awesome Polka
                   </button>
                 </div>
               </nav>

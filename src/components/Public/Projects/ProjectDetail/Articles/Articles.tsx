@@ -2,6 +2,7 @@
 import Image from "next/image";
 
 // ** Style Imports
+import styles from "./Articles.module.css";
 import { Project } from "../../../../../API";
 
 interface IArticlesProps {
@@ -73,7 +74,7 @@ export default function Articles(props: IArticlesProps) {
                                 <Image
                                   src={
                                     (props.project.image as string) ||
-                                    "/polkadot_logo.jpg"
+                                    "/lens_logo.jpg"
                                   }
                                   alt=""
                                   width={20}
@@ -132,7 +133,7 @@ export default function Articles(props: IArticlesProps) {
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/polkadot_logo.jpg"
+                                src="/lens_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -188,7 +189,7 @@ export default function Articles(props: IArticlesProps) {
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/polkadot_logo.jpg"
+                                src="/lens_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}
@@ -244,7 +245,7 @@ export default function Articles(props: IArticlesProps) {
                           <div className="flex flex-wrap items-center -m-1">
                             <div className="w-auto p-1">
                               <Image
-                                src="/polkadot_logo.jpg"
+                                src="/lens_logo.jpg"
                                 alt=""
                                 width={20}
                                 height={20}

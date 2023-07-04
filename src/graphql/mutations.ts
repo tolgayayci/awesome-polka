@@ -9,16 +9,19 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       walletAddress
-      nonce
       username
       type
       status
       project {
         items {
           slug
+          status
           name
           bio
           image
+          categories {
+            nextToken
+          }
           socials
           description
           githubRepoUrl
@@ -26,6 +29,17 @@ export const createUser = /* GraphQL */ `
           openJobs
           team
           faq
+          articles {
+            nextToken
+          }
+          user {
+            walletAddress
+            username
+            type
+            status
+            createdAt
+            updatedAt
+          }
           userWalletAddress
           createdAt
           updatedAt
@@ -44,16 +58,19 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       walletAddress
-      nonce
       username
       type
       status
       project {
         items {
           slug
+          status
           name
           bio
           image
+          categories {
+            nextToken
+          }
           socials
           description
           githubRepoUrl
@@ -61,6 +78,17 @@ export const updateUser = /* GraphQL */ `
           openJobs
           team
           faq
+          articles {
+            nextToken
+          }
+          user {
+            walletAddress
+            username
+            type
+            status
+            createdAt
+            updatedAt
+          }
           userWalletAddress
           createdAt
           updatedAt
@@ -79,16 +107,19 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       walletAddress
-      nonce
       username
       type
       status
       project {
         items {
           slug
+          status
           name
           bio
           image
+          categories {
+            nextToken
+          }
           socials
           description
           githubRepoUrl
@@ -96,6 +127,17 @@ export const deleteUser = /* GraphQL */ `
           openJobs
           team
           faq
+          articles {
+            nextToken
+          }
+          user {
+            walletAddress
+            username
+            type
+            status
+            createdAt
+            updatedAt
+          }
           userWalletAddress
           createdAt
           updatedAt
@@ -114,6 +156,7 @@ export const createProject = /* GraphQL */ `
   ) {
     createProject(input: $input, condition: $condition) {
       slug
+      status
       name
       bio
       image
@@ -122,6 +165,30 @@ export const createProject = /* GraphQL */ `
           id
           projectSlug
           categoryId
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
+          category {
+            id
+            name
+            description
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -143,6 +210,23 @@ export const createProject = /* GraphQL */ `
           image
           isExternal
           externalUrl
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
           projectSlug
           createdAt
           updatedAt
@@ -151,11 +235,27 @@ export const createProject = /* GraphQL */ `
       }
       user {
         walletAddress
-        nonce
         username
         type
         status
         project {
+          items {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -174,6 +274,7 @@ export const updateProject = /* GraphQL */ `
   ) {
     updateProject(input: $input, condition: $condition) {
       slug
+      status
       name
       bio
       image
@@ -182,6 +283,30 @@ export const updateProject = /* GraphQL */ `
           id
           projectSlug
           categoryId
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
+          category {
+            id
+            name
+            description
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -203,6 +328,23 @@ export const updateProject = /* GraphQL */ `
           image
           isExternal
           externalUrl
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
           projectSlug
           createdAt
           updatedAt
@@ -211,11 +353,27 @@ export const updateProject = /* GraphQL */ `
       }
       user {
         walletAddress
-        nonce
         username
         type
         status
         project {
+          items {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -234,6 +392,7 @@ export const deleteProject = /* GraphQL */ `
   ) {
     deleteProject(input: $input, condition: $condition) {
       slug
+      status
       name
       bio
       image
@@ -242,6 +401,30 @@ export const deleteProject = /* GraphQL */ `
           id
           projectSlug
           categoryId
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
+          category {
+            id
+            name
+            description
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -263,6 +446,23 @@ export const deleteProject = /* GraphQL */ `
           image
           isExternal
           externalUrl
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
           projectSlug
           createdAt
           updatedAt
@@ -271,11 +471,27 @@ export const deleteProject = /* GraphQL */ `
       }
       user {
         walletAddress
-        nonce
         username
         type
         status
         project {
+          items {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -302,10 +518,18 @@ export const createArticle = /* GraphQL */ `
       externalUrl
       project {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -316,14 +540,28 @@ export const createArticle = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -352,10 +590,18 @@ export const updateArticle = /* GraphQL */ `
       externalUrl
       project {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -366,14 +612,28 @@ export const updateArticle = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -402,10 +662,18 @@ export const deleteArticle = /* GraphQL */ `
       externalUrl
       project {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -416,14 +684,28 @@ export const deleteArticle = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -451,6 +733,30 @@ export const createCategory = /* GraphQL */ `
           id
           projectSlug
           categoryId
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
+          category {
+            id
+            name
+            description
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -475,6 +781,30 @@ export const updateCategory = /* GraphQL */ `
           id
           projectSlug
           categoryId
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
+          category {
+            id
+            name
+            description
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -499,6 +829,30 @@ export const deleteCategory = /* GraphQL */ `
           id
           projectSlug
           categoryId
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
+          category {
+            id
+            name
+            description
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -520,10 +874,18 @@ export const createProjectCategories = /* GraphQL */ `
       categoryId
       project {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -534,14 +896,28 @@ export const createProjectCategories = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -554,6 +930,13 @@ export const createProjectCategories = /* GraphQL */ `
         name
         description
         projects {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -575,10 +958,18 @@ export const updateProjectCategories = /* GraphQL */ `
       categoryId
       project {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -589,14 +980,28 @@ export const updateProjectCategories = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -609,6 +1014,13 @@ export const updateProjectCategories = /* GraphQL */ `
         name
         description
         projects {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -630,10 +1042,18 @@ export const deleteProjectCategories = /* GraphQL */ `
       categoryId
       project {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -644,14 +1064,28 @@ export const deleteProjectCategories = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -664,6 +1098,13 @@ export const deleteProjectCategories = /* GraphQL */ `
         name
         description
         projects {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt

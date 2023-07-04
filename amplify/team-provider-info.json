@@ -15,30 +15,6 @@
       "function": {
         "graphQlLambdaAuthorizera584aec9": {
           "deploymentBucketName": "amplify-awesomepolka-dev-141643-deployment",
-          "s3Key": "amplify-builds/graphQlLambdaAuthorizera584aec9-4835544a6775782f4144-build.zip"
-        }
-      },
-      "api": {
-        "awesomepolka": {}
-      }
-    }
-  },
-  "polkademo": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-awesomepolka-polkademo-131303-authRole",
-      "UnauthRoleArn": "arn:aws:iam::503570377412:role/amplify-awesomepolka-polkademo-131303-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::503570377412:role/amplify-awesomepolka-polkademo-131303-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-awesomepolka-polkademo-131303-deployment",
-      "UnauthRoleName": "amplify-awesomepolka-polkademo-131303-unauthRole",
-      "StackName": "amplify-awesomepolka-polkademo-131303",
-      "StackId": "arn:aws:cloudformation:us-east-1:503570377412:stack/amplify-awesomepolka-polkademo-131303/97247230-f0ad-11ed-a6ed-0eb3f64475b1",
-      "AmplifyAppId": "d1i0vx48252mn7"
-    },
-    "categories": {
-      "function": {
-        "graphQlLambdaAuthorizera584aec9": {
-          "deploymentBucketName": "amplify-awesomepolka-polkademo-131303-deployment",
           "s3Key": "amplify-builds/graphQlLambdaAuthorizera584aec9-4a4f5445705438626a68-build.zip"
         }
       },

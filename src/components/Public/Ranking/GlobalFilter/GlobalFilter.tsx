@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAsyncDebounce } from "react-table";
+import { useTable, useAsyncDebounce } from "react-table";
 
 import "regenerator-runtime";
 

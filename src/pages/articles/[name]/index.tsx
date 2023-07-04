@@ -1,57 +1,82 @@
 // ** Next Imports
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import type { ReactElement } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 // ** Amplify Imports
-import { withSSRContext } from "aws-amplify";
+import { API } from "aws-amplify";
 import { getArticle } from "../../../graphql/queries";
+
 import UserLayout from "../../../layouts/UserLayout";
+import FourOhFour from "../../404";
 
 // ** Types
 import { Article } from "../../../API";
 
-export const getServerSideProps: GetServerSideProps<{
-  data: Article;
-}> = async (context) => {
-  const { name } = context.query;
+// export const getServerSideProps: GetServerSideProps<{
+//   data: Article;
+// }> = async (context) => {
+//   const { name } = context.query;
 
-  const SSR = withSSRContext();
+//   const SSR = withSSRContext();
 
-  const data = await SSR.API.graphql({
-    query: getArticle,
-    variables: { id: name },
-    authMode: "API_KEY",
+//   const data = await SSR.API.graphql({
+//     query: getArticle,
+//     variables: { id: name },
+//     authMode: "API_KEY",
+//   });
+
+//   //TODO: Change approved to not approved
+//   if (!data?.data?.getArticle) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+
+//   return {
+//     props: {
+//       data: data.data.getArticle,
+//     },
+//   };
+// };
+
+export default function ArticleDetail() {
+  const router = useRouter();
+  const [data, setData] = useState<Article | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const fetchData = async () => {
+    const response = (await API.graphql({
+      query: getArticle,
+      variables: { id: router.query.name },
+      authMode: "API_KEY",
+    })) as { data: { getArticle: Article } };
+
+    if (response.data.getArticle) {
+      setData(response.data.getArticle);
+      setIsLoading(false);
+    } else {
+      setData(null);
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
   });
 
-  //TODO: Change approved to not approved
-  if (!data?.data?.getArticle) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      data: data.data.getArticle,
-    },
-  };
-};
-
-export default function ArticleDetail({
-  data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const router = useRouter();
-  const createdTime = new Date(data.createdAt);
-  const updatedTime = new Date(data.updatedAt);
-
-  // If the page is not yet generated, this will be displayed
-  // initially until getStaticProps() finishes running
-  if (router.isFallback) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
+
+  if (!data) {
+    return <FourOhFour />;
+  }
+
+  const createdTime = new Date(data.createdAt);
+  const updatedTime = new Date(data.updatedAt);
 
   return (
     <>

@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 
 import Table from "../../components/Public/Ranking/Table/Table";
+import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
 import UserLayout from "../../layouts/UserLayout";
 
@@ -49,7 +50,34 @@ export default function Ranking() {
           </div>
         </div>
       </section>
-      <Table />
+      {/* <Table /> */}
+      <section className="relative container mx-auto scroll-smooth max-w-8xl px-6 md:px-0 mb-24">
+        <button
+          type="button"
+          className="relative block w-full rounded-lg border-2 border-dashed border-indigo-300 p-6 text-left hover:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-none"
+        >
+          <div className="rounded-md bg-yellow-50 p-8">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <ExclamationTriangleIcon
+                  className="h-5 w-5 text-yellow-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <div className="ml-3">
+                <h3 className="text-sm font-medium text-yellow-800">
+                  Under Construction
+                </h3>
+                <div className="mt-2 text-sm text-yellow-700">
+                  <p>
+                    Ranking feature will be available soon. Please stay tuned!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </button>
+      </section>
     </>
   );
 }

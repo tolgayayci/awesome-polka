@@ -15,12 +15,11 @@ import type { FieldInputProps } from "formik";
 
 import classNames from "classnames";
 import "react-quill/dist/quill.snow.css";
+import { PlusCircleIcon } from "@heroicons/react/20/solid";
 import { Switch } from "@headlessui/react";
 
 import { createArticleAttribute } from "../../../../../data/mutations/createArticleAttribute";
 import SideNav from "../../SideNav/SideNav";
-
-import { PlusCircleIcon } from "@heroicons/react/20/solid";
 
 export default function ArticleEditor() {
   const { user, isLoading } = useCheckUser();

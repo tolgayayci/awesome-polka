@@ -14,7 +14,7 @@ export function useCheckArticle(id: Article["id"]) {
         await readArticleAttribute(id);
       }
     } catch (error) {
-      console.log("useCheckProject error");
+      console.log("useCheckProject error", error);
     } finally {
       setIsLoading(false);
     }
@@ -22,6 +22,7 @@ export function useCheckArticle(id: Article["id"]) {
 
   useEffect(() => {
     check();
+    console.log(article)
   });
 
   return { isLoading, article };

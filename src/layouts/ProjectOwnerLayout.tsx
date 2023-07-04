@@ -11,7 +11,11 @@ interface Props {
 }
 
 export default function ProjectOwnerLayout({ children }: Props) {
-  const { isAuthenticated } = useCheckAuth();
+  const { isAuthenticated, isLoading } = useCheckAuth();
+
+  if (isLoading) {
+    console.log("Auth Status Checking");
+  }
 
   return (
     <>

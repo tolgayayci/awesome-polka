@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Combobox, Dialog, Transition } from "@headlessui/react";
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { UsersIcon } from "@heroicons/react/24/outline";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
 //** Algolia Imports */
@@ -11,12 +13,15 @@ import {
   InstantSearch,
   Hits,
   Configure,
+  useSearchBox,
+  UseSearchBoxProps,
   Index,
+  HitsProps,
   SearchBox,
 } from "react-instantsearch-hooks-web";
 
 //** Types */
-import { ProjectProps } from "../../../../types/types";
+import { ProjectProps, ArticleProps } from "../../../../types/types";
 
 interface SearchBarProps {
   open: boolean;
@@ -32,7 +37,7 @@ export default function SearchBar(props: SearchBarProps) {
   const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(
     null
   );
-  const [selectedArticle, setSelectedArticle] = useState<ProjectProps | null>(
+  const [selectedArticle, setSelectedArticle] = useState<ArticleProps | null>(
     null
   );
 
@@ -61,24 +66,24 @@ export default function SearchBar(props: SearchBarProps) {
           <Combobox.Option
             as="div"
             key={hits.id}
-            value={hits.name}
+            value={hits.title}
             onClick={() => HandleSelectedItem(hits, "project")}
             className={() =>
               classNames(
                 "flex cursor-default select-none items-center rounded-md p-2",
-                selectedProject?.name === hits.name &&
+                selectedProject?.name === hits.title &&
                   "bg-gray-100 text-gray-900"
               )
             }
           >
             <Image
-              src={hits.logo}
+              src="/awesome-polka.png"
               alt=""
               width={24}
               height={24}
               className="h-6 w-6 flex-none rounded-full"
             />
-            <span className="ml-3 flex-auto truncate">{hits.name}</span>
+            <span className="ml-3 flex-auto truncate">{hits.title}</span>
             <ChevronRightIcon
               className="ml-3 h-5 w-5 flex-none text-gray-400"
               aria-hidden="true"
@@ -217,41 +222,73 @@ export default function SearchBar(props: SearchBarProps) {
                         <div className="hidden h-92 w-1/2 flex-none flex-col divide-y divide-gray-100 overflow-y-auto sm:flex">
                           <div className="flex-none p-6 text-center">
                             <Image
-                              src={selectedProject.logo}
+                              src="/awesome-polka.png"
                               alt=""
                               width={24}
                               height={24}
                               className="mx-auto h-16 w-16 rounded-full"
                             />
                             <h2 className="mt-3 font-semibold text-gray-900">
-                              {selectedProject.name}
+                              {selectedProject.title}
                             </h2>
-                            <span className="inline-flex ml-3 mt-3 h-6 items-center justify-center text-xs font-extrabold px-2 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
-                              {selectedProject["categories.lvl0"][0]}
-                            </span>
+                            {selectedProject["categories.lvl0"][0] ? (
+                              <span className="inline-flex ml-3 mt-3 h-6 items-center justify-center text-xs font-extrabold px-2 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
+                                {selectedProject["categories.lvl0"]}
+                              </span>
+                            ) : (
+                              <span className="inline-flex ml-3 mt-3 h-6 items-center justify-center text-xs font-extrabold px-2 text-indigo-900 rounded border-2 border-indigo-900 bg-green-200 uppercase shadow-sm">
+                                No Category
+                              </span>
+                            )}
+                            {selectedProject.Type && (
+                              <span className="inline-flex ml-3 mt-3 h-6 items-center justify-center text-xs font-extrabold px-2 text-orange-900 rounded border-2 border-orange-900 bg-orange-200 uppercase shadow-sm">
+                                {selectedProject.Type}
+                              </span>
+                            )}
                           </div>
                           <div className="flex flex-auto flex-col justify-between p-6">
-                            {/* <h1 className="text-md md:text-lg font-extrabold font-heading mt-4 mb-6 md:mb-8 leading-[2.5rem] md:leading-[2rem] max-w-xl">
-                              Submit your project to be featured on
-                              <span className="text-indigo-700">
-                                {" "}
-                                Awesome Polka!
-                              </span>
-                            </h1> */}
-                            <p className="text-sm leading-6 text-center font-normal my-auto mb-8">
-                              {selectedProject.description}
-                            </p>
-                            <Link href={`/projects/${selectedProject.slug}`}>
-                              <button
-                                type="button"
-                                className="w-full rounded-md -mt-1 border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700"
-                                onClick={() => {
-                                  props.setOpen(false);
-                                }}
+                            {selectedProject.description ? (
+                              <p className="text-sm leading-6 text-center font-normal my-auto mb-8">
+                                {selectedProject.description.substring(0, 150)}
+                              </p>
+                            ) : (
+                              <p className="text-sm leading-6 text-center font-normal my-auto mb-8">
+                                No Description Available <br></br> Please Visit
+                                the Link
+                              </p>
+                            )}
+
+                            {!selectedProject.slug ? (
+                              <Link
+                                href={
+                                  selectedProject.website ||
+                                  "/projects/undefined"
+                                }
+                                target="_blank"
                               >
-                                Review Project
-                              </button>
-                            </Link>
+                                <button
+                                  type="button"
+                                  className="w-full rounded-md -mt-1 border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700"
+                                  onClick={() => {
+                                    props.setOpen(false);
+                                  }}
+                                >
+                                  Review Project (External Link)
+                                </button>
+                              </Link>
+                            ) : (
+                              <Link href={selectedProject.slug}>
+                                <button
+                                  type="button"
+                                  className="w-full rounded-md -mt-1 border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700"
+                                  onClick={() => {
+                                    props.setOpen(false);
+                                  }}
+                                >
+                                  Review Project
+                                </button>
+                              </Link>
+                            )}
                           </div>
                         </div>
                       )}

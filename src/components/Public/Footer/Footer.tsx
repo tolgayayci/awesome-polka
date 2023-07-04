@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 // ** Style Imports
 import classNames from "classnames";
 import { useCheckUser } from "../../../hooks/useCheckUser";
+import { UserType } from "../../../API";
 
 export default function Footer() {
   const router = useRouter();
@@ -30,6 +31,7 @@ export default function Footer() {
                 ecosystem.
               </p>
             </div>
+
             <div className="w-full">
               <div className="flex flex-wrap items-center -mb-6">
                 <Link
@@ -81,7 +83,7 @@ export default function Footer() {
                   Learn
                 </Link>
                 <Link
-                  href="https://github.com/tolgayayci/awesome-polka/tree/dev"
+                  href="https://github.com/tolgayayci/awesome-lens/tree/dev"
                   target="blank"
                   className={classNames(
                     "text-lg mr-8 2xl:mr-16 font-extrabold hover:text-indigo-800 pb-3"
@@ -100,12 +102,17 @@ export default function Footer() {
                 </Link>
                 {user?.walletAddress ? (
                   <Link
-                    href="/dashboard/project"
+                    href={
+                      user.type === UserType.ADMIN
+                        ? "/admin"
+                        : "/dashboard/project"
+                    }
                     className={classNames(
                       "text-lg mr-8 2xl:mr-16 font-extrabold hover:text-indigo-800 pb-3 text-indigo-700",
                       {
                         "border-[3px] border-indigo-900 pb-3 xs:mb-3":
-                          router.pathname === "/dashboard/project",
+                          router.pathname.startsWith("/dashboard") ||
+                          router.pathname.startsWith("/admin"),
                       }
                     )}
                   >

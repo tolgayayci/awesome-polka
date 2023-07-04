@@ -5,6 +5,7 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 // ** Form Imports */
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useCheckArticle } from "../../../../../../hooks/useCheckArticle";
+import { createArticleAttribute } from "../../../../../../data/mutations/createArticleAttribute";
 import { validateArticle } from "../../../../../../utils/validation/articleValidation";
 import FileUpload from "../../../../FileUpload/FileUpload";
 import Loader from "../../../../Loader/Loader";

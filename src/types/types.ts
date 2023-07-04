@@ -6,11 +6,11 @@ export interface ProjectProps {
     image: string;
     category: string;
     description: string;
-    originalLink: string;
+    website: string;
+    Type: string;
 }
 
 export interface ArticleProps {
-    hits: {
         title: string;
         image: string;
         category: string;
@@ -18,9 +18,7 @@ export interface ArticleProps {
         originalLink: string;
         project: string;
         date: string;
-    }
 }
-
 
 export interface DescriptionProps {
     bio: Project["bio"];
@@ -77,4 +75,13 @@ export interface ProjectProps {
 
 export interface FileUploadProps {
     setPath: (path: string) => void;
+}
+
+export interface ApplicationProps {
+    username: string;
+    projectName: string;
+    walletAddress: string;
+    email: string;
+    projectBio: string;
+    dbStatus: string;
 }

@@ -6,7 +6,7 @@ import { Web3Button } from "@web3modal/react";
 import { useWeb3ModalTheme } from "@web3modal/react";
 import { useAccount, useSignMessage } from "wagmi";
 
-// Lens Protocol
+// Polkadot Protocol
 import {
   generateChallenge,
   authenticate,
@@ -74,7 +74,7 @@ export default function LoginButton() {
         "--w3m-accent-color": "#3f51b5",
       },
     });
-  });
+  }, []);
 
   return <Web3Button />;
 }

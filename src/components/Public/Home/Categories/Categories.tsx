@@ -16,7 +16,7 @@ export default function Categories() {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Protocols">
+          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=DeFi">
             <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
               <div className="flex min-w-0 grow flex-col items-start justify-start">
                 <div className="mb-3 text-primary-gray-100">
@@ -29,12 +29,12 @@ export default function Categories() {
                   />
                 </div>
                 <div className="mb-3 truncate	text-ellipsis whitespace-nowrap font-display text-3xl font-bold text-indigo-700">
-                  Protocols
+                  DeFi
                 </div>
                 <div className="text-start font-semibold text-primary-gray-100 py-2">
-                  Decentralized systems facilitating secure transactions and
-                  interactions, empowering individuals and organizations to
-                  connect, collaborate, and innovate.
+                  Decentralized finance (DeFi) empowers individuals to access a
+                  wide range of financial services, including lending,
+                  borrowing, and trading, without the need for intermediaries.
                 </div>
                 <div className="mt-5">
                   <button
@@ -48,13 +48,13 @@ export default function Categories() {
                       height={16}
                       className="mr-2 text-white"
                     />
-                    Explore Protocols
+                    Explore DeFi
                   </button>
                 </div>
               </div>
             </div>
           </Link>
-          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Social">
+          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Bridge">
             <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
               <div className="flex min-w-0 grow flex-col items-start justify-start">
                 <div className="mb-3 text-primary-gray-100">
@@ -67,12 +67,12 @@ export default function Categories() {
                   />
                 </div>
                 <div className="mb-3 truncate	text-ellipsis whitespace-nowrap font-display text-3xl font-bold text-indigo-700">
-                  Social
+                  Bridge
                 </div>
                 <div className="text-start font-semibold text-primary-gray-100 py-2">
-                  Experience the power of community: a collective of individuals
-                  sharing common interests, goals, and values, driving positive
-                  change, support, and collaboration towards a common vision
+                  A blockchain bridge acts as a secure conduit, enabling
+                  seamless asset transfer and interoperability across multiple
+                  blockchains. Discover the best bridges in the Polkadot
                 </div>
                 <div className="mt-5">
                   <button
@@ -86,13 +86,13 @@ export default function Categories() {
                       height={16}
                       className="mr-2 text-white"
                     />
-                    Explore Social
+                    Explore Bridge
                   </button>
                 </div>
               </div>
             </div>
           </Link>
-          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Integrations">
+          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Grant">
             <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
               <div className="flex min-w-0 grow flex-col items-start justify-start">
                 <div className="mb-3 text-primary-gray-100">
@@ -105,12 +105,12 @@ export default function Categories() {
                   />
                 </div>
                 <div className="mb-3 truncate	text-ellipsis whitespace-nowrap font-display text-3xl font-bold text-indigo-700">
-                  Integrations
+                  Grant
                 </div>
                 <div className="text-start font-semibold text-primary-gray-100 py-2">
-                  Polkadot Protocol integrations combine different blockchain
-                  systems or applications for a more efficient and secure
-                  ecosystem to achieve a platforms goal.
+                  Explore the best grants in the Polkadot ecosystem. Grants are
+                  great way to get funding for your project. Find out more about
+                  the grants available in the Polkadot ecosystem.
                 </div>
                 <div className="mt-5">
                   <button
@@ -124,13 +124,13 @@ export default function Categories() {
                       height={16}
                       className="mr-2 text-white"
                     />
-                    Explore Integrations
+                    Explore Grant
                   </button>
                 </div>
               </div>
             </div>
           </Link>
-          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Analytics">
+          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=NFT">
             <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
               <div className="flex min-w-0 grow flex-col items-start justify-start">
                 <div className="mb-3 text-primary-gray-100">
@@ -143,13 +143,12 @@ export default function Categories() {
                   />
                 </div>
                 <div className="mb-3 truncate	text-ellipsis whitespace-nowrap font-display text-3xl font-bold text-indigo-700">
-                  Analytics
+                  NFT
                 </div>
                 <div className="text-start font-semibold text-primary-gray-100 py-2">
-                  Unlock the power of analytics: utilizing data-driven insights
-                  and tools to measure, interpret, and optimize performance,
-                  driving informed decisions and innovation across industries
-                  and sectors.
+                  NFTs, or Non-Fungible Tokens, are unique digital assets that
+                  are stored and traded on blockchain networks. Unlock the
+                  potential of NFTs in the Polkadot ecosystem.
                 </div>
                 <div className="mt-5">
                   <button
@@ -163,13 +162,13 @@ export default function Categories() {
                       height={16}
                       className="mr-2 text-white"
                     />
-                    Explore Analytics
+                    Explore NFT
                   </button>
                 </div>
               </div>
             </div>
           </Link>
-          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Developers">
+          <Link href="/projects?dev_projects%5BhierarchicalMenu%5D%5Bcategories.lvl0%5D%5B0%5D=Crowdloan">
             <div className="flex cursor-pointer gap-6 rounded-lg bg-indigo-200/40 py-10 pl-10 pr-7 text-gray-700 hover:bg-indigo-300/50 border-[3px] border-indigo-700">
               <div className="flex min-w-0 grow flex-col items-start justify-start">
                 <div className="mb-3 text-primary-gray-100">
@@ -182,12 +181,12 @@ export default function Categories() {
                   />
                 </div>
                 <div className="mb-3 truncate	text-ellipsis whitespace-nowrap font-display text-3xl font-bold text-indigo-700">
-                  Tools
+                  Crowdloan
                 </div>
                 <div className="text-start font-semibold text-primary-gray-100 py-2">
-                  Explore the world of blockchain tools, offering developers and
-                  businesses enhanced security and ease in building, deploying,
-                  and managing blockchain applications.
+                  Crowdloans allows individuals and projects to secure funding
+                  by receiving contributions from a large number of participants
+                  in exchange for native tokens or rewards.
                 </div>
                 <div className="mt-5">
                   <button
@@ -201,7 +200,7 @@ export default function Categories() {
                       height={16}
                       className="mr-2 text-white"
                     />
-                    Explore Tools
+                    Explore Crowdloan
                   </button>
                 </div>
               </div>

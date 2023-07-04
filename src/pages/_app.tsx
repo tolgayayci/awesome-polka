@@ -10,14 +10,6 @@ import type { AppProps } from "next/app";
 import { Amplify, API } from "aws-amplify";
 import awsExports from "../aws-exports";
 
-// ** Polkadot & Wagmi Imports
-import {
-  LensProvider,
-  LensConfig,
-  development,
-} from "@lens-protocol/react-web";
-import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
-
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { polygonMumbai } from "wagmi/chains";
 
@@ -28,17 +20,11 @@ import {
 } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
 
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-
 // ** Styles
 import "../../styles/globals.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
 
 Amplify.register(API);
-Amplify.configure({ ...awsExports, ssr: true });
-
-config.autoAddCss = false;
+Amplify.configure({ ...awsExports });
 
 //eslint-disable-next-line @typescript-eslint/ban-types
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -62,11 +48,6 @@ const wagmiClient = createClient({
 
 const ethereumClient = new EthereumClient(wagmiClient, chains);
 
-const lensConfig: LensConfig = {
-  bindings: wagmiBindings(),
-  environment: development,
-};
-
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
@@ -86,11 +67,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       `}
       </Script>
       <WagmiConfig client={wagmiClient}>
-        <LensProvider config={lensConfig}>
-          <ThirdwebProvider>
-            {getLayout(<Component {...pageProps} />)}
-          </ThirdwebProvider>
-        </LensProvider>
+        {getLayout(<Component {...pageProps} />)}
       </WagmiConfig>
 
       <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />

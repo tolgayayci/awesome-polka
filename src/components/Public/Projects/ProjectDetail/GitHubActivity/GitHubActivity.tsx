@@ -107,7 +107,7 @@ export default function GitHubActivity(props: GitHubActivityProps) {
 
   useEffect(() => {
     getCommitHistoryByWeeks();
-  });
+  }, []);
 
   return (
     <>

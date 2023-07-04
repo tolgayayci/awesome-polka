@@ -6,16 +6,19 @@ export const getUser = /* GraphQL */ `
   query GetUser($walletAddress: String!) {
     getUser(walletAddress: $walletAddress) {
       walletAddress
-      nonce
       username
       type
       status
       project {
         items {
           slug
+          status
           name
           bio
           image
+          categories {
+            nextToken
+          }
           socials
           description
           githubRepoUrl
@@ -23,6 +26,17 @@ export const getUser = /* GraphQL */ `
           openJobs
           team
           faq
+          articles {
+            nextToken
+          }
+          user {
+            walletAddress
+            username
+            type
+            status
+            createdAt
+            updatedAt
+          }
           userWalletAddress
           createdAt
           updatedAt
@@ -51,11 +65,27 @@ export const listUsers = /* GraphQL */ `
     ) {
       items {
         walletAddress
-        nonce
         username
         type
         status
         project {
+          items {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -69,6 +99,7 @@ export const getProject = /* GraphQL */ `
   query GetProject($slug: String!) {
     getProject(slug: $slug) {
       slug
+      status
       name
       bio
       image
@@ -77,6 +108,30 @@ export const getProject = /* GraphQL */ `
           id
           projectSlug
           categoryId
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
+          category {
+            id
+            name
+            description
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -98,6 +153,23 @@ export const getProject = /* GraphQL */ `
           image
           isExternal
           externalUrl
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
           projectSlug
           createdAt
           updatedAt
@@ -106,11 +178,27 @@ export const getProject = /* GraphQL */ `
       }
       user {
         walletAddress
-        nonce
         username
         type
         status
         project {
+          items {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -139,10 +227,18 @@ export const listProjects = /* GraphQL */ `
     ) {
       items {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -153,14 +249,28 @@ export const listProjects = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -189,10 +299,18 @@ export const projectsByUserWalletAddress = /* GraphQL */ `
     ) {
       items {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -203,14 +321,28 @@ export const projectsByUserWalletAddress = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -234,10 +366,18 @@ export const getArticle = /* GraphQL */ `
       externalUrl
       project {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -248,14 +388,28 @@ export const getArticle = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -286,9 +440,13 @@ export const listArticles = /* GraphQL */ `
         externalUrl
         project {
           slug
+          status
           name
           bio
           image
+          categories {
+            nextToken
+          }
           socials
           description
           githubRepoUrl
@@ -296,6 +454,17 @@ export const listArticles = /* GraphQL */ `
           openJobs
           team
           faq
+          articles {
+            nextToken
+          }
+          user {
+            walletAddress
+            username
+            type
+            status
+            createdAt
+            updatedAt
+          }
           userWalletAddress
           createdAt
           updatedAt
@@ -333,9 +502,13 @@ export const articlesByProjectSlug = /* GraphQL */ `
         externalUrl
         project {
           slug
+          status
           name
           bio
           image
+          categories {
+            nextToken
+          }
           socials
           description
           githubRepoUrl
@@ -343,6 +516,17 @@ export const articlesByProjectSlug = /* GraphQL */ `
           openJobs
           team
           faq
+          articles {
+            nextToken
+          }
+          user {
+            walletAddress
+            username
+            type
+            status
+            createdAt
+            updatedAt
+          }
           userWalletAddress
           createdAt
           updatedAt
@@ -366,6 +550,30 @@ export const getCategory = /* GraphQL */ `
           id
           projectSlug
           categoryId
+          project {
+            slug
+            status
+            name
+            bio
+            image
+            socials
+            description
+            githubRepoUrl
+            tokenSymbol
+            openJobs
+            team
+            faq
+            userWalletAddress
+            createdAt
+            updatedAt
+          }
+          category {
+            id
+            name
+            description
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -388,6 +596,13 @@ export const listCategories = /* GraphQL */ `
         name
         description
         projects {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -405,10 +620,18 @@ export const getProjectCategories = /* GraphQL */ `
       categoryId
       project {
         slug
+        status
         name
         bio
         image
         categories {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         socials
@@ -419,14 +642,28 @@ export const getProjectCategories = /* GraphQL */ `
         team
         faq
         articles {
+          items {
+            id
+            title
+            description
+            body
+            image
+            isExternal
+            externalUrl
+            projectSlug
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         user {
           walletAddress
-          nonce
           username
           type
           status
+          project {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -439,6 +676,13 @@ export const getProjectCategories = /* GraphQL */ `
         name
         description
         projects {
+          items {
+            id
+            projectSlug
+            categoryId
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         createdAt
@@ -466,9 +710,13 @@ export const listProjectCategories = /* GraphQL */ `
         categoryId
         project {
           slug
+          status
           name
           bio
           image
+          categories {
+            nextToken
+          }
           socials
           description
           githubRepoUrl
@@ -476,6 +724,17 @@ export const listProjectCategories = /* GraphQL */ `
           openJobs
           team
           faq
+          articles {
+            nextToken
+          }
+          user {
+            walletAddress
+            username
+            type
+            status
+            createdAt
+            updatedAt
+          }
           userWalletAddress
           createdAt
           updatedAt
@@ -484,6 +743,9 @@ export const listProjectCategories = /* GraphQL */ `
           id
           name
           description
+          projects {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -515,9 +777,13 @@ export const projectCategoriesByProjectSlug = /* GraphQL */ `
         categoryId
         project {
           slug
+          status
           name
           bio
           image
+          categories {
+            nextToken
+          }
           socials
           description
           githubRepoUrl
@@ -525,6 +791,17 @@ export const projectCategoriesByProjectSlug = /* GraphQL */ `
           openJobs
           team
           faq
+          articles {
+            nextToken
+          }
+          user {
+            walletAddress
+            username
+            type
+            status
+            createdAt
+            updatedAt
+          }
           userWalletAddress
           createdAt
           updatedAt
@@ -533,6 +810,9 @@ export const projectCategoriesByProjectSlug = /* GraphQL */ `
           id
           name
           description
+          projects {
+            nextToken
+          }
           createdAt
           updatedAt
         }
@@ -564,9 +844,13 @@ export const projectCategoriesByCategoryId = /* GraphQL */ `
         categoryId
         project {
           slug
+          status
           name
           bio
           image
+          categories {
+            nextToken
+          }
           socials
           description
           githubRepoUrl
@@ -574,6 +858,17 @@ export const projectCategoriesByCategoryId = /* GraphQL */ `
           openJobs
           team
           faq
+          articles {
+            nextToken
+          }
+          user {
+            walletAddress
+            username
+            type
+            status
+            createdAt
+            updatedAt
+          }
           userWalletAddress
           createdAt
           updatedAt
@@ -582,6 +877,9 @@ export const projectCategoriesByCategoryId = /* GraphQL */ `
           id
           name
           description
+          projects {
+            nextToken
+          }
           createdAt
           updatedAt
         }

@@ -6,7 +6,7 @@ import Link from "next/link";
 import type { ArticleProps } from "../../../../types/types";
 
 interface ArticleCardProps {
-  hits: ArticleProps["hits"];
+  hits: ArticleProps;
 }
 
 export default function ArticleCard({ hits }: ArticleCardProps) {

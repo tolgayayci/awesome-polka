@@ -1,13 +1,13 @@
 // ** Next Imports
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 import type { ReactElement } from "react";
 
 // ** Amplify Imports
-import { withSSRContext } from "aws-amplify";
+import { API } from "aws-amplify";
 import { getProject } from "../../../graphql/queries";
 
 // ** Custom Components
@@ -19,46 +19,49 @@ import Articles from "../../../components/Public/Projects/ProjectDetail/Articles
 import Faq from "../../../components/Public/Projects/ProjectDetail/Faq/Faq";
 import Jobs from "../../../components/Public/Projects/ProjectDetail/Jobs/Jobs";
 import SideNavbar from "../../../components/Public/Projects/ProjectDetail/SideNavbar/SideNavbar";
+import Blocked from "../../../components/Public/Projects/Blocked/Blocked";
 
 import UserLayout from "../../../layouts/UserLayout";
 
 // ** Types
-import { Project } from "../../../API";
+import { Project, ProjectStatus } from "../../../API";
+import FourOhFour from "../../404";
 
-export const getServerSideProps: GetServerSideProps<{
-  data: Project;
-}> = async (context) => {
-  const SSR = withSSRContext();
+export default function ProjectDetail() {
+  const router = useRouter();
+  const [data, setData] = useState<Project | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const data = await SSR.API.graphql({
-    query: getProject,
-    variables: { slug: context.params?.name },
-    authMode: "API_KEY",
+  const fetchData = async () => {
+    const response = (await API.graphql({
+      query: getProject,
+      variables: { slug: router.query.name },
+      authMode: "API_KEY",
+    })) as { data: { getProject: Project } };
+
+    if (response.data.getProject) {
+      setData(response.data.getProject);
+      setIsLoading(false);
+    } else {
+      setData(null);
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
   });
 
-  //TODO: Change approved to not approved
-  if (data.data.getProject === null) {
-    return {
-      notFound: true,
-    };
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
-  return {
-    props: {
-      data: data.data.getProject,
-    },
-  };
-};
+  if (!data) {
+    return <FourOhFour />;
+  }
 
-export default function ProjectDetail({
-  data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const router = useRouter();
-
-  // If the page is not yet generated, this will be displayed
-  // initially until getStaticProps() finishes running
-  if (router.isFallback) {
-    return <div>Loading...</div>;
+  if (data.status === ProjectStatus.ON_HOLD) {
+    return <Blocked />;
   }
 
   return (
@@ -91,7 +94,7 @@ export default function ProjectDetail({
                 <div className="w-full md:w-1/6 p-2">
                   <div className="relative">
                     <Image
-                      src="/polkadot_logo.jpg"
+                      src={data.image || "/awesome-polka.png"}
                       alt={data.name}
                       width={150}
                       height={150}
